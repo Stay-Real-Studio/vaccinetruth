@@ -19,7 +19,7 @@ class UserPoints(Repository):
             .select("*")
             .filter("user_id", "eq", user_id)
             .execute()
-        )
+        ).data
 
         if len(user_points_response) == 0:
             # Create the user settings

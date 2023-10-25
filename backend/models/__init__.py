@@ -11,6 +11,7 @@ from .settings import (BrainRateLimiting, BrainSettings, ContactsSettings,
                        get_supabase_client, get_supabase_db)
 from .user_identity import UserIdentity
 from .user_usage import UserUsage
+from .user_points import UserPoints
 
 # TODO uncomment the below import when start using SQLalchemy
 # from .sqlalchemy_repository import (

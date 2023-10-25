@@ -4,7 +4,6 @@ from uuid import UUID
 from venv import logger
 
 from auth import AuthBearer, get_current_user
-from backend.models.user_points import UserPoints
 from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from fastapi.responses import StreamingResponse
 from llm.qa_base import QABaseBrainPicking
@@ -16,6 +15,7 @@ from models import (
     ChatQuestion,
     UserIdentity,
     UserUsage,
+    UserPoints,
     get_supabase_db,
 )
 from models.databases.supabase.chats import QuestionAndAnswer
@@ -346,6 +346,7 @@ async def create_stream_question_handler(
     try:
         logger.info(f"Streaming request for {chat_question.model}")
         check_user_requests_limit(current_user)
+        deduct_user_points(current_user)
         gpt_answer_generator: HeadlessQA | QABaseBrainPicking
         # TODO check if model is in the list of models available for the user
 
