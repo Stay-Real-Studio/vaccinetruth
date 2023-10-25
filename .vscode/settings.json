@@ -9,7 +9,7 @@
   "python.linting.flake8Enabled": true,
   "editor.formatOnSave": true,
   "[python]": {
-    "editor.defaultFormatter": "ms-python.python",
+    "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
       "source.organizeImports": true,
@@ -44,5 +44,5 @@
   },
   "python.linting.pycodestyleCategorySeverity.W": "Error",
   "python.defaultInterpreterPath": "python3",
-  "python.linting.flake8CategorySeverity.W": "Error"
+  "python.linting.flake8CategorySeverity.W": "Error",
 }
