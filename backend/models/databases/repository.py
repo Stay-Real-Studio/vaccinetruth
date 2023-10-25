@@ -73,6 +73,10 @@ class Repository(ABC):
         pass
 
     @abstractmethod
+    def get_user_points(self, user_id: UUID):
+        pass
+
+    @abstractmethod
     def get_user_requests_count_for_day(self, user_id: UUID, date: datetime):
         pass
 

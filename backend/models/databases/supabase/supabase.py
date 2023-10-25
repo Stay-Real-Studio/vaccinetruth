@@ -10,6 +10,7 @@ from models.databases.supabase import (
     Onboarding,
     Prompts,
     UserUsage,
+    UserPoints,
     Vector,
 )
 
@@ -19,6 +20,7 @@ logger = get_logger(__name__)
 class SupabaseDB(
     Brain,
     UserUsage,
+    UserPoints,
     File,
     BrainSubscription,
     ApiKeyHandler,
@@ -33,6 +35,7 @@ class SupabaseDB(
         self.db = supabase_client
         Brain.__init__(self, supabase_client)
         UserUsage.__init__(self, supabase_client)
+        UserPoints.__init__(self, supabase_client)
         File.__init__(self, supabase_client)
         BrainSubscription.__init__(self, supabase_client)
         ApiKeyHandler.__init__(self, supabase_client)

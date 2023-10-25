@@ -4,6 +4,7 @@ from uuid import UUID
 from venv import logger
 
 from auth import AuthBearer, get_current_user
+from backend.models.user_points import UserPoints
 from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from fastapi.responses import StreamingResponse
 from llm.qa_base import QABaseBrainPicking
@@ -91,6 +92,20 @@ def check_user_requests_limit(
             )
     else:
         pass
+
+
+def deduct_user_points(
+    user: UserIdentity,
+):
+    userPoints = UserPoints(
+        id=user.id
+    )
+
+    userPoints = userPoints.get_user_points()
+
+    points = userPoints.get("points", 0)
+
+    logger.info(f"user has {points} points.")
 
 
 @chat_router.get("/chat/healthz", tags=["Health"])
@@ -239,6 +254,7 @@ async def create_question_handler(
 
     try:
         check_user_requests_limit(current_user)
+        deduct_user_points(current_user)
         is_model_ok = (brain_details or chat_question).model in userSettings.get("models", ["gpt-3.5-turbo"])  # type: ignore
         gpt_answer_generator: HeadlessQA | QABaseBrainPicking
         if brain_id:

@@ -8,4 +8,5 @@ from models.databases.supabase.notifications import Notifications
 from models.databases.supabase.onboarding import Onboarding
 from models.databases.supabase.prompts import Prompts
 from models.databases.supabase.user_usage import UserUsage
+from models.databases.supabase.user_points import UserPoints
 from models.databases.supabase.vectors import Vector
