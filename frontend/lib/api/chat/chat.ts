@@ -59,6 +59,12 @@ export const getChatItems = async (
 ): Promise<ChatItem[]> =>
   (await axiosInstance.get<ChatItem[]>(`/chat/${chatId}/history`)).data;
 
+export const getShareChatItems = async (
+  chatId: string,
+  axiosInstance: AxiosInstance
+): Promise<ChatItem[]> =>
+  (await axiosInstance.get<ChatItem[]>(`/share/chat/${chatId}/history`)).data;
+
 export type ChatUpdatableProperties = {
   chat_name?: string;
 };

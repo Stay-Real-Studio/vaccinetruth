@@ -1,6 +1,7 @@
 "use client";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { usePathname } from "next/navigation";
 import { PropsWithChildren, useEffect } from "react";
 
 import Footer from "@/lib/components/Footer";
@@ -18,11 +19,13 @@ export const App = ({ children }: PropsWithChildren): JSX.Element => {
   const { fetchAllBrains, fetchDefaultBrain, fetchPublicPrompts } =
     useBrainContext();
   const { session } = useSupabase();
+  const path = usePathname();
+  const isShareChatPage = path?.startsWith("/share/chat") ?? false;
 
   usePageTracking();
 
   useEffect(() => {
-    if (session?.user) {
+    if (session?.user && !isShareChatPage) {
       void fetchAllBrains();
       void fetchDefaultBrain();
       void fetchPublicPrompts();

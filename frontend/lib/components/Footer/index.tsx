@@ -12,8 +12,14 @@ const Footer = (): JSX.Element => {
   const isNewHomePageActivated = useFeatureIsOn("new-homepage-activated");
   const isNewHomePage = path === "/" && isNewHomePageActivated;
   const isContactPage = path === "/contact";
+  const isShareChatPage = path?.startsWith("/share/chat") ?? false;
 
-  if (session?.user !== undefined || isNewHomePage || isContactPage) {
+  if (
+    session?.user !== undefined ||
+    isNewHomePage ||
+    isContactPage ||
+    isShareChatPage
+  ) {
     return <></>;
   }
 
