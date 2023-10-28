@@ -6,6 +6,7 @@ import Button from "@/lib/components/ui/Button";
 import Card, { CardBody, CardHeader } from "@/lib/components/ui/Card";
 import { useSupabase } from "@/lib/context/SupabaseProvider";
 import { redirectToLogin } from "@/lib/router/redirectToLogin";
+import { useRoleCtrl } from "@/services/roleCtrl/useRoleCtrl";
 
 import { StripePricingOrManageButton, UserStatistics } from "./components";
 import { ApiKeyConfig } from "./components/ApiKeyConfig";
@@ -14,6 +15,7 @@ import ThemeSelect from "./components/ThemeSelect/ThemeSelect";
 
 const UserPage = (): JSX.Element => {
   const { session } = useSupabase();
+  const { isStudioMember } = useRoleCtrl();
 
   if (!session) {
     redirectToLogin();
@@ -60,27 +62,33 @@ const UserPage = (): JSX.Element => {
         </CardBody>
       </Card>
 
-      <Card className="mb-5 shadow-sm hover:shadow-none">
-        <CardHeader>
-          <h2 className="font-bold text-xl">
-            {t("brainUsage", { ns: "user" })}
-          </h2>
-        </CardHeader>
+      {isStudioMember && (
+        <Card className="mb-5 shadow-sm hover:shadow-none">
+          <CardHeader>
+            <h2 className="font-bold text-xl">
+              {t("brainUsage", { ns: "user" })}
+            </h2>
+          </CardHeader>
 
-        <CardBody>
-          <UserStatistics />
-        </CardBody>
-      </Card>
+          <CardBody>
+            <UserStatistics />
+          </CardBody>
+        </Card>
+      )}
 
-      <Card className="mb-5 shadow-sm hover:shadow-none">
-        <CardHeader>
-          <h2 className="font-bold text-xl">{t("apiKey", { ns: "config" })}</h2>
-        </CardHeader>
+      {isStudioMember && (
+        <Card className="mb-5 shadow-sm hover:shadow-none">
+          <CardHeader>
+            <h2 className="font-bold text-xl">
+              {t("apiKey", { ns: "config" })}
+            </h2>
+          </CardHeader>
 
-        <CardBody className="p-3 flex flex-col">
-          <ApiKeyConfig />
-        </CardBody>
-      </Card>
+          <CardBody className="p-3 flex flex-col">
+            <ApiKeyConfig />
+          </CardBody>
+        </Card>
+      )}
     </main>
   );
 };

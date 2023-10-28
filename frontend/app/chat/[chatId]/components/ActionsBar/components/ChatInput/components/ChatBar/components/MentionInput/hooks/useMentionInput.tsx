@@ -14,12 +14,14 @@ import {
 } from "@/app/chat/[chatId]/components/ActionsBar/types";
 import { useBrainContext } from "@/lib/context/BrainProvider/hooks/useBrainContext";
 import { useJune } from "@/services/analytics/june/useJune";
+import { useRoleCtrl } from "@/services/roleCtrl/useRoleCtrl";
 import "@draft-js-plugins/mention/lib/plugin.css";
 import "draft-js/dist/Draft.css";
 
+// eslint-disable-next-line import/order
+import { getEditorText } from "./helpers/getEditorText";
 import { useMentionPlugin } from "./helpers/MentionPlugin";
 import { useMentionState } from "./helpers/MentionState";
-import { getEditorText } from "./helpers/getEditorText";
 
 type UseMentionInputProps = {
   message: string;
@@ -49,6 +51,7 @@ export const useMentionInput = ({
     suggestions,
     publicPrompts,
   } = useMentionState();
+  const { isStudioMember } = useRoleCtrl();
 
   const { MentionSuggestions, plugins } = useMentionPlugin();
 
@@ -60,22 +63,22 @@ export const useMentionInput = ({
 
   const onAddMention = useCallback(
     (mention: MentionData) => {
-      if (mention.trigger === "#") {
+      if (mention.trigger === "#" && isStudioMember) {
         void analytics?.track("CHANGE_PROMPT");
         setCurrentPromptId(mention.id as UUID);
       }
 
-      if (mention.trigger === "@") {
+      if (mention.trigger === "@" && isStudioMember) {
         void analytics?.track("CHANGE_BRAIN");
         setCurrentBrainId(mention.id as UUID);
       }
     },
-    [analytics, setCurrentBrainId, setCurrentPromptId]
+    [analytics, setCurrentBrainId, setCurrentPromptId, isStudioMember]
   );
 
   const onSearchChange = useCallback(
     ({ trigger, value }: { trigger: MentionTriggerType; value: string }) => {
-      setCurrentTrigger(trigger);
+      setCurrentTrigger(isStudioMember ? trigger : "none");
       if (trigger === "@") {
         if (currentBrainId !== null) {
           setSuggestions([]);
@@ -104,7 +107,13 @@ export const useMentionInput = ({
 
       setSuggestions(defaultSuggestionsFilter(value, mentionItems, trigger));
     },
-    [currentBrainId, currentPromptId, mentionItems, setSuggestions]
+    [
+      currentBrainId,
+      currentPromptId,
+      mentionItems,
+      setSuggestions,
+      isStudioMember,
+    ]
   );
 
   const resetEditorContent = useCallback(() => {

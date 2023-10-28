@@ -1,4 +1,5 @@
 import { BrainManagementButton } from "@/lib/components/Sidebar/components/SidebarFooter/components/BrainManagementButton";
+import { useRoleCtrl } from "@/services/roleCtrl/useRoleCtrl";
 
 import { UpgradeToPlus } from "./components/UpgradeToPlus";
 import { UserButton } from "./components/UserButton";
@@ -12,9 +13,10 @@ type SidebarFooterProps = {
 export const SidebarFooter = ({
   showButtons,
 }: SidebarFooterProps): JSX.Element => {
+  const { isStudioMember } = useRoleCtrl();
   const buttons = {
-    myBrains: <BrainManagementButton />,
-    upgradeToPlus: <UpgradeToPlus />,
+    myBrains: isStudioMember ? <BrainManagementButton /> : <></>,
+    upgradeToPlus: isStudioMember ? <UpgradeToPlus /> : <></>,
     user: <UserButton />,
   };
 
