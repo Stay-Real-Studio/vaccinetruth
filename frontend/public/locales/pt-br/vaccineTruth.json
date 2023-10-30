@@ -1,4 +1,24 @@
 {
   "disclaimer": "Isenção de responsabilidade",
-  "disclaimerContent": "Compilamos um banco de dados completo com base nas informações verdadeiras sobre vacinas publicadas na Internet, apenas realizamos perguntas e respostas com base no conteúdo mencionado nas informações públicas e não somos legalmente responsáveis ​​​​pelo conteúdo!"
+  "disclaimerContent": "Compilamos um banco de dados completo com base nas informações verdadeiras sobre vacinas publicadas na Internet, apenas realizamos perguntas e respostas com base no conteúdo mencionado nas informações públicas e não somos legalmente responsáveis ​​​​pelo conteúdo!",
+  "talkToAI": "conversa com Vaccinetruth.ai",
+  "chatShareTitle": "Configuração de compartilhamento de bate-papo",
+  "chatShareDesc": "selecione sua plataforma de compartilhamento",
+  "chatShareCopyURL": "Copiar URL de compartilhamento de bate-papo",
+  "chatShareTo": "Compartilhar com",
+  "onboarding": {
+    "title": "Oi 👋🏻 Quer descobrir o Quivr ? 😇",
+    "step_1_1": "1. Arraste e solte o arquivo no chat ou no 📎.",
+    "step_1_2": "Não tem um arquivo? Baixe 'Documentação do Quivr'",
+    "step_2": "2. Comece a conversar com seu arquivo",
+    "step_3": "3. Divirta-se!",
+    "how_to_use_quivr": "Como usar o Quivr?",
+    "what_is_quivr": "O que é o Quivr?",
+    "what_is_brain": "O que é um cérebro?",
+    "answer": {
+      "how_to_use_quivr": "Consulte a documentação em https://brain.quivr.app/docs/get_started/intro.html",
+      "what_is_quivr": "Quivr é um assistente útil.",
+      "what_is_brain": "Um cérebro contém conhecimento."
+    }
+  }
 }

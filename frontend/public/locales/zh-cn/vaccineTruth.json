@@ -1,4 +1,24 @@
 {
   "disclaimer": "免责声明",
-  "disclaimerContent": "我们根据互联网上公开的疫苗真相信息，整理了一份完整的资料库，我们只根据该公开信息提及的内容进行问题问答，对内容不负法律责任！"
+  "disclaimerContent": "我们根据互联网上公开的疫苗真相信息，整理了一份完整的资料库，我们只根据该公开信息提及的内容进行问题问答，对内容不负法律责任！",
+  "talkToAI": "与 Vaccinetruth.ai 的对话",
+  "chatShareTitle": "聊天分享配置",
+  "chatShareDesc": "选择您的分享平台",
+  "chatShareCopyURL": "复制聊天分享 URL",
+  "chatShareTo": "分享到",
+  "onboarding": {
+    "title": "嗨 👋🏻 想要探索 Quivr？😇",
+    "step_1_1": "1. 在聊天框或📎上拖放文件。",
+    "step_1_2": "没有文件？下载 'Quivr 文档'",
+    "step_2": "2. 开始与您的文件聊天",
+    "step_3": "3. 尽情享受！",
+    "how_to_use_quivr": "如何使用Quivr？",
+    "what_is_quivr": "什么是Quivr？",
+    "what_is_brain": "什么是大脑？",
+    "answer": {
+      "how_to_use_quivr": "查看文档https://brain.quivr.app/docs/get_started/intro.html",
+      "what_is_quivr": "Quivr是一个有用的助手。",
+      "what_is_brain": "大脑包含知识。"
+    }
+  }
 }

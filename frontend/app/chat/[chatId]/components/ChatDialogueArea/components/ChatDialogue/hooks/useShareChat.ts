@@ -6,6 +6,8 @@ import { useState } from "react";
 export const useShareChat = () => {
   const pathname = usePathname();
   const [isCopied, setIsCopied] = useState(false);
+  const [isShareChatModalOpen, setIsShareChatModalOpen] = useState(false);
+  const [chatShareURL, setChatShareURL] = useState<string>("");
 
   const handleCopy = () => {
     if ((pathname ?? "") === "") {
@@ -15,7 +17,10 @@ export const useShareChat = () => {
     // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
     const shareURL = `${BASE_URL}/share${pathname}`;
     navigator.clipboard.writeText(shareURL).then(
-      () => setIsCopied(true),
+      () => {
+        setIsCopied(true);
+        setChatShareURL(shareURL);
+      },
       (err) => console.error("Failed to copy!", err)
     );
     setTimeout(() => setIsCopied(false), 2000); // Reset after 2 seconds
@@ -24,5 +29,8 @@ export const useShareChat = () => {
   return {
     isCopied,
     handleCopy,
+    isShareChatModalOpen,
+    setIsShareChatModalOpen,
+    chatShareURL,
   };
 };

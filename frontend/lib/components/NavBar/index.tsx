@@ -8,6 +8,7 @@ import { Logo } from "./components/Logo";
 import { MobileMenu } from "./components/MobileMenu";
 import { NavItems } from "./components/NavItems";
 
+// eslint-disable-next-line complexity
 export const NavBar = (): JSX.Element => {
   const path = usePathname();
   const pageHasSidebar =
@@ -18,8 +19,9 @@ export const NavBar = (): JSX.Element => {
   const isNewHomePageActivated = useFeatureIsOn("new-homepage-activated");
   const isNewHomePage = path === "/" && isNewHomePageActivated;
   const isContactPage = path === "/contact";
+  const isShareChatPage = path?.startsWith("/share/chat") ?? false;
 
-  if (pageHasSidebar || isNewHomePage || isContactPage) {
+  if (pageHasSidebar || isNewHomePage || isContactPage || isShareChatPage) {
     return <></>;
   }
 

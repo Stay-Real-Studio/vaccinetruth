@@ -4,7 +4,7 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 import { useKnowledgeToFeedContext } from "@/lib/context/KnowledgeToFeedProvider/hooks/useKnowledgeToFeedContext";
 
-import { ChatInput, KnowledgeToFeed } from "./components";
+import { KnowledgeToFeed, VTChatInput } from "./components";
 import { useActionBar } from "./hooks/useActionBar";
 
 export const ActionsBar = (): JSX.Element => {
@@ -41,9 +41,10 @@ export const ActionsBar = (): JSX.Element => {
             </motion.div>
           </AnimatePresence>
         )}
-        {!shouldDisplayFeedCard && (
+        {/* {!shouldDisplayFeedCard && (
           <ChatInput shouldDisplayFeedCard={shouldDisplayFeedCard} />
-        )}
+        )} */}
+        <VTChatInput />
       </div>
     </>
   );

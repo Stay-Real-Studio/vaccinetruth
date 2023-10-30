@@ -1,5 +1,4 @@
 "use client";
-import { usePathname } from "next/navigation";
 import { Dispatch, HTMLAttributes, SetStateAction } from "react";
 
 import { useSupabase } from "@/lib/context/SupabaseProvider";
@@ -19,8 +18,6 @@ export const NavItems = ({
 }: NavItemsProps): JSX.Element => {
   const { session } = useSupabase();
   const isUserLoggedIn = session?.user !== undefined;
-  const path = usePathname();
-  const isShareChatPage = path?.startsWith("/share/chat") ?? false;
 
   return (
     <ul
@@ -30,7 +27,7 @@ export const NavItems = ({
       )}
       {...props}
     >
-      {!isUserLoggedIn && !isShareChatPage && (
+      {!isUserLoggedIn && (
         <>
           <NavLink setOpen={setOpen} to="https://github.com/StanGirard/quivr">
             Github
@@ -41,7 +38,7 @@ export const NavItems = ({
         </>
       )}
       <div className="flex sm:flex-1 sm:justify-end flex-row items-center justify-center sm:flex-row gap-5 sm:gap-2">
-        {!isUserLoggedIn && !isShareChatPage && <AuthButtons />}
+        {!isUserLoggedIn && <AuthButtons />}
       </div>
     </ul>
   );
