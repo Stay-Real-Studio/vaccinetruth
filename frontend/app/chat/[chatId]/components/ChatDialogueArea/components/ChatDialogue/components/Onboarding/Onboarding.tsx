@@ -8,16 +8,17 @@ import Button from "@/lib/components/ui/Button";
 import { useOnboardingTracker } from "@/lib/hooks/useOnboardingTracker";
 import { useStreamText } from "@/lib/hooks/useStreamText";
 
-import { stepsContainerStyle } from "./styles";
 import { MessageRow } from "../QADisplay";
+// eslint-disable-next-line import/order
+import { stepsContainerStyle } from "./styles";
 
 export const Onboarding = (): JSX.Element => {
-  const { t } = useTranslation(["chat"]);
-  const title = t("onboarding.title");
-  const step1 = t("onboarding.step_1_1");
-  const step1Details = t("onboarding.step_1_2");
-  const step2 = t("onboarding.step_2");
-  const step3 = t("onboarding.step_3");
+  const { t } = useTranslation(["chat", "vaccineTruth"]);
+  const title = t("onboarding.title", { ns: "vaccineTruth" });
+  const step1 = t("onboarding.step_1_1", { ns: "vaccineTruth" });
+  const step1Details = t("onboarding.step_1_2", { ns: "vaccineTruth" });
+  const step2 = t("onboarding.step_2", { ns: "vaccineTruth" });
+  const step3 = t("onboarding.step_3", { ns: "vaccineTruth" });
 
   const shouldStepBeDisplayed = useFeatureIsOn("onboarding");
 

@@ -32,7 +32,7 @@ export const ShareModal = (): JSX.Element => {
       CloseTrigger={<div />}
     >
       <div className="my-6 flex ">
-        <span className="mr-4">{t("chatShareCopyURL")}</span>
+        <span className="mr-4 text-xs sm:text-sm">{t("chatShareCopyURL")}</span>
         <button
           onClick={handleCopy}
           title={`${isCopied ? "Copied" : "Copy Chat URL to clipboard"}`}
@@ -42,7 +42,7 @@ export const ShareModal = (): JSX.Element => {
       </div>
       <div>
         <div>
-          <div className="mb-2">{t("chatShareTo")}</div>
+          <div className="mb-2 text-xs sm:text-sm">{t("chatShareTo")}</div>
           <SharePlatform />
         </div>
       </div>

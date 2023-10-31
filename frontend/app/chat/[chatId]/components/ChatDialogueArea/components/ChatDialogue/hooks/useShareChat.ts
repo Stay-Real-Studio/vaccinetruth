@@ -7,19 +7,22 @@ export const useShareChat = () => {
   const pathname = usePathname();
   const [isCopied, setIsCopied] = useState(false);
   const [isShareChatModalOpen, setIsShareChatModalOpen] = useState(false);
-  const [chatShareURL, setChatShareURL] = useState<string>("");
+  // const [chatShareURL, setChatShareURL] = useState<string>("");
+
+  const BASE_URL = `${location.origin}`;
+  const shareURL = `${BASE_URL}/share${pathname ?? ""}`;
 
   const handleCopy = () => {
     if ((pathname ?? "") === "") {
       return;
     }
-    const BASE_URL = `${location.origin}`;
+
     // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-    const shareURL = `${BASE_URL}/share${pathname}`;
+
     navigator.clipboard.writeText(shareURL).then(
       () => {
         setIsCopied(true);
-        setChatShareURL(shareURL);
+        // setChatShareURL(shareURL);
       },
       (err) => console.error("Failed to copy!", err)
     );
@@ -31,6 +34,6 @@ export const useShareChat = () => {
     handleCopy,
     isShareChatModalOpen,
     setIsShareChatModalOpen,
-    chatShareURL,
+    chatShareURL: shareURL,
   };
 };

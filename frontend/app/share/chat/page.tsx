@@ -5,10 +5,10 @@ import ChatPage from "./[chatId]/page";
 export const metadata = {
   title: "vaccinetruth.ai",
   openGraph: {
-    title: "Next.js",
+    title: "vaccinetruth",
     images: [
       {
-        url: "https://nextjs.org/og.png",
+        url: "/vaccine.png",
         width: 800,
         height: 600,
       },

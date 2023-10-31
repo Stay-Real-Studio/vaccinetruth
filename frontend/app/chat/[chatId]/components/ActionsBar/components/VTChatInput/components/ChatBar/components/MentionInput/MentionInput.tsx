@@ -25,8 +25,6 @@ const triggerToSuggestionsContainer: Record<
 > = {
   "@": BrainSuggestionsContainer,
   "#": PromptSuggestionsContainer,
-  // "@": undefined,
-  // "#": undefined,
 };
 
 export const MentionInput = ({
