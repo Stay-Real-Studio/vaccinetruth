@@ -5,6 +5,7 @@ import { PiPaperclipFill } from "react-icons/pi";
 
 import Button from "@/lib/components/ui/Button";
 import { useKnowledgeToFeedContext } from "@/lib/context/KnowledgeToFeedProvider/hooks/useKnowledgeToFeedContext";
+import { useRoleCtrl } from "@/services/roleCtrl/useRoleCtrl";
 
 import { OnboardingQuestions } from "./components";
 import { ChatBar } from "./components/ChatBar/ChatBar";
@@ -24,6 +25,7 @@ export const ChatInput = ({
 
   const { setShouldDisplayFeedCard } = useKnowledgeToFeedContext();
   const shouldDisplayOnboarding = useFeatureIsOn("onboarding");
+  const { isStudioMember } = useRoleCtrl();
 
   return (
     <>
@@ -37,7 +39,7 @@ export const ChatInput = ({
           }}
           className="sticky bottom-0 bg-white dark:bg-black w-full flex items-center gap-2 z-20 p-2"
         >
-          {!shouldDisplayFeedCard && (
+          {isStudioMember && !shouldDisplayFeedCard && (
             <Button
               className="p-0"
               variant={"tertiary"}
@@ -70,7 +72,7 @@ export const ChatInput = ({
                 : t("chat", { ns: "chat" })}
             </Button>
             <div className="hidden md:flex items-center">
-              <ConfigModal />
+              {isStudioMember && <ConfigModal />}
             </div>
           </div>
         </form>
