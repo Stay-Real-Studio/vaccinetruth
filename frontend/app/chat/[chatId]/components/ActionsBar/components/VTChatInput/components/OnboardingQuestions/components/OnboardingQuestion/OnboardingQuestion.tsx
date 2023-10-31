@@ -2,6 +2,7 @@ import { Fragment } from "react";
 
 import { useChatInput } from "@/app/chat/[chatId]/components/ActionsBar/components/VTChatInput/hooks/useChatInput";
 import { useChat } from "@/app/chat/[chatId]/hooks/useChat";
+import Button from "@/lib/components/ui/Button";
 import { useOnboarding } from "@/lib/hooks/useOnboarding";
 
 import { QuestionId } from "../../types";
@@ -32,13 +33,13 @@ export const OnboardingQuestion = ({
   };
 
   return (
-    <div
+    <Button
+      variant={"secondary"}
+      isLoading={generatingAnswer}
       onClick={() => void generateBoardingChat()}
-      className={`${
-        generatingAnswer ? "text-gray-300 animate-spin" : ""
-      } cursor-pointer shadow-md dark:shadow-primary/25 hover:shadow-xl transition-shadow bg-onboarding-yellow-bg px-3 py-1 rounded-xl border-black/10 dark:border-white/25 dark:text-black`}
+      // className={` cursor-pointer shadow-md dark:shadow-primary/25 hover:shadow-xl transition-shadow bg-onboarding-yellow-bg px-3 py-1 rounded-xl border-black/10 dark:border-white/25 dark:text-black`}
     >
       {question}
-    </div>
+    </Button>
   );
 };
