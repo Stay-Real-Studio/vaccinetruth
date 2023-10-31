@@ -6,12 +6,19 @@ import Button from "@/lib/components/ui/Button";
 import PageHeading from "@/lib/components/ui/PageHeading";
 import Spinner from "@/lib/components/ui/Spinner";
 import { useSupabase } from "@/lib/context/SupabaseProvider";
+import { redirectToChat } from "@/lib/router/redirectToChat";
 import { redirectToLogin } from "@/lib/router/redirectToLogin";
+import { useRoleCtrl } from "@/services/roleCtrl/useRoleCtrl";
 
 import { useInvitation } from "./hooks/useInvitation";
 
 const InvitationPage = (): JSX.Element => {
-  const { t } = useTranslation('invitation');
+  const { isStudioMember } = useRoleCtrl();
+  if (!isStudioMember) {
+    redirectToChat();
+  }
+
+  const { t } = useTranslation("invitation");
   const {
     handleAccept,
     isProcessingRequest,
@@ -40,13 +47,15 @@ const InvitationPage = (): JSX.Element => {
   return (
     <main className="pt-10">
       <PageHeading
-        title={t("wellcome",{brain: brainName, ns: "invitation"})}
-        subtitle={t("invitationMessage",{role: role, ns: "invitation"})}
+        title={t("wellcome", { brain: brainName, ns: "invitation" })}
+        subtitle={t("invitationMessage", { role: role, ns: "invitation" })}
       />
       {isProcessingRequest ? (
         <div className="flex flex-col items-center justify-center mt-5">
           <Spinner />
-          <p className="text-center">{t("processingRequest",{ns: "invitation"})}</p>
+          <p className="text-center">
+            {t("processingRequest", { ns: "invitation" })}
+          </p>
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center gap-5 mt-5">
@@ -55,14 +64,14 @@ const InvitationPage = (): JSX.Element => {
             variant={"secondary"}
             className="py-3"
           >
-            {t("accept",{ns: "invitation"})}
+            {t("accept", { ns: "invitation" })}
           </Button>
           <Button
             onClick={() => void handleDecline()}
             variant={"danger"}
             className="py-3"
           >
-            {t("reject",{ns: "invitation"})}
+            {t("reject", { ns: "invitation" })}
           </Button>
         </div>
       )}

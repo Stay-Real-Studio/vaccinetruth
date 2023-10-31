@@ -2,7 +2,9 @@
 import { ReactNode } from "react";
 
 import { useSupabase } from "@/lib/context/SupabaseProvider";
+import { redirectToChat } from "@/lib/router/redirectToChat";
 import { redirectToLogin } from "@/lib/router/redirectToLogin";
+import { useRoleCtrl } from "@/services/roleCtrl/useRoleCtrl";
 
 import { BrainsList } from "./[brainId]/components";
 
@@ -11,9 +13,14 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps): JSX.Element => {
+  const { isStudioMember } = useRoleCtrl();
+
   const { session } = useSupabase();
   if (session === null) {
     redirectToLogin();
+  }
+  if (!isStudioMember) {
+    redirectToChat();
   }
 
   return (

@@ -4,16 +4,24 @@ import { redirect } from "next/navigation";
 import { useTranslation } from "react-i18next";
 
 import Card from "@/lib/components/ui/Card";
+import { redirectToChat } from "@/lib/router/redirectToChat";
+import { useRoleCtrl } from "@/services/roleCtrl/useRoleCtrl";
 
-import { ContactForm } from "./components";
 import {
   FooterSection,
   HomeHeader,
   HomeSection,
   TestimonialsSection,
 } from "../(home)/components";
+// eslint-disable-next-line import/order
+import { ContactForm } from "./components";
 
 const ContactSalesPage = (): JSX.Element => {
+  const { isStudioMember } = useRoleCtrl();
+  if (!isStudioMember) {
+    redirectToChat();
+  }
+
   const isNewHomePage = useFeatureIsOn("new-homepage-activated");
   const { t } = useTranslation("contact");
   if (!isNewHomePage) {

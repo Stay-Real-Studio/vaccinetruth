@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import Button from "@/lib/components/ui/Button";
 import Card, { CardBody, CardHeader } from "@/lib/components/ui/Card";
 import { useSupabase } from "@/lib/context/SupabaseProvider";
+import { redirectToChat } from "@/lib/router/redirectToChat";
 import { redirectToLogin } from "@/lib/router/redirectToLogin";
 import { useRoleCtrl } from "@/services/roleCtrl/useRoleCtrl";
 
@@ -17,6 +18,9 @@ const UserPage = (): JSX.Element => {
   const { session } = useSupabase();
   const { isStudioMember } = useRoleCtrl();
 
+  if (!isStudioMember) {
+    redirectToChat();
+  }
   if (!session) {
     redirectToLogin();
   }

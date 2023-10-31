@@ -4,7 +4,6 @@ import { useChatContext } from "@/lib/context";
 
 import { ChatDialogue } from "./components/ChatDialogue";
 import { Disclaimer } from "./components/Disclaimer";
-import { ShortCuts } from "./components/ShortCuts";
 import { getMergedChatMessagesWithDoneStatusNotificationsReduced } from "./utils/getMergedChatMessagesWithDoneStatusNotificationsReduced";
 
 export const ChatDialogueArea = (): JSX.Element => {
@@ -30,5 +29,6 @@ export const ChatDialogueArea = (): JSX.Element => {
     );
   }
 
-  return <ShortCuts />;
+  // return <ShortCuts />;
+  return <></>;
 };
