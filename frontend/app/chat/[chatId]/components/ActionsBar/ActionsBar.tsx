@@ -3,8 +3,9 @@ import { useTranslation } from "react-i18next";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 import { useKnowledgeToFeedContext } from "@/lib/context/KnowledgeToFeedProvider/hooks/useKnowledgeToFeedContext";
+import { useRoleCtrl } from "@/services/roleCtrl/useRoleCtrl";
 
-import { KnowledgeToFeed, VTChatInput } from "./components";
+import { ChatInput, KnowledgeToFeed, VTChatInput } from "./components";
 import { useActionBar } from "./hooks/useActionBar";
 
 export const ActionsBar = (): JSX.Element => {
@@ -12,6 +13,7 @@ export const ActionsBar = (): JSX.Element => {
 
   const { t } = useTranslation(["chat"]);
   const { shouldDisplayFeedCard } = useKnowledgeToFeedContext();
+  const { isStudioMember } = useRoleCtrl();
 
   return (
     <>
@@ -41,10 +43,10 @@ export const ActionsBar = (): JSX.Element => {
             </motion.div>
           </AnimatePresence>
         )}
-        {/* {!shouldDisplayFeedCard && (
+        {isStudioMember && !shouldDisplayFeedCard && (
           <ChatInput shouldDisplayFeedCard={shouldDisplayFeedCard} />
-        )} */}
-        <VTChatInput />
+        )}
+        {!isStudioMember && <VTChatInput />}
       </div>
     </>
   );
