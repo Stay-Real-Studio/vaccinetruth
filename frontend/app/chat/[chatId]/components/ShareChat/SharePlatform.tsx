@@ -1,3 +1,4 @@
+"use client";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import {
   EmailIcon,
@@ -14,12 +15,12 @@ import {
   WhatsappShareButton,
 } from "next-share";
 
-import { useShareChat } from "../ChatDialogueArea/components/ChatDialogue/hooks/useShareChat";
-
-export const SharePlatform = (): JSX.Element => {
+export const SharePlatform = ({
+  chatShareURL,
+}: {
+  chatShareURL: string;
+}): JSX.Element => {
   const title = `vaccinetruth.ai`;
-
-  const { chatShareURL } = useShareChat();
 
   return (
     <div className="flex-center flex-wrap flex">

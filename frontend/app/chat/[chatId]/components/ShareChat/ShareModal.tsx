@@ -1,3 +1,4 @@
+"use client";
 /* eslint-disable max-lines */
 import { useTranslation } from "react-i18next";
 import { FiCheckCircle, FiCopy, FiShare } from "react-icons/fi";
@@ -15,6 +16,8 @@ export const ShareModal = (): JSX.Element => {
     handleCopy,
     isShareChatModalOpen,
     setIsShareChatModalOpen,
+    isGeneratingShareId,
+    chatShareURL,
   } = useShareChat();
   const { t } = useTranslation(["vaccineTruth"]);
 
@@ -31,21 +34,50 @@ export const ShareModal = (): JSX.Element => {
       setOpen={setIsShareChatModalOpen}
       CloseTrigger={<div />}
     >
-      <div className="my-6 flex ">
-        <span className="mr-4 text-xs sm:text-sm">{t("chatShareCopyURL")}</span>
-        <button
-          onClick={handleCopy}
-          title={`${isCopied ? "Copied" : "Copy Chat URL to clipboard"}`}
-        >
-          {isCopied ? <FiCheckCircle /> : <FiCopy />}
-        </button>
-      </div>
-      <div>
+      {!isGeneratingShareId && (
         <div>
-          <div className="mb-2 text-xs sm:text-sm">{t("chatShareTo")}</div>
-          <SharePlatform />
+          <div className="my-6 flex ">
+            <span className="mr-4 text-xs sm:text-sm">
+              {t("chatShareCopyURL")}
+            </span>
+            <button
+              onClick={handleCopy}
+              title={`${isCopied ? "Copied" : "Copy Chat URL to clipboard"}`}
+            >
+              {isCopied ? <FiCheckCircle /> : <FiCopy />}
+            </button>
+          </div>
+          <div>
+            <div>
+              <div className="mb-2 text-xs sm:text-sm">{t("chatShareTo")}</div>
+              <SharePlatform chatShareURL={chatShareURL} />
+            </div>
+          </div>
         </div>
-      </div>
+      )}
+      {isGeneratingShareId && (
+        <div>
+          <div className="flex animate-pulse space-x-4">
+            <div className="w-full space-y-6 py-1">
+              <div className="grid grid-cols-4 gap-4">
+                <div className="col-span-1 h-2 rounded bg-slate-200"></div>
+                <div className="col-span-2 h-2 rounded bg-slate-200"></div>
+                <div className="col-span-1 h-2 rounded bg-slate-200"></div>
+              </div>
+              <div className="grid grid-cols-4 gap-4">
+                <div className="col-span-1 h-2 rounded bg-slate-200"></div>
+                <div className="col-span-2 h-2 rounded bg-slate-200"></div>
+                <div className="col-span-1 h-2 rounded bg-slate-200"></div>
+              </div>
+              <div className="grid grid-cols-4 gap-4">
+                <div className="col-span-1 h-2 rounded bg-slate-200"></div>
+                <div className="col-span-2 h-2 rounded bg-slate-200"></div>
+                <div className="col-span-1 h-2 rounded bg-slate-200"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </Modal>
   );
 };

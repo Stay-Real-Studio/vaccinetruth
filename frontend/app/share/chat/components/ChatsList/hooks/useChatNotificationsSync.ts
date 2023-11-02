@@ -11,7 +11,7 @@ import { getNotificationsFromChatItems } from "../../../[chatId]/utils/getNotifi
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const useChatNotificationsSync = () => {
   const { setMessages, setNotifications } = useChatContext();
-  const { getChatItems } = useChatApi();
+  const { getShareChatItems } = useChatApi();
   // const { getChatNotifications } = useNotificationApi();
   // const { setShouldDisplayFeedCard } = useKnowledgeToFeedContext();
   const params = useParams();
@@ -62,7 +62,7 @@ export const useChatNotificationsSync = () => {
         return;
       }
 
-      const chatItems = await getChatItems(chatId);
+      const chatItems = await getShareChatItems(chatId);
 
       setMessages(getMessagesFromChatItems(chatItems));
       setNotifications(getNotificationsFromChatItems(chatItems));

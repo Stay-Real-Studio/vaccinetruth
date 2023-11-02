@@ -1,16 +1,44 @@
-"use client";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
+// "use client";
+import { useParams, usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+
+import { useChatApi } from "@/lib/api/chat/useChatApi";
+import { useToast } from "@/lib/hooks";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const useShareChat = () => {
   const pathname = usePathname();
   const [isCopied, setIsCopied] = useState(false);
   const [isShareChatModalOpen, setIsShareChatModalOpen] = useState(false);
-  // const [chatShareURL, setChatShareURL] = useState<string>("");
+  const [isGeneratingShareId, setIsGeneratingShareId] = useState(false);
+  const [chatShareURL, setChatShareURL] = useState<string>("");
+  const { getShareChatId } = useChatApi();
+  const params = useParams();
+  const { publish } = useToast();
 
-  const BASE_URL = `${location.origin}`;
-  const shareURL = `${BASE_URL}/share${pathname ?? ""}`;
+  const handleGetShareURL = async () => {
+    setIsGeneratingShareId(true);
+
+    const chatId = !Array.isArray(params?.chatId) ? params?.chatId ?? "" : "";
+    try {
+      const res = await getShareChatId(chatId);
+
+      // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+      if (res.id) {
+        const BASE_URL = `${location.origin}`;
+        const shareURL = `${BASE_URL}/share/chat/${res.id}`;
+        console.log(shareURL, "shareURL");
+        setChatShareURL(shareURL);
+      }
+    } catch (e) {
+      publish({
+        variant: "danger",
+        text: JSON.stringify(e),
+      });
+    } finally {
+      setIsGeneratingShareId(false);
+    }
+  };
 
   const handleCopy = () => {
     if ((pathname ?? "") === "") {
@@ -18,22 +46,27 @@ export const useShareChat = () => {
     }
 
     // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-
-    navigator.clipboard.writeText(shareURL).then(
+    navigator.clipboard.writeText(chatShareURL).then(
       () => {
         setIsCopied(true);
-        // setChatShareURL(shareURL);
       },
       (err) => console.error("Failed to copy!", err)
     );
     setTimeout(() => setIsCopied(false), 2000); // Reset after 2 seconds
   };
 
+  useEffect(() => {
+    if (isShareChatModalOpen) {
+      void handleGetShareURL();
+    }
+  }, [isShareChatModalOpen]);
+
   return {
     isCopied,
     handleCopy,
     isShareChatModalOpen,
     setIsShareChatModalOpen,
-    chatShareURL: shareURL,
+    chatShareURL,
+    isGeneratingShareId,
   };
 };
