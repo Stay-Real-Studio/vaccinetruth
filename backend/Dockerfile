@@ -5,20 +5,19 @@ ARG DEV_MODE
 ENV DEV_MODE=$DEV_MODE
 
 # Install GEOS library, Rust, and other dependencies, then clean up
-RUN apt-get update && apt-get -y upgrade && apt-get install --no-install-recommends -y \
+RUN apt-get cleanup && apt-get update && apt-get -y upgrade && apt-get install --no-install-recommends -y \
     libgeos-dev \
     libcurl4-openssl-dev \
     libssl-dev \
-    pandoc \
     binutils \
+    pandoc \
     curl \
     git \
     build-essential && \
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && \
     rm -rf /var/lib/apt/lists/* && apt-get clean
 
 # Add Rust binaries to the PATH
-ENV PATH="/root/.cargo/bin:$PATH"
+ENV PATH="/root/.cargo/bin:${PATH}"
 
 # RUN useradd --create-home appuser
 # WORKDIR /home/appuser
