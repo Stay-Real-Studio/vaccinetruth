@@ -17,7 +17,7 @@ RUN apt-get clean && apt-get update && apt-get -y upgrade && apt-get install --n
     rm -rf /var/lib/apt/lists/* && apt-get clean
 
 # Add Rust binaries to the PATH
-ENV PATH="/root/.cargo/bin:${PATH}"
+ENV PATH="/root/.cargo/bin:$PATH"
 
 # RUN useradd --create-home appuser
 # WORKDIR /home/appuser
