@@ -1,6 +1,7 @@
+"use client";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { XMarkIcon } from "@heroicons/react/20/solid";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 
 import { useDiclaimer } from "@/lib/hooks/useDiclaimer";
 
@@ -41,7 +42,7 @@ export const Disclaimer = (): JSX.Element => {
           />
         </div>
         <p className="text-sm leading-6 text-gray-900">
-          <a href="#">
+          <span>
             <strong className="font-semibold">{t("disclaimer")}</strong>
             <svg
               viewBox="0 0 2 2"
@@ -50,9 +51,27 @@ export const Disclaimer = (): JSX.Element => {
             >
               <circle cx={1} cy={1} r={1} />
             </svg>
-            {t("disclaimerContent")}
+
+            <Trans
+              components={[
+                <a
+                  key="miles guo"
+                  target="_blank"
+                  className="text-lime-600 hover:text-lime-800"
+                  href={"https://gettr.com/user/milesguo"}
+                />,
+                <a
+                  key="nfsc"
+                  target="_blank"
+                  className="text-lime-600 hover:text-lime-800"
+                  href={"https://gettr.com/user/NFSCSpeaks"}
+                />,
+              ]}
+              i18nKey="disclaimerContent"
+              ns="vaccineTruth"
+            ></Trans>
             {/* <span aria-hidden="true">&rarr;</span> */}
-          </a>
+          </span>
         </p>
         <div className="flex flex-1 justify-end">
           <button
