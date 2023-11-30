@@ -18,12 +18,12 @@ export const useDiclaimer = () => {
   };
 
   useEffect(() => {
-    close_disclaimer_time = localStorage.getItem("close_disclaimer_time");
+    close_disclaimer_time = localStorage.getItem("close_disclaimer_time") ?? "";
     checkDiclaimerVisible();
   }, []);
 
   const checkDiclaimerVisible = () => {
-    if (close_disclaimer_time === null) {
+    if (close_disclaimer_time === "") {
       return;
     }
     updateDisclaimerNextVisibleTime();
@@ -38,8 +38,15 @@ export const useDiclaimer = () => {
     }
   };
 
+  const handleVisibleDisclaimer = () => {
+    localStorage.setItem("close_disclaimer_time", "");
+
+    setVisibleDisclaimer(true);
+  };
+
   return {
     visibleDisclaimer,
     handleCloseDisclaimer,
+    handleVisibleDisclaimer,
   };
 };
