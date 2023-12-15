@@ -1,6 +1,5 @@
 "use client";
 
-import { LanguageSelect } from "@/app/chat/components/LanguageSelect";
 import { Sidebar } from "@/lib/components/Sidebar/Sidebar";
 import { useOnboarding } from "@/lib/hooks/useOnboarding";
 
@@ -16,10 +15,9 @@ export const ChatsList = (): JSX.Element => {
   const { shouldDisplayWelcomeChat } = useOnboarding();
 
   return (
-    <Sidebar showButtons={["myBrains", "upgradeToPlus", "user"]}>
+    <Sidebar showButtons={["myBrains","marketplace", "upgradeToPlus", "user"]}>
       <div className="flex flex-col flex-1 h-full" data-testid="chats-list">
         <div className="pt-2">
-          <LanguageSelect isSelect={true} />
           <NewChatButton />
         </div>
         {shouldDisplayWelcomeChat && (
