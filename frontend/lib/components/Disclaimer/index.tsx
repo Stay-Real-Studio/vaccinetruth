@@ -60,13 +60,13 @@ export const Disclaimer = (): JSX.Element => {
                   <a
                     key="miles guo"
                     target="_blank"
-                    className="text-lime-600 hover:text-lime-800"
+                    className="text-sky-600 hover:text-sky-800"
                     href={"https://gettr.com/user/milesguo"}
                   />,
                   <a
                     key="nfsc"
                     target="_blank"
-                    className="text-lime-600 hover:text-lime-800"
+                    className="text-sky-600 hover:text-sky-800"
                     href={"https://gettr.com/user/NFSCSpeaks"}
                   />,
                 ]}
