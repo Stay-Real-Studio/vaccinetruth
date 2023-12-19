@@ -2,7 +2,6 @@ import { useTranslation } from "react-i18next";
 // import { BsArrowDown } from "react-icons/bs";
 
 import { ShareModal } from "@/app/chat/components/ShareChat/ShareModal";
-import Spinner from "@/lib/components/ui/Spinner";
 import { useChatContext } from "@/lib/context";
 
 // eslint-disable-next-line import/order
@@ -28,11 +27,11 @@ export const ChatDialogue = ({
 
   return (
     <div className={chatDialogueContainerClassName} ref={chatListRef}>
-      {isLoadingHistoryChatItems && (
+      {/* {isLoadingHistoryChatItems && (
         <div className="h-full w-full flex justify-center items-center">
           <Spinner />
         </div>
-      )}
+      )} */}
       {!isLoadingHistoryChatItems && chatItems.length === 0 && (
         <div
           data-testid="empty-history-message"
@@ -42,7 +41,7 @@ export const ChatDialogue = ({
         </div>
       )}
 
-      {!isLoadingHistoryChatItems && chatItems.length > 0 && (
+      {chatItems.length > 0 && (
         <div>
           <div className="flex justify-end mb-2">
             <ShareModal />
