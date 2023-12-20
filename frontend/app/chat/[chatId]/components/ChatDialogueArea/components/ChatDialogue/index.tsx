@@ -28,7 +28,12 @@ export const ChatDialogue = ({
     <div className={chatDialogueContainerClassName} ref={chatListRef}>
       {chatItems.length > 0 && (
         <div>
-          <div className="fixed z-10 right-4 top-4">
+          <div className="sm:hidden fixed top-0 left-0 w-full">
+            <div className="bg-white dark:bg-dark w-full flex justify-end p-2">
+              <ShareModal />
+            </div>
+          </div>
+          <div className="hidden sm:inline-block sm:fixed sm:z-10 sm:right-4 sm:top-4 ">
             <ShareModal />
           </div>
 
