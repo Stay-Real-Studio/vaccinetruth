@@ -15,7 +15,7 @@ export const MenuHeader = (): JSX.Element => {
       </div>
       <Link
         href="/chat"
-        className="mt-2 border p-2 flex justify-center items-center gap-1 cursor-pointer rounded-lg w-full"
+        className="hover:bg-slate-100 mt-2 border p-2 flex justify-center items-center gap-1 cursor-pointer rounded-lg w-full dark:text-slate-700 dark:hover:text-slate-900"
       >
         <GoPlus />
         {t("newChatButton")}

@@ -111,7 +111,7 @@ export const useMentionConfig = ({
     name: mentionKey,
   }).configure({
     HTMLAttributes: {
-      class: `mention`,
+      class: `mention dark:text-black`,
     },
     suggestion: suggestionsConfig,
     renderLabel: ({ options, node }) => {
