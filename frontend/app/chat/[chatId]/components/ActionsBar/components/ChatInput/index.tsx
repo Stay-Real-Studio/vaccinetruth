@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import { QuestionList } from "@/app/chat/components/QuestionList";
 import Button from "@/lib/components/ui/Button";
 
-import { ActionsModal } from "./components/ActionsModal/ActionsModal";
 import { ChatEditor } from "./components/ChatEditor/ChatEditor";
 import { MenuControlButton } from "./components/MenuControlButton";
 import { useChatInput } from "./hooks/useChatInput";
@@ -48,7 +47,7 @@ export const ChatInput = (): JSX.Element => {
                 ? t("thinking", { ns: "chat" })
                 : t("chat", { ns: "chat" })}
             </Button>
-            <ActionsModal />
+            {/* <ActionsModal /> */}
           </div>
         </form>
       </div>

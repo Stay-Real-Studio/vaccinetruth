@@ -55,7 +55,7 @@ export const SourcesButton = ({ sources }: SourcesButtonProps): JSX.Element => {
           void track("SOURCE_CHECKED");
         }}
         onMouseLeave={() => setShowSources(false)}
-        className="text-gray-500 hover:text-gray-700 transition p-1"
+        className="text-white hover:text-sky-600 transition p-1"
         title="View sources"
       >
         <FaQuestionCircle />

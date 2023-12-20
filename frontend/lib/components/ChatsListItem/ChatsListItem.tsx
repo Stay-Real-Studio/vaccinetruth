@@ -39,7 +39,7 @@ export const ChatsListItem = ({
       data-testid="chats-list-item"
     >
       <Link
-        className="flex flex-col flex-1 min-w-0 p-4"
+        className="flex flex-col flex-1 min-w-0 p-2"
         href={`/chat/${chat.chat_id}`}
         key={chat.chat_id}
       >
@@ -63,7 +63,7 @@ export const ChatsListItem = ({
           </button>
         )}
         <button
-          className="p-5 hover:text-red-700"
+          className="p-2 hover:text-red-700"
           type="button"
           onClick={onDelete ?? (() => void deleteChat())}
           data-testid="delete-chat-button"

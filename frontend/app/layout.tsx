@@ -4,7 +4,12 @@ import { Outfit } from "next/font/google";
 import { cookies, headers } from "next/headers";
 
 import { ToastProvider } from "@/lib/components/ui/Toast";
-import { FeatureFlagsProvider } from "@/lib/context";
+import {
+  ChatProvider,
+  FeatureFlagsProvider,
+  KnowledgeToFeedProvider,
+} from "@/lib/context";
+import { ChatsProvider } from "@/lib/context/ChatsProvider/chats-provider";
 import { SupabaseProvider } from "@/lib/context/SupabaseProvider";
 
 import { App } from "./App";
@@ -39,7 +44,13 @@ const RootLayout = async ({
         <FeatureFlagsProvider>
           <ToastProvider>
             <SupabaseProvider session={session}>
-              <App>{children}</App>
+              <KnowledgeToFeedProvider>
+                <ChatsProvider>
+                  <ChatProvider>
+                    <App>{children}</App>
+                  </ChatProvider>
+                </ChatsProvider>
+              </KnowledgeToFeedProvider>
             </SupabaseProvider>
           </ToastProvider>
           <VercelAnalytics />

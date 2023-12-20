@@ -18,7 +18,7 @@ export const ChatDialogueArea = (): JSX.Element => {
 
   if (!shouldDisplayShortcuts) {
     return (
-      <div className="flex flex-col flex-1 overflow-y-auto mb-2">
+      <div className="flex flex-col flex-1 overflow-y-auto mb-2 scrollbar">
         <ChatDialogue chatItems={chatItems} />
       </div>
     );
