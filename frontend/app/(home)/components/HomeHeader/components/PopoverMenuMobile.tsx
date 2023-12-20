@@ -4,6 +4,7 @@ import { LuMenu, LuX } from "react-icons/lu";
 
 import { LanguageSelect } from "@/app/chat/components/LanguageSelect";
 import { QuivrLogo } from "@/lib/assets/QuivrLogo";
+import { ThemeSelectVT } from "@/lib/components/ThemeSelectVT";
 import { cn } from "@/lib/utils";
 
 type PopoverMenuMobileProps = {
@@ -66,6 +67,9 @@ export const PopoverMenuMobile = ({
             </div>
             <nav>
               <ul className="flex flex-col bg-[#F5F8FF] rounded-xl p-2 dark:bg-black">
+                <li>
+                  <ThemeSelectVT />
+                </li>
                 <li>
                   <LanguageSelect isSelect={false} />
                 </li>
