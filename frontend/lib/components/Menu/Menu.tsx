@@ -6,6 +6,7 @@ import { ChatHistory } from "@/lib/components/ChatHistory/ChatHistoryVT";
 import { nonProtectedPaths } from "@/lib/config/routesConfig";
 import { useSideBarContext } from "@/lib/context/SidebarProvider/hooks/useSideBarContext";
 
+// eslint-disable-next-line import/order
 import Button from "../ui/Button";
 import { AnimatedDiv } from "./components/AnimationDiv";
 import { BrainsManagementButton } from "./components/BrainsManagementButton";

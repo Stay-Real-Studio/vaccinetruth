@@ -15,8 +15,8 @@ export const IntroSection = (): JSX.Element => {
 
   return (
     <>
-      <div className="h-full flex flex-col lg:flex-row items-center justify-center md:justify-start gap-10 lg:gap-0 xl:gap-10  mb-[calc(50vw*tan(6deg))] md:mb-0">
-        <div className="w-[80vw] lg:w-[50%] lg:shrink-0 flex flex-col justify-center gap-10 ">
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex-1 flex flex-col justify-center gap-10 ">
           <div>
             <h1 className="sm:text-lg  md:text-2xl lg:text-4xl font-bold text-black block max-w-2xl dark:text-white">
               {t("intro.title", { ns: "home" })}
@@ -60,7 +60,7 @@ export const IntroSection = (): JSX.Element => {
             </Link>
           </div>
         </div>
-        <div className="w-[80vw] lg:w-[calc(50vw)] lg:shrink-0 lg:max-h-[calc(80vh-100px)] rounded flex items-center justify-center lg:justify-start">
+        <div className="flex-1 rounded flex items-center justify-center">
           <Image
             src={laptopImage}
             alt="Quivr on laptop"
