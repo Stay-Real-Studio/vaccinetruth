@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 
 import { LanguageSelect } from "@/app/chat/components/LanguageSelect";
 import { QuivrLogo } from "@/lib/assets/QuivrLogo";
+import { ThemeSelectVT } from "@/lib/components/ThemeSelectVT";
 import { cn } from "@/lib/utils";
 
 import { PopoverMenuMobile } from "./components/PopoverMenuMobile";
@@ -18,7 +19,7 @@ export const HomeHeader = ({ color = "white" }: HomeNavProps): JSX.Element => {
   const { t } = useTranslation(["vaccineTruth"]);
 
   return (
-    <div className="w-full bg-gradient-to-b from-sky-400 to-sky-900">
+    <div className="w-full bg-gradient-to-b from-sky-400 to-sky-900 fixed top-0">
       <header className="flex justify-between items-center p-3 sm:p-5 min-w-max md:max-w-6xl mx-auto ">
         <Link
           href="/"
@@ -34,6 +35,7 @@ export const HomeHeader = ({ color = "white" }: HomeNavProps): JSX.Element => {
           </div>
         </Link>
         <div className="hidden sm:flex sm:items-center">
+          <ThemeSelectVT />
           <LanguageSelect isSelect={false} />
           <ul className="flex gap-4 items-center">{navLinks("desktop")}</ul>
         </div>

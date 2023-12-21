@@ -2,7 +2,6 @@ import { PopoverAnchor } from "@radix-ui/react-popover";
 import { useState } from "react";
 import { LuPlusCircle, LuXCircle } from "react-icons/lu";
 
-import Button from "@/lib/components/ui/Button";
 import {
   Popover,
   PopoverContent,
@@ -29,9 +28,7 @@ export const ActionsModal = (): JSX.Element => {
       >
         <PopoverTrigger>
           <PopoverAnchor asChild>
-            <Button variant="tertiary" type="button" className="p-0">
-              <Icon className="text-accent font-bold" size={30} />
-            </Button>
+            <Icon className="text-accent font-bold" size={30} />
           </PopoverAnchor>
         </PopoverTrigger>
         <PopoverContent

@@ -16,8 +16,8 @@ export const FooterSection = (): JSX.Element => {
   const { onLinkClick } = useHomepageTracking();
 
   return (
-    <div className="flex flex-col items-center gap-2 sm:gap-5 text-white text-center text-lg ">
-      <h2 className="text-xl sm:text-3xl">
+    <div className="flex flex-col items-center gap-1 sm:gap-1 text-white text-center text-lg ">
+      <h2 className="text-sm sm:text-xl">
         {t("footer.title", { ns: "home" })}
       </h2>
       <p className="text-xs sm:text-base">

@@ -1,9 +1,8 @@
-import { useTranslation } from "react-i18next";
 // import { BsArrowDown } from "react-icons/bs";
 
+// eslint-disable-next-line import/order
 import { ShareModal } from "@/app/chat/components/ShareChat/ShareModal";
-import Spinner from "@/lib/components/ui/Spinner";
-import { useChatContext } from "@/lib/context";
+import { BsArrowDown } from "react-icons/bs";
 
 // eslint-disable-next-line import/order
 import { ChatItemWithGroupedNotifications } from "../../types";
@@ -22,29 +21,19 @@ type MessagesDialogueProps = {
 export const ChatDialogue = ({
   chatItems,
 }: MessagesDialogueProps): JSX.Element => {
-  const { t } = useTranslation(["chat"]);
-  const { chatListRef } = useChatDialogue();
-  const { isLoadingHistoryChatItems } = useChatContext();
+  const { chatListRef, scrollToBottom, visibleScrollBottonIcon } =
+    useChatDialogue();
 
   return (
     <div className={chatDialogueContainerClassName} ref={chatListRef}>
-      {isLoadingHistoryChatItems && (
-        <div className="h-full w-full flex justify-center items-center">
-          <Spinner />
-        </div>
-      )}
-      {!isLoadingHistoryChatItems && chatItems.length === 0 && (
-        <div
-          data-testid="empty-history-message"
-          className="text-center opacity-50"
-        >
-          {t("ask", { ns: "chat" })}
-        </div>
-      )}
-
-      {!isLoadingHistoryChatItems && chatItems.length > 0 && (
+      {chatItems.length > 0 && (
         <div>
-          <div className="flex justify-end mb-2">
+          <div className="sm:hidden fixed top-0 left-0 w-full">
+            <div className="bg-white dark:bg-slate-300 w-full flex justify-end p-2">
+              <ShareModal />
+            </div>
+          </div>
+          <div className="hidden sm:inline-block sm:fixed sm:z-10 sm:right-4 sm:top-4 ">
             <ShareModal />
           </div>
 
@@ -56,14 +45,14 @@ export const ChatDialogue = ({
         </div>
       )}
 
-      {/* {visibleScrollBottonIcon && (
+      {visibleScrollBottonIcon && (
         <button
-          className="absolute z-20 right-1/2 bottom-16"
+          className=" fixed z-50 right-1/2 sm:right-[200px] bottom-16 border rounded-full p-2 dark:text-white dark:sm:text-black"
           onClick={() => scrollToBottom()}
         >
           <BsArrowDown />
         </button>
-      )} */}
+      )}
     </div>
   );
 };

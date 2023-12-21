@@ -31,7 +31,7 @@ export const ChatsListItem = ({
   return (
     <div
       className={cn(
-        "w-full relative group flex overflow-x-hidden hover:bg-gray-100 dark:hover:bg-gray-800",
+        "w-full relative group flex overflow-x-hidden dark:bg-slate-100 dark:text-slate-700 hover:bg-gray-100 dark:hover:bg-gray-800",
         selected
           ? "bg-gray-100 dark:bg-gray-800 text-primary dark:text-white"
           : ""
@@ -39,7 +39,7 @@ export const ChatsListItem = ({
       data-testid="chats-list-item"
     >
       <Link
-        className="flex flex-col flex-1 min-w-0 p-4"
+        className="flex flex-col flex-1 min-w-0 p-2"
         href={`/chat/${chat.chat_id}`}
         key={chat.chat_id}
       >
@@ -55,7 +55,7 @@ export const ChatsListItem = ({
       <div className="opacity-0 group-hover:opacity-100 flex items-center justify-center bg-gradient-to-l from-white dark:from-black to-transparent z-10 transition-opacity">
         {editable && (
           <button
-            className="p-0 hover:text-blue-700"
+            className="p-0 hover:text-blue-700 dark:text-white dark:hover:text-blue-700"
             type="button"
             onClick={handleEditNameClick}
           >
@@ -63,7 +63,7 @@ export const ChatsListItem = ({
           </button>
         )}
         <button
-          className="p-5 hover:text-red-700"
+          className="p-2 hover:text-red-700 dark:text-white dark:hover:text-red-700"
           type="button"
           onClick={onDelete ?? (() => void deleteChat())}
           data-testid="delete-chat-button"

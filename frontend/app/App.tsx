@@ -5,7 +5,7 @@ import { PropsWithChildren, useEffect } from "react";
 
 import { Menu } from "@/lib/components/Menu/Menu";
 import { useOutsideClickListener } from "@/lib/components/Menu/hooks/useOutsideClickListener";
-import { NotificationBanner } from "@/lib/components/NotificationBanner";
+// import { NotificationBanner } from "@/lib/components/NotificationBanner";
 import { BrainProvider } from "@/lib/context";
 import { useBrainContext } from "@/lib/context/BrainProvider/hooks/useBrainContext";
 import { SideBarProvider } from "@/lib/context/SidebarProvider/sidebar-provider";
@@ -41,7 +41,7 @@ const App = ({ children }: PropsWithChildren): JSX.Element => {
 
   return (
     <div className="flex flex-1 flex-col overflow-auto">
-      <NotificationBanner />
+      {/* <NotificationBanner /> */}
       <div className="relative h-full w-full flex justify-stretch items-stretch overflow-auto">
         <Menu />
         <div onClick={onClickOutside} className="flex-1">
