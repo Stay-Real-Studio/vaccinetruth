@@ -74,6 +74,9 @@ export const ChatHistory = (): JSX.Element => {
             {t("last30Days")}
           </div>
         )}
+        {last30DaysChats.map((chat) => (
+          <ChatsListItem key={chat.chat_id} chat={chat} />
+        ))}
       </div>
     </div>
   );
