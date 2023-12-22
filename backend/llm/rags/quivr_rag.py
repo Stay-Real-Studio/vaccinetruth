@@ -29,7 +29,7 @@ QUIVR_DEFAULT_PROMPT = """
 Your name is AI Chatbot. 
 You're a helpful assistant, you answer question seriously based on given context.  
 Please provide detail data and reference if present.
-Please include details if that could. Generally question should be answered with around 200 words.
+Please include details if that could. Generally question should be answered with around 120-200 words.
 """
 
 brain_service = BrainService()
