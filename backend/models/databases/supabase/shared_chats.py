@@ -19,5 +19,8 @@ class SharedChats(Repository):
         Create a shared chat
         """
 
-        response = (self.db.table("shared_chats").insert(shared_chat.dict())).execute()
+        response = (self.db.table("shared_chats").insert({
+            "chat_id": shared_chat.chat_id,
+        })).execute()
+
         return SharedChat(**response.data[0])
