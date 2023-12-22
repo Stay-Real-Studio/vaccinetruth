@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS shared_chats (
 INSERT INTO
   migrations (name)
 SELECT
-  '20231101100500_add_shared_chats_table'
+  '20231222100500_add_shared_chats_table'
 WHERE
   NOT EXISTS (
     SELECT
@@ -18,7 +18,7 @@ WHERE
     FROM
       migrations
     WHERE
-      name = '20231101100500_add_shared_chats_table'
+      name = '20231222100500_add_shared_chats_table'
   );
 
 COMMIT;
