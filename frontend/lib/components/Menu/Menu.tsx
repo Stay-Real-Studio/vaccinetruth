@@ -35,7 +35,7 @@ export const Menu = (): JSX.Element => {
     pathname.includes(page)
   );
 
-  if (!isMenuDisplayed) {
+  if (!isMenuDisplayed || pathname.startsWith("/shared/chat")) {
     return <></>;
   }
 
