@@ -4,14 +4,14 @@ env:
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 on:
   push:
-    branches: [ "main" ]
+    branches: ['main']
 jobs:
   Deploy-Preview:
     environment: production
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:  
+        with:
           submodules: 'true'
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
@@ -21,14 +21,11 @@ jobs:
         run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
       - name: Deploy Project Artifacts to Vercel
         run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
-  merge-branch:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-
       - name: Merge main -> preview
         uses: devmasx/merge-branch@master
         with:
           type: now
+          from_branch: main
           target_branch: preview
           github_token: ${{ secrets.GITHUB_TOKEN }}
+
