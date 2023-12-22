@@ -23,7 +23,7 @@ export const LanguageSelect = ({
     useLanguageHook();
 
   return (
-    <div className={`${!isSelect ? "mr-4 ml-2" : "py-2 mx-4"}`}>
+    <div className={`${!isSelect ? "mr-2 ml-2" : "py-2 mx-4"}`}>
       {isSelect && (
         <Listbox
           value={currentLanguage}
@@ -114,7 +114,7 @@ export const LanguageSelect = ({
               isChatPage
                 ? "sm:text-black hover:text-primary dark:sm:text-slate-700 dark:hover:text-slate-900"
                 : "sm:text-white hover:text-slate-200 dark:text-white"
-            } text-black   cursor-pointer  text-xs  bg-transparent py-1.5  sm:px-3 text-left   sm:text-sm sm:leading-6`}
+            } text-black   cursor-pointer  text-xs  bg-transparent py-1.5  sm:px-2 text-left   sm:text-sm sm:leading-6`}
           >
             <IoLanguage className="" />
           </button>
