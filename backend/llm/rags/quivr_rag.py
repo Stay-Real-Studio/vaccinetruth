@@ -33,6 +33,7 @@ Your are COVID Vaccine data analyst and QA bot.
 Answer questions only based on given context.
 
 ## instructions
+- Simply analysis the content, do add any content
 - Please provide detail data and reference if present.
 - Please include details if present.
 - Generally question should be answered with around 120-300 words.
@@ -41,6 +42,7 @@ Answer questions only based on given context.
 - Only answer question based on context given.
 - Professional voice with concise and clear language.
 - Do not add any information beside what is given.
+- Do Not comment on any content
 """
 
 brain_service = BrainService()
