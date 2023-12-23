@@ -31,15 +31,15 @@ export const ChatsListItem = ({
   return (
     <div
       className={cn(
-        "w-full relative group flex overflow-x-hidden dark:bg-slate-100 dark:text-slate-700 hover:bg-gray-100 dark:hover:bg-gray-800",
+        "w-full relative group hover:text-slate-900 dark:hover:text-white hover:font-medium flex overflow-x-hidden dark:bg-slate-100 dark:text-slate-700 hover:bg-gray-100 dark:hover:bg-gray-800",
         selected
-          ? "bg-gray-100 dark:bg-gray-800 text-primary dark:text-white"
+          ? "bg-gray-100 dark:bg-gray-800 text-slate-950 dark:text-white font-medium "
           : ""
       )}
       data-testid="chats-list-item"
     >
       <Link
-        className="flex flex-col flex-1 min-w-0 p-2"
+        className="flex flex-col flex-1 min-w-0 p-2 hover:text-slate-900 hover:font-medium"
         href={`/chat/${chat.chat_id}`}
         key={chat.chat_id}
       >

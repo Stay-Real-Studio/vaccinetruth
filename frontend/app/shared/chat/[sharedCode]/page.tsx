@@ -50,7 +50,7 @@ const SharedChatPage = (): JSX.Element => {
     >
       <SharedPageTitle />
       <div
-        className={`flex flex-col flex-1 w-full h-full dark:shadow-primary/25 overflow-hidden `}
+        className={`flex flex-col flex-1 h-full dark:shadow-primary/25 overflow-hidden justify-center`}
       >
         <DisplayChatMessageArea />
       </div>
