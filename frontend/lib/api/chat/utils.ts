@@ -19,7 +19,7 @@ export const getBrowserLang = (): string => {
 };
 
 export const QUESTION_LIST_ZH_CN = [
-  "新冠病毒的起源是哪里?",
+  "新冠病毒的起源是是不是武汉P4实验室?",
   "文贵先生针对新冠病毒疫苗在什么时间点发出过警告?",
   "美国疫苗伤害听证会中, 提到了哪些新冠疫苗伤害?",
   "CDC参与了新冠病毒功能增强实验吗?",
@@ -29,11 +29,11 @@ export const QUESTION_LIST_ZH_CN = [
   "新冠疫苗副作用的相关数据？",
   "青蒿素对治疗新冠病毒感染的作用？",
   "伊维菌素对治疗新冠病毒感染的作用？",
-  "医生推广新冠疫苗中是否可以获利？",
+  "医生在推广新冠疫苗的过程中, 是否可以获利？",
   "新冠疫苗接种后，是否会影响月经周期或强度？",
 ];
 export const QUESTION_LIST_EN = [
-  "Where is the origin of the Covid-19 virus?",
+  "Is the origin of the Covid-19 virus Wuhan P4 virus lab?",
   "What Miles Guo says about Covid-19 virus and COVID-19 vaccine?",
   "What COVID-19 vaccine injuries were discussed in the US Congress hearing?",
   "Is the CDC involved in the new coronavirus function enhancement experiment?",
