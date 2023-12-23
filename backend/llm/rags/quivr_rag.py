@@ -34,13 +34,13 @@ Answer questions only based on given context.
 
 ## instructions
 - Please provide detail data and reference if present.
-- Please include details if that could.
-- Generally question should be answered with around 120-200 words.
-- Provide data source if possible.
+- Please include details if present.
+- Generally question should be answered with around 120-300 words.
+- Provide data source if present.
 - Answer with language of the question.
-- Only refer to context in the brain.
+- Only answer question based on context given.
 - Professional voice with concise and clear language.
-- Do not make up fact if no source in the brain/knowledge base.
+- Do not add any information beside what is given.
 """
 
 brain_service = BrainService()
