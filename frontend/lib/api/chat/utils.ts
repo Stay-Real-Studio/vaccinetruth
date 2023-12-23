@@ -25,12 +25,11 @@ export const QUESTION_LIST_ZH_CN = [
   "CDC参与了新冠病毒功能增强实验吗?",
   "新冠疫苗对长期健康有哪些潜在影响？",
   "目前几种新冠疫苗的副作用有哪些？",
-  "如何辨别哪些是新冠疫苗副作用？",
   "新冠疫苗副作用有哪些权威机构提供的证明？",
   "新冠疫苗副作用的相关数据？",
-  "伊维菌素对治疗新冠病毒感染的作用？",
   "青蒿素对治疗新冠病毒感染的作用？",
-  "医生推广新冠疫苗可以获得多少钱？",
+  "伊维菌素对治疗新冠病毒感染的作用？",
+  "医生推广新冠疫苗中是否可以获利？",
   "新冠疫苗接种后，是否会影响月经周期或强度？",
 ];
 export const QUESTION_LIST_EN = [
@@ -40,7 +39,6 @@ export const QUESTION_LIST_EN = [
   "Is the CDC involved in the new coronavirus function enhancement experiment?",
   "What are the potential long-term health effects of the COVID-19 vaccine?",
   "What are the side effects of the current COVID-19 vaccines?",
-  "How to identify COVID-19 vaccine side effects?",
   "What authoritative organizations provide proof of COVID-19 vaccine side effects?",
   "Relevant data on the side effects of the new coronavirus vaccine?",
   "What is the role of ivermectin in treating COVID-19?",
