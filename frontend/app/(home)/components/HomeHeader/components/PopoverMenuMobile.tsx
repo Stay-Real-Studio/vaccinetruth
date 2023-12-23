@@ -68,7 +68,7 @@ export const PopoverMenuMobile = ({
             <nav>
               <ul className="flex flex-col bg-[#F5F8FF] rounded-xl p-2 dark:bg-black">
                 <li>
-                  <ThemeSelectVT />
+                  <ThemeSelectVT isChatPage={false} />
                 </li>
                 <li>
                   <LanguageSelect isSelect={false} />
