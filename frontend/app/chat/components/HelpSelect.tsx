@@ -2,21 +2,19 @@
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Listbox, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { useRouter } from "next/navigation";
+import { Fragment, useEffect, useState } from "react";
 import { CiShare1 } from "react-icons/ci";
 import { IoIosHelpCircleOutline } from "react-icons/io";
 
 import { cn } from "@/lib/utils";
+import { useSecurity } from "@/services/useSecurity/useSecurity";
 
 const HelpOptions = [
   {
     label: "Disclaimer",
     icon: <CiShare1 />,
   },
-  // {
-  //   label: "FAQ",
-  //   icon: <CiShare1 />,
-  // },
 ];
 
 export const HelpSelect = ({
@@ -26,8 +24,23 @@ export const HelpSelect = ({
   handleVisibleDisclaimer: () => void;
   className?: string;
 }): JSX.Element => {
+  const { isStudioMember } = useSecurity();
   const [currentOption, setCurrentOption] = useState<string>("");
-  // const { handleVisibleDisclaimer } = useDiclaimer();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (isStudioMember) {
+      if (
+        HelpOptions.findIndex((item) => item.label === "BrainsManagement") ===
+        -1
+      ) {
+        HelpOptions.push({
+          label: "BrainsManagement",
+          icon: <CiShare1 />,
+        });
+      }
+    }
+  }, [isStudioMember]);
 
   return (
     <div className={cn(className, "")}>
@@ -36,8 +49,11 @@ export const HelpSelect = ({
         onChange={(e) => {
           console.log(e, "e==");
           setCurrentOption(e);
-
-          handleVisibleDisclaimer();
+          if (e === "Disclaimer") {
+            handleVisibleDisclaimer();
+          } else {
+            router.push("/brains-management");
+          }
         }}
       >
         {({ open }) => (
