@@ -117,10 +117,8 @@ export const useMentionConfig = ({
       class: `dark:bg-gray-600 text-black p-1 bg-gray-200  dark:text-white rounded-md`,
     },
     suggestion: suggestionsConfig,
-    renderLabel: ({ options, node }) => {
-      return isStudioMember
-        ? `${options.suggestion.char ?? ""}${node.attrs.label as string}`
-        : t("kbVersion");
+    renderLabel: () => {
+      return  t("kbVersion");
     },
   });
 
