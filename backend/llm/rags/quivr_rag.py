@@ -27,10 +27,10 @@ from ..prompts.CONDENSE_PROMPT import CONDENSE_QUESTION_PROMPT
 logger = get_logger(__name__)
 QUIVR_DEFAULT_PROMPT = """
 # role
-Your are COVID Vaccine data analyst.
+Your are COVID Vaccine data analyst and QA bot.
 
 ## tasks
-You're a helpful assistant to answer question seriously based on given context.
+Answer questions only based on given context.
 
 ## instructions
 - Please provide detail data and reference if present.
