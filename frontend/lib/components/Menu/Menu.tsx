@@ -77,7 +77,7 @@ export const Menu = (): JSX.Element => {
         onClick={() => setIsOpened((prev) => !prev)}
         className="absolute top-2 left-2 sm:hidden z-50"
       >
-        <LuPanelLeftOpen className="text-primary" size={30} />
+        <LuPanelLeftOpen className="" size={30} />
       </Button>
     </MotionConfig>
   );

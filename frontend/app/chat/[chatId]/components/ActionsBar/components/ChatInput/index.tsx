@@ -38,7 +38,7 @@ export const ChatInput = (): JSX.Element => {
 
           <div className="flex flex-row items-center gap-4">
             <Button
-              className="px-3 py-2 sm:px-4 sm:py-2 bg-primary border-0"
+              className="px-3 py-2 sm:px-4 sm:py-2 bg-black border-0"
               type="submit"
               isLoading={generatingAnswer}
               data-testid="submit-button"
