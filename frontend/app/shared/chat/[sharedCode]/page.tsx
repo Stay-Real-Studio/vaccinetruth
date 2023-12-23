@@ -24,11 +24,11 @@ export const generateMetadata = async (
 
   return {
     title: `vaccinetruth.ai`,
-    description: `${
+    description: `Q: ${
       chatMessageItem.length > 0
         ? chatMessageItem[0].body.user_message
         : "vaccinetruth.ai"
-    }`,
+    } \n A: ${chatMessageItem[0].body.assistant}`,
     openGraph: {
       images: [
         {
