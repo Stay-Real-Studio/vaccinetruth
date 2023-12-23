@@ -8,6 +8,7 @@
   "disclaimerContent": "Current knowledgebase includes limited public information from our most reliable sources, such as <0>Miles Guo</0>, <1>NFSC</1>, Doctors in special hearing on Covid-19 vaccine injuries, and facts and data referenced by other vaccine truth sources.. AI answers questions based on information/data from these sources. So we cannot be responsilbe for the final generated content. We are working on knowledgebase visualization, so soon knowledgebase content will/can be audited publicly.",
   "emptyChatSubTitle": "don't forget to share if you like the answer.",
   "emptyChatTitle": "Start chatting",
+  "kbVersion": "vaccinetruth Knowledge Base v0.2.0",
   "newChatButton": "New Chat",
   "onboarding": {
     "answer": {

@@ -4,6 +4,7 @@ import { PluginKey } from "@tiptap/pm/state";
 import { ReactRenderer } from "@tiptap/react";
 import { SuggestionOptions } from "@tiptap/suggestion";
 import { RefAttributes, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import tippy, { Instance } from "tippy.js";
 
 import { useSecurity } from "@/services/useSecurity/useSecurity";
@@ -26,6 +27,7 @@ export const useMentionConfig = ({
   suggestionData,
 }: UseMentionConfigProps) => {
   const { isStudioMember } = useSecurity();
+  const { t } = useTranslation(["vaccineTruth"]);
 
   const mentionKey = `mention${char}`;
   const items = suggestionData.items;
@@ -118,7 +120,7 @@ export const useMentionConfig = ({
     renderLabel: ({ options, node }) => {
       return isStudioMember
         ? `${options.suggestion.char ?? ""}${node.attrs.label as string}`
-        : "V1.0.0";
+        : t("kbVersion");
     },
   });
 
