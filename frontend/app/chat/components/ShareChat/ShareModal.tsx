@@ -24,7 +24,7 @@ export const ShareModal = (): JSX.Element => {
   return (
     <Modal
       Trigger={
-        <Button>
+        <Button className="px-4">
           <FiShare />
         </Button>
       }

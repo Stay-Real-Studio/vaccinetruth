@@ -1,10 +1,11 @@
 import { useTranslation } from "react-i18next";
-import { MdAdd } from "react-icons/md";
+import { LuPlusCircle } from "react-icons/lu";
 
 import Button from "@/lib/components/ui/Button";
 import { Modal } from "@/lib/components/ui/Modal";
 import { cn } from "@/lib/utils";
 
+import { BrainKnowledgeStep } from "./components/BrainKnowledgeStep/BrainKnowledgeStep";
 import { BrainParamsStep } from "./components/BrainParamsStep/BrainParamsStep";
 import { BrainTypeSelectionStep } from "./components/BrainTypeSelectionStep/BrainTypeSelectionStep";
 import { Stepper } from "./components/Stepper/Stepper";
@@ -31,8 +32,8 @@ export const AddBrainSteps = ({
           className={cn("border-0", triggerClassName)}
           data-testid="add-brain-button"
         >
+          <LuPlusCircle className="text-xl" />
           {t("newBrain", { ns: "brain" })}
-          <MdAdd className="text-xl" />
         </Button>
       }
       title={t("newBrainTitle", { ns: "brain" })}
@@ -52,6 +53,9 @@ export const AddBrainSteps = ({
           onCancelBrainCreation={() => setIsBrainCreationModalOpened(false)}
         />
         <BrainParamsStep
+          onCancelBrainCreation={() => setIsBrainCreationModalOpened(false)}
+        />
+        <BrainKnowledgeStep
           onCancelBrainCreation={() => setIsBrainCreationModalOpened(false)}
         />
       </form>

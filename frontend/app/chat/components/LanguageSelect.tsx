@@ -9,7 +9,7 @@ import { IoLanguage } from "react-icons/io5";
 import {
   languages,
   useLanguageHook,
-} from "@/app/user/components/LanguageDropDown/hooks/useLanguageHook";
+} from "@/app/user/components/LanguageSelect/hooks/useLanguageHook";
 import { cn } from "@/lib/utils";
 
 export const LanguageSelect = ({
@@ -112,7 +112,7 @@ export const LanguageSelect = ({
             className={`${
               // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
               isChatPage
-                ? "sm:text-black hover:text-primary dark:sm:text-white dark:hover:text-slate-200"
+                ? "sm:text-black hover:text-primary dark:sm:text-slate-700 dark:hover:text-slate-900"
                 : "sm:text-white hover:text-slate-200 dark:text-white"
             } text-black   cursor-pointer  text-xs  bg-transparent py-1.5  sm:px-3 text-left   sm:text-sm sm:leading-6`}
           >

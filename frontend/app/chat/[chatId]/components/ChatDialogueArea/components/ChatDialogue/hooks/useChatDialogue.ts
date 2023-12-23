@@ -1,6 +1,6 @@
 "use client";
 import _debounce from "lodash/debounce";
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { useChat } from "@/app/chat/[chatId]/hooks/useChat";
 import { useKnowledgeToFeedContext } from "@/lib/context/KnowledgeToFeedProvider/hooks/useKnowledgeToFeedContext";
@@ -13,7 +13,7 @@ export const useChatDialogue = () => {
   const chatListRef = useRef<HTMLDivElement | null>(null);
   const { messages } = useChat();
   const { shouldDisplayFeedCard } = useKnowledgeToFeedContext();
-  // const [visibleScrollBottonIcon, setVisibleScrollBottonIcon] = useState(false);
+  const [visibleScrollBottonIcon, setVisibleScrollBottonIcon] = useState(false);
 
   const scrollToBottom = useCallback(
     _debounce(() => {
@@ -39,32 +39,32 @@ export const useChatDialogue = () => {
 
     computeCardHeight();
 
-    // const handleScroll = () => {
-    //   const containerHeight =
-    //     chatListRef.current!.getBoundingClientRect().bottom -
-    //     chatListRef.current!.getBoundingClientRect().top;
+    const handleScroll = () => {
+      const containerHeight =
+        chatListRef.current!.getBoundingClientRect().bottom -
+        chatListRef.current!.getBoundingClientRect().top;
 
-    //   if (
-    //     chatListRef.current!.scrollTop <
-    //     chatListRef.current!.scrollHeight - containerHeight
-    //   ) {
-    //     setVisibleScrollBottonIcon(true);
-    //   } else {
-    //     setVisibleScrollBottonIcon(false);
-    //   }
-    // };
+      if (
+        chatListRef.current!.scrollTop <
+        chatListRef.current!.scrollHeight - containerHeight
+      ) {
+        setVisibleScrollBottonIcon(true);
+      } else {
+        setVisibleScrollBottonIcon(false);
+      }
+    };
     window.addEventListener("resize", computeCardHeight);
-    // chatListRef.current?.addEventListener(
-    //   "scroll",
-    //   _debounce(handleScroll, 100)
-    // );
+    chatListRef.current?.addEventListener(
+      "scroll",
+      _debounce(handleScroll, 100)
+    );
 
     return () => {
       window.removeEventListener("resize", computeCardHeight);
-      // chatListRef.current?.removeEventListener(
-      //   "scroll",
-      //   _debounce(handleScroll, 100)
-      // );
+      chatListRef.current?.removeEventListener(
+        "scroll",
+        _debounce(handleScroll, 100)
+      );
     };
   }, []);
 
@@ -74,7 +74,7 @@ export const useChatDialogue = () => {
 
   return {
     chatListRef,
-    // scrollToBottom,
-    // visibleScrollBottonIcon,
+    scrollToBottom,
+    visibleScrollBottonIcon,
   };
 };

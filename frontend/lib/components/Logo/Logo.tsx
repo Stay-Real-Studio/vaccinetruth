@@ -19,7 +19,9 @@ export const Logo = (): JSX.Element => {
         width={32}
         height={32}
       />
-      <h1 className="text-sm">{t("vaccineTruthAi")}</h1>
+      <h1 className="text-sm dark:text-slate-700 dark:hover:text-slate-900">
+        {t("vaccineTruthAi")}
+      </h1>
     </Link>
   );
 };

@@ -1,9 +1,12 @@
+/* eslint-disable max-lines */
 import { default as TiptapMention } from "@tiptap/extension-mention";
 import { PluginKey } from "@tiptap/pm/state";
 import { ReactRenderer } from "@tiptap/react";
 import { SuggestionOptions } from "@tiptap/suggestion";
 import { RefAttributes, useMemo } from "react";
 import tippy, { Instance } from "tippy.js";
+
+import { useSecurity } from "@/services/useSecurity/useSecurity";
 
 import {
   MentionList,
@@ -17,13 +20,13 @@ type UseMentionConfigProps = {
   suggestionData: SuggestionData;
 };
 
-const MAX_ITEMS_DISPLAYED = 15;
-
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const useMentionConfig = ({
   char,
   suggestionData,
 }: UseMentionConfigProps) => {
+  const { isStudioMember } = useSecurity();
+
   const mentionKey = `mention${char}`;
   const items = suggestionData.items;
 
@@ -35,11 +38,9 @@ export const useMentionConfig = ({
       allowSpaces: true,
       pluginKey: new PluginKey(mentionKey),
       items: ({ query }) =>
-        items
-          .filter((item) =>
-            item.label.toLowerCase().startsWith(query.toLowerCase())
-          )
-          .slice(0, MAX_ITEMS_DISPLAYED),
+        items.filter((item) =>
+          item.label.toLowerCase().startsWith(query.toLowerCase())
+        ),
       render: () => {
         let reactRenderer:
           | ReactRenderer<
@@ -51,7 +52,7 @@ export const useMentionConfig = ({
 
         return {
           onStart: (props) => {
-            if (!props.clientRect) {
+            if (!props.clientRect || !isStudioMember) {
               return;
             }
             reactRenderer = new ReactRenderer(MentionList, {
@@ -110,11 +111,14 @@ export const useMentionConfig = ({
     name: mentionKey,
   }).configure({
     HTMLAttributes: {
-      class: "mention",
+      class: `mention dark:text-black`,
     },
     suggestion: suggestionsConfig,
-    renderLabel: ({ options, node }) =>
-      `${options.suggestion.char ?? ""}${node.attrs.label as string}`,
+    renderLabel: ({ options, node }) => {
+      return isStudioMember
+        ? `${options.suggestion.char ?? ""}${node.attrs.label as string}`
+        : "V1.0.0";
+    },
   });
 
   return {
