@@ -1,3 +1,4 @@
+import { HelpOption } from "@/lib/types/VaccineTruth";
 export const getBrowserLang = (): string => {
   if (typeof window === "undefined") {
     return "en";
@@ -85,4 +86,22 @@ export const updateQuestion = (
   }
 
   return filterExistedQuestions;
+};
+
+export const getHelpOptions = (isStudioMember: boolean): HelpOption[] => {
+  const HelpOptions = [
+    {
+      label: "Disclaimer",
+      needAuth: false,
+    },
+    {
+      label: "BrainsManagement",
+      needAuth: true,
+    },
+  ];
+  if (isStudioMember) {
+    return HelpOptions;
+  } else {
+    return HelpOptions.filter((item) => !item.needAuth);
+  }
 };
