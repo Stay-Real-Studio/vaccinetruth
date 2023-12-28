@@ -75,3 +75,6 @@ volumes/storage/stub/stub/quivr/*
 
 .secrets
 .env.*
+
+.trunk/**
+
