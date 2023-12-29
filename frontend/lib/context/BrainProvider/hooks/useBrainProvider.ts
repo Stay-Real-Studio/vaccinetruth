@@ -30,7 +30,7 @@ export const useBrainProvider = () => {
   const [currentPromptId, setCurrentPromptId] = useState<null | string>(null);
 
   const currentPrompt = publicPrompts.find(
-    (prompt) => prompt.id === currentPromptId
+    (prompt) => prompt.id === currentPromptId,
   );
   const currentBrain = allBrains.find((brain) => brain.id === currentBrainId);
   const { brain: currentBrainDetails } = useBrainFetcher({
@@ -69,14 +69,14 @@ export const useBrainProvider = () => {
         });
       }
     },
-    [createBrain, fetchAllBrains, publish, track]
+    [createBrain, fetchAllBrains, publish, track],
   );
 
   const deleteBrainHandler = useCallback(
     async (id: UUID) => {
       await deleteBrain(id);
       setAllBrains((prevBrains) =>
-        prevBrains.filter((brain) => brain.id !== id)
+        prevBrains.filter((brain) => brain.id !== id),
       );
       void track("DELETE_BRAIN");
       publish({
@@ -84,16 +84,30 @@ export const useBrainProvider = () => {
         text: t("successfully_deleted"),
       });
     },
-    [deleteBrain, publish, track]
+    [deleteBrain, publish, track],
   );
 
+  /**
+   * Fetches the default brain either from the environment variable or from the user's default brain.
+   * If a brain ID is found, it sets the default brain ID and if the current brain ID is null, it also sets the current brain ID.
+   * This function is memoized using `useCallback` to prevent unnecessary re-renders.
+   *
+   * @async
+   * @function
+   * @returns {Promise<void>}
+   */
   const fetchDefaultBrain = useCallback(async () => {
     const userDefaultBrain = await getDefaultBrain();
-    if (userDefaultBrain !== undefined) {
-      setDefaultBrainId(userDefaultBrain.id);
+    const envDefaultBrainId = process.env.NEXT_PUBLIC_DEFAULT_BRAIN_ID as
+      | UUID
+      | undefined;
+    const brainId = envDefaultBrainId ?? userDefaultBrain?.id;
+
+    if (brainId !== undefined) {
+      setDefaultBrainId(brainId);
     }
-    if (currentBrainId === null && userDefaultBrain !== undefined) {
-      setCurrentBrainId(userDefaultBrain.id);
+    if (currentBrainId === null && brainId !== undefined) {
+      setCurrentBrainId(brainId as UUID | null);
     }
   }, [currentBrainId, getDefaultBrain]);
 

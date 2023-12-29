@@ -1,4 +1,3 @@
-import os
 from typing import List, Optional
 from uuid import UUID
 from venv import logger
@@ -7,6 +6,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from fastapi.responses import StreamingResponse
 from middlewares.auth import AuthBearer, get_current_user
 from models.user_usage import UserUsage
+
 from modules.brain.service.brain_service import BrainService
 from modules.chat.controller.chat.factory import get_chat_strategy
 from modules.chat.controller.chat.utils import NullableUUID, check_user_requests_limit
@@ -114,9 +114,9 @@ async def create_question_handler(
     request: Request,
     chat_question: ChatQuestion,
     chat_id: UUID,
-    brain_id: NullableUUID
-    | UUID
-    | None = Query(..., description="The ID of the brain"),
+    brain_id: NullableUUID | UUID | None = Query(
+        ..., description="The ID of the brain"
+    ),
     current_user: UserIdentity = Depends(get_current_user),
 ):
     """
@@ -136,7 +136,9 @@ async def create_question_handler(
         email=current_user.email,
     )
     user_settings = user_daily_usage.get_user_settings()
-    is_model_ok = (chat_question).model in user_settings.get("models", ["gpt-3.5-turbo"])  # type: ignore
+    is_model_ok = (chat_question).model in user_settings.get(
+        "models", ["gpt-3.5-turbo"]
+    )  # type: ignore
 
     # Retrieve chat model (temperature, max_tokens, model)
     if (
@@ -157,7 +159,9 @@ async def create_question_handler(
 
     try:
         check_user_requests_limit(current_user)
-        is_model_ok = (chat_question).model in user_settings.get("models", ["gpt-3.5-turbo"])  # type: ignore
+        is_model_ok = (chat_question).model in user_settings.get(
+            "models", ["gpt-3.5-turbo"]
+        )  # type: ignore
         gpt_answer_generator = chat_instance.get_answer_generator(
             chat_id=str(chat_id),
             model=chat_question.model if is_model_ok else "gpt-3.5-turbo",  # type: ignore
@@ -192,9 +196,11 @@ async def create_stream_question_handler(
     request: Request,
     chat_question: ChatQuestion,
     chat_id: UUID,
+    brain_id: NullableUUID | UUID | None = Query(
+        ..., description="The ID of the brain"
+    ),
     current_user: UserIdentity = Depends(get_current_user),
 ) -> StreamingResponse:
-    brain_id: UUID = UUID(os.getenv("VT_BRAIN_ID"))
     chat_question.brain_id = brain_id
     chat_instance = get_chat_strategy(brain_id)
     chat_instance.validate_authorization(user_id=current_user.id, brain_id=brain_id)
