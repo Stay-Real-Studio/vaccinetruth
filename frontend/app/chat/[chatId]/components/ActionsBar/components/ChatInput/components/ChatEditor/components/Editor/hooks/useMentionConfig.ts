@@ -1,9 +1,13 @@
+/* eslint-disable max-lines */
 import { default as TiptapMention } from "@tiptap/extension-mention";
 import { PluginKey } from "@tiptap/pm/state";
 import { ReactRenderer } from "@tiptap/react";
 import { SuggestionOptions } from "@tiptap/suggestion";
 import { RefAttributes, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import tippy, { Instance } from "tippy.js";
+
+import { useSecurity } from "@/services/useSecurity/useSecurity";
 
 import {
   MentionList,
@@ -22,6 +26,9 @@ export const useMentionConfig = ({
   char,
   suggestionData,
 }: UseMentionConfigProps) => {
+  const { isStudioMember } = useSecurity();
+  const { t } = useTranslation(["vaccineTruth"]);
+
   const mentionKey = `mention${char}`;
   const items = suggestionData.items;
 
@@ -47,7 +54,8 @@ export const useMentionConfig = ({
 
         return {
           onStart: (props) => {
-            if (!props.clientRect) {
+            console.log(isStudioMember, "isStudioMember");
+            if (!props.clientRect || !isStudioMember) {
               return;
             }
             reactRenderer = new ReactRenderer(MentionList, {
@@ -106,11 +114,12 @@ export const useMentionConfig = ({
     name: mentionKey,
   }).configure({
     HTMLAttributes: {
-      class: "mention",
+      class: `dark:bg-gray-600 text-black p-1 bg-gray-200  dark:text-white rounded-md`,
     },
     suggestion: suggestionsConfig,
-    renderLabel: ({ options, node }) =>
-      `${options.suggestion.char ?? ""}${node.attrs.label as string}`,
+    renderLabel: () => {
+      return t("kbVersion", { version: "v0.2" });
+    },
   });
 
   return {

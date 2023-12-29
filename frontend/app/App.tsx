@@ -7,14 +7,15 @@ import { PropsWithChildren, useEffect } from "react";
 
 import { Menu } from "@/lib/components/Menu/Menu";
 import { useOutsideClickListener } from "@/lib/components/Menu/hooks/useOutsideClickListener";
-import { NotificationBanner } from "@/lib/components/NotificationBanner";
+// import { NotificationBanner } from "@/lib/components/NotificationBanner";
 import { BrainProvider } from "@/lib/context";
 import { useBrainContext } from "@/lib/context/BrainProvider/hooks/useBrainContext";
 import { SideBarProvider } from "@/lib/context/SidebarProvider/sidebar-provider";
 import { useSupabase } from "@/lib/context/SupabaseProvider";
 import { UpdateMetadata } from "@/lib/helpers/updateMetadata";
+import { redirectToChat } from "@/lib/router/redirectToChat";
 import { usePageTracking } from "@/services/analytics/june/usePageTracking";
-
+import { useSecurity } from "@/services/useSecurity/useSecurity";
 import "../lib/config/LocaleConfig/i18n";
 
 if (process.env.NEXT_PUBLIC_POSTHOG_KEY != null && process.env.NEXT_PUBLIC_POSTHOG_HOST != null) {
@@ -30,6 +31,12 @@ if (process.env.NEXT_PUBLIC_POSTHOG_KEY != null && process.env.NEXT_PUBLIC_POSTH
 
 // This wrapper is used to make effect calls at a high level in app rendering.
 const App = ({ children }: PropsWithChildren): JSX.Element => {
+  const { isStudioMember, isRouteAccessible } = useSecurity();
+
+  if (!isStudioMember && !isRouteAccessible) {
+    redirectToChat();
+  }
+
   const { fetchAllBrains, fetchDefaultBrain, fetchPublicPrompts } =
     useBrainContext();
   const { onClickOutside } = useOutsideClickListener();
@@ -48,11 +55,11 @@ const App = ({ children }: PropsWithChildren): JSX.Element => {
   return (
     <PostHogProvider client={posthog}>
       <div className="flex flex-1 flex-col overflow-auto">
-        <NotificationBanner />
-        <div className="relative h-full w-full flex justify-stretch items-stretch overflow-auto">
-          <Menu />
-          <div onClick={onClickOutside} className="flex-1">
-            {children}
+      {/* <NotificationBanner /> */}
+      <div className="relative h-full w-full flex justify-stretch items-stretch overflow-auto">
+        <Menu />
+        <div onClick={onClickOutside} className="flex-1">
+          {children}
           </div>
           <UpdateMetadata />
         </div>

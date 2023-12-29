@@ -1,10 +1,9 @@
 "use client";
 import { useTranslation } from "react-i18next";
 
+import { QuestionList } from "@/app/chat/components/QuestionList";
 import Button from "@/lib/components/ui/Button";
 
-import { OnboardingQuestions } from "./components";
-import { ActionsModal } from "./components/ActionsModal/ActionsModal";
 import { ChatEditor } from "./components/ChatEditor/ChatEditor";
 import { MenuControlButton } from "./components/MenuControlButton";
 import { useChatInput } from "./hooks/useChatInput";
@@ -17,7 +16,7 @@ export const ChatInput = (): JSX.Element => {
 
   return (
     <>
-      <OnboardingQuestions />
+      <QuestionList />
       <div className="flex mt-1 flex-col w-full shadow-md dark:shadow-primary/25 hover:shadow-xl transition-shadow rounded-xl bg-white dark:bg-black border border-black/10 dark:border-white/25 p-2">
         <form
           data-testid="chat-input-form"
@@ -39,7 +38,7 @@ export const ChatInput = (): JSX.Element => {
 
           <div className="flex flex-row items-center gap-4">
             <Button
-              className="px-3 py-2 sm:px-4 sm:py-2 bg-primary border-0"
+              className="px-3 py-2 sm:px-4 sm:py-2 bg-black border-0"
               type="submit"
               isLoading={generatingAnswer}
               data-testid="submit-button"
@@ -48,7 +47,7 @@ export const ChatInput = (): JSX.Element => {
                 ? t("thinking", { ns: "chat" })
                 : t("chat", { ns: "chat" })}
             </Button>
-            <ActionsModal />
+            {/* <ActionsModal /> */}
           </div>
         </form>
       </div>

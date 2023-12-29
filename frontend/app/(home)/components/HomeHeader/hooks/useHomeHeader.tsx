@@ -15,20 +15,23 @@ type UseHomeHeaderProps = {
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const useHomeHeader = ({ color }: UseHomeHeaderProps) => {
-  const { t } = useTranslation("home");
+  const { t } = useTranslation(["home", "vaccineTruth"]);
   const { onLinkClick } = useHomepageTracking();
 
   const navItems: NavbarItem[] = [
     {
-      href: "https://github.com/StanGirard/quivr",
+      href: "https://www.stayreal.studio/",
+      label: t("buildByStayRealStudio", { ns: "vaccineTruth" }),
+      rightIcon: null,
+    },
+    {
+      href: "https://github.com/Stay-Real-Studio/vaccinetruth.ai",
       label: t("star_us"),
       leftIcon: <AiFillStar size={16} className="hidden md:inline" />,
       rightIcon: null,
     },
-    { href: "/pricing", label: t("pricing"), rightIcon: null },
-    { href: "https://docs.quivr.app", label: t("docs"), rightIcon: null, newTab: true },
-    { href: "/blog", label: t("blog"), rightIcon: null, newTab: true },
-    { href: "/login", label: t("sign_in") },
+    { href: "/login", label: t("sign_up", { ns: "home" }) },
+    { href: "/login", label: t("sign_in", { ns: "home" }) },
   ];
 
   const navLinks = (device: "mobile" | "desktop") =>

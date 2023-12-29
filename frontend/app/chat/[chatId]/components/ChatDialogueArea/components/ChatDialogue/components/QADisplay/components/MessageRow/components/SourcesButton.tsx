@@ -38,7 +38,7 @@ export const SourcesButton = ({ sources }: SourcesButtonProps): JSX.Element => {
   const sourcesList = (
     <ul className="list-disc list-inside">
       {sources.split(", ").map((source, index) => (
-        <li key={index} className="truncate">
+        <li key={index} className="truncate dark:text-white">
           {source.trim()}
         </li>
       ))}
@@ -55,7 +55,7 @@ export const SourcesButton = ({ sources }: SourcesButtonProps): JSX.Element => {
           void track("SOURCE_CHECKED");
         }}
         onMouseLeave={() => setShowSources(false)}
-        className="text-gray-500 hover:text-gray-700 transition p-1"
+        className="text-slate-700 hover:text-slate-900 transition p-1 dark:text-white"
         title="View sources"
       >
         <FaQuestionCircle />
@@ -63,7 +63,7 @@ export const SourcesButton = ({ sources }: SourcesButtonProps): JSX.Element => {
       {showSources &&
         ReactDOM.createPortal(
           <div
-            className="absolute z-50 min-w-max p-2 bg-white shadow-lg rounded-md border border-gray-200"
+            className="absolute z-50 min-w-max p-2 bg-white dark:bg-gray-600 dark:text-white shadow-lg rounded-md border border-gray-200"
             style={{
               top: `${popupPosition.top}px`,
               left: `${popupPosition.left}px`,

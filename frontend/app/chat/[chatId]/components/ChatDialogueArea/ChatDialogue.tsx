@@ -1,8 +1,8 @@
 import { useChatContext } from "@/lib/context";
-import { useOnboarding } from "@/lib/hooks/useOnboarding";
 
+// eslint-disable-next-line import/order
+import { ChatGuide } from "../ChatGuide";
 import { ChatDialogue } from "./components/ChatDialogue";
-import { ShortCuts } from "./components/ShortCuts";
 import { getMergedChatMessagesWithDoneStatusNotificationsReduced } from "./utils/getMergedChatMessagesWithDoneStatusNotificationsReduced";
 
 export const ChatDialogueArea = (): JSX.Element => {
@@ -12,13 +12,17 @@ export const ChatDialogueArea = (): JSX.Element => {
     messages,
     notifications
   );
-  const { isOnboarding } = useOnboarding();
 
-  const shouldDisplayShortcuts = chatItems.length === 0 && !isOnboarding;
+  // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+  const shouldDisplayShortcuts = chatItems.length === 0;
 
   if (!shouldDisplayShortcuts) {
-    return <ChatDialogue chatItems={chatItems} />;
+    return (
+      <div className="flex flex-col flex-1 overflow-y-auto mb-2 scrollbar">
+        <ChatDialogue chatItems={chatItems} />
+      </div>
+    );
   }
 
-  return <ShortCuts />;
+  return <ChatGuide />;
 };

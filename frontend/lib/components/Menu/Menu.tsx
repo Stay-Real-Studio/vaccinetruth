@@ -2,9 +2,12 @@ import { MotionConfig } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { LuPanelLeftOpen } from "react-icons/lu";
 
+import { ChatHistory } from "@/lib/components/ChatHistory/ChatHistoryVT";
 import { nonProtectedPaths } from "@/lib/config/routesConfig";
 import { useSideBarContext } from "@/lib/context/SidebarProvider/hooks/useSideBarContext";
 
+// eslint-disable-next-line import/order
+import Button from "../ui/Button";
 import { AnimatedDiv } from "./components/AnimationDiv";
 import { BrainsManagementButton } from "./components/BrainsManagementButton";
 import { DiscussionButton } from "./components/DiscussionButton";
@@ -14,7 +17,6 @@ import { ParametersButton } from "./components/ParametersButton";
 import { ProfileButton } from "./components/ProfileButton";
 import { UpgradeToPlus } from "./components/UpgradeToPlus";
 import { useMenuWidth } from "./hooks/useMenuWidth";
-import Button from "../ui/Button";
 
 export const Menu = (): JSX.Element => {
   const pathname = usePathname() ?? "";
@@ -33,7 +35,7 @@ export const Menu = (): JSX.Element => {
     pathname.includes(page)
   );
 
-  if (!isMenuDisplayed) {
+  if (!isMenuDisplayed || pathname.startsWith("/shared/chat")) {
     return <></>;
   }
 
@@ -48,7 +50,14 @@ export const Menu = (): JSX.Element => {
         <AnimatedDiv>
           <div className="flex flex-col flex-1 p-4 gap-4 h-full">
             <MenuHeader />
-            <div className="flex flex-1 w-full">
+            <div
+              className="flex flex-col flex-1 overflow-hidden"
+              data-testid="chats-list"
+            >
+              <ChatHistory />
+            </div>
+
+            <div className="hidden flex flex-1 w-full">
               <div className="w-full gap-2 flex flex-col">
                 <DiscussionButton />
                 <ExplorerButton />
@@ -68,7 +77,7 @@ export const Menu = (): JSX.Element => {
         onClick={() => setIsOpened((prev) => !prev)}
         className="absolute top-2 left-2 sm:hidden z-50"
       >
-        <LuPanelLeftOpen className="text-primary" size={30} />
+        <LuPanelLeftOpen className="" size={30} />
       </Button>
     </MotionConfig>
   );

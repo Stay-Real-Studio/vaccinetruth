@@ -1,16 +1,18 @@
-import { useTranslation } from "react-i18next";
+// import { BsArrowDown } from "react-icons/bs";
 
-import { useOnboarding } from "@/lib/hooks/useOnboarding";
+// eslint-disable-next-line import/order
+import { ShareModal } from "@/app/chat/components/ShareChat/ShareModal";
+import { BsArrowDown } from "react-icons/bs";
 
+// eslint-disable-next-line import/order
+import { ChatItemWithGroupedNotifications } from "../../types";
 import { ChatItem } from "./components";
-import { Onboarding } from "./components/Onboarding/Onboarding";
 import { useChatDialogue } from "./hooks/useChatDialogue";
 import {
   chatDialogueContainerClassName,
   chatItemContainerClassName,
 } from "./styles";
 import { getKeyFromChatItem } from "./utils/getKeyFromChatItem";
-import { ChatItemWithGroupedNotifications } from "../../types";
 
 type MessagesDialogueProps = {
   chatItems: ChatItemWithGroupedNotifications[];
@@ -19,39 +21,37 @@ type MessagesDialogueProps = {
 export const ChatDialogue = ({
   chatItems,
 }: MessagesDialogueProps): JSX.Element => {
-  const { t } = useTranslation(["chat"]);
-  const { chatListRef } = useChatDialogue();
-
-  const { shouldDisplayOnboardingAInstructions } = useOnboarding();
-
-  if (shouldDisplayOnboardingAInstructions) {
-    return (
-      <div className={chatDialogueContainerClassName} ref={chatListRef}>
-        <Onboarding />
-        <div className={chatItemContainerClassName}>
-          {chatItems.map((chatItem) => (
-            <ChatItem key={getKeyFromChatItem(chatItem)} content={chatItem} />
-          ))}
-        </div>
-      </div>
-    );
-  }
+  const { chatListRef, scrollToBottom, visibleScrollBottonIcon } =
+    useChatDialogue();
 
   return (
     <div className={chatDialogueContainerClassName} ref={chatListRef}>
-      {chatItems.length === 0 ? (
-        <div
-          data-testid="empty-history-message"
-          className="text-center opacity-50"
+      {chatItems.length > 0 && (
+        <div>
+          <div className="sm:hidden fixed top-0 left-0 w-full">
+            <div className="bg-white dark:bg-slate-300 w-full flex justify-end p-2">
+              <ShareModal />
+            </div>
+          </div>
+          <div className="hidden sm:inline-block sm:fixed sm:z-10 sm:right-4 sm:top-4 ">
+            <ShareModal />
+          </div>
+
+          <div className={chatItemContainerClassName}>
+            {chatItems.map((chatItem) => (
+              <ChatItem key={getKeyFromChatItem(chatItem)} content={chatItem} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {visibleScrollBottonIcon && (
+        <button
+          className=" fixed z-50 right-1/2 sm:right-[200px] bottom-16 border rounded-full p-2 dark:text-white dark:sm:text-black"
+          onClick={() => scrollToBottom()}
         >
-          {t("ask", { ns: "chat" })}
-        </div>
-      ) : (
-        <div className={chatItemContainerClassName}>
-          {chatItems.map((chatItem) => (
-            <ChatItem key={getKeyFromChatItem(chatItem)} content={chatItem} />
-          ))}
-        </div>
+          <BsArrowDown />
+        </button>
       )}
     </div>
   );

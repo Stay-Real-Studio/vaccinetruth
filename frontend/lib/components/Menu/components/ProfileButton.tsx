@@ -9,12 +9,12 @@ export const ProfileButton = (): JSX.Element => {
       <Button
         label="Profile"
         startIcon={
-          <div className="p-3 bg-secondary text-primary rounded-full">
+          <div className="p-3 bg-gray-200 text-black dark:hover:bg-gray-600 rounded-full dark:text-slate-900 dark:hover:text-white">
             <LuUser size={25} />
           </div>
         }
         endIcon={<LuChevronRight size={18} />}
-        className="w-full hover:bg-secondary p-0"
+        className="w-full hover:bg-gray-200 dark:hover:bg-gray-600 text-black p-0 dark:text-slate-900 dark:hover:text-white"
       />
     </Link>
   );

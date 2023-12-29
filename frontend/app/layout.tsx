@@ -4,7 +4,12 @@ import { Outfit } from "next/font/google";
 import { cookies, headers } from "next/headers";
 
 import { ToastProvider } from "@/lib/components/ui/Toast";
-import { FeatureFlagsProvider } from "@/lib/context";
+import {
+  ChatProvider,
+  FeatureFlagsProvider,
+  KnowledgeToFeedProvider,
+} from "@/lib/context";
+import { ChatsProvider } from "@/lib/context/ChatsProvider/chats-provider";
 import { SupabaseProvider } from "@/lib/context/SupabaseProvider";
 
 import { App } from "./App";
@@ -13,9 +18,8 @@ import "./globals.css";
 const inter = Outfit({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Quivr - Get a Second Brain with Generative AI",
-  description:
-    "Quivr is your second brain in the cloud, designed to easily store and retrieve unstructured information.",
+  title: "vaccinetruth.ai",
+  description: "Your AI source of the Covid-19 vaccine truth",
 };
 
 const RootLayout = async ({
@@ -40,7 +44,13 @@ const RootLayout = async ({
         <FeatureFlagsProvider>
           <ToastProvider>
             <SupabaseProvider session={session}>
-              <App>{children}</App>
+              <KnowledgeToFeedProvider>
+                <ChatsProvider>
+                  <ChatProvider>
+                    <App>{children}</App>
+                  </ChatProvider>
+                </ChatsProvider>
+              </KnowledgeToFeedProvider>
             </SupabaseProvider>
           </ToastProvider>
           <VercelAnalytics />
