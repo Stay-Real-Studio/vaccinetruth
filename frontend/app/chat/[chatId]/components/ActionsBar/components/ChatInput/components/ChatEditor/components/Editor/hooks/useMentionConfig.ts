@@ -118,7 +118,7 @@ export const useMentionConfig = ({
     },
     suggestion: suggestionsConfig,
     renderLabel: () => {
-      return  t("kbVersion");
+      return t("kbVersion", { version: "v0.2" });
     },
   });
 

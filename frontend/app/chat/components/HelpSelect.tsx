@@ -3,19 +3,13 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Listbox, Transition } from "@headlessui/react";
 import { useRouter } from "next/navigation";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
 import { CiShare1 } from "react-icons/ci";
 import { IoIosHelpCircleOutline } from "react-icons/io";
 
+import { getHelpOptions } from "@/lib/api/chat/utils";
 import { cn } from "@/lib/utils";
 import { useSecurity } from "@/services/useSecurity/useSecurity";
-
-const HelpOptions = [
-  {
-    label: "Disclaimer",
-    icon: <CiShare1 />,
-  },
-];
 
 export const HelpSelect = ({
   className,
@@ -27,20 +21,6 @@ export const HelpSelect = ({
   const { isStudioMember } = useSecurity();
   const [currentOption, setCurrentOption] = useState<string>("");
   const router = useRouter();
-
-  useEffect(() => {
-    if (isStudioMember) {
-      if (
-        HelpOptions.findIndex((item) => item.label === "BrainsManagement") ===
-        -1
-      ) {
-        HelpOptions.push({
-          label: "BrainsManagement",
-          icon: <CiShare1 />,
-        });
-      }
-    }
-  }, [isStudioMember]);
 
   return (
     <div className={cn(className, "")}>
@@ -67,7 +47,7 @@ export const HelpSelect = ({
                 leaveTo="opacity-0"
               >
                 <Listbox.Options className="absolute bottom-8 right-4 z-10 mt-1 max-h-60 w-36 overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                  {HelpOptions.map((option) => (
+                  {getHelpOptions(isStudioMember).map((option) => (
                     <Listbox.Option
                       key={option.label}
                       className={({ active }) =>
@@ -95,7 +75,7 @@ export const HelpSelect = ({
                               "absolute inset-y-0 right-0 flex items-center pr-2"
                             )}
                           >
-                            {option.icon}
+                            <CiShare1 />
                           </span>
                         </>
                       )}
