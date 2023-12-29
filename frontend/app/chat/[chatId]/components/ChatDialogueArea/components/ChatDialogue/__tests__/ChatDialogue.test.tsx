@@ -3,9 +3,19 @@ import { render } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
 import { ChatMessage } from "@/app/chat/[chatId]/types";
+import {
+  ChatContextMock,
+  ChatProviderMock,
+} from "@/lib/context/ChatProvider/mocks/ChatProviderMock";
 
 import { ChatDialogue } from "..";
+import { ChatDialogueArea } from "../../../ChatDialogue";
 import { getMergedChatMessagesWithDoneStatusNotificationsReduced } from "../../../utils/getMergedChatMessagesWithDoneStatusNotificationsReduced";
+
+vi.mock("@/lib/context/ChatProvider/ChatProvider", () => ({
+  ChatContext: ChatContextMock,
+  ChatProvider: ChatProviderMock,
+}));
 
 vi.mock("@/lib/context/SupabaseProvider", () => ({
   useSupabase: () => ({
@@ -21,6 +31,24 @@ vi.mock("../hooks/useChatDialogue", () => ({
   })),
 }));
 const queryClient = new QueryClient();
+
+vi.mock("next/navigation", async () => {
+  const actual = await vi.importActual("next/navigation");
+
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+  return {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ...(actual as any),
+    useRouter: vi.fn(() => ({
+      push: vi.fn(),
+      replace: vi.fn(),
+    })),
+    useSearchParams: vi.fn(() => ({
+      // get: vi.fn(),
+    })),
+    usePathname: vi.fn(),
+  };
+});
 
 describe("ChatDialogue", () => {
   it("should render chat messages correctly", () => {
@@ -49,13 +77,15 @@ describe("ChatDialogue", () => {
     expect(getAllByTestId("chat-message-text")).toBeDefined();
   });
 
-  it("should render placeholder text when history is empty", () => {
-    const { getByTestId } = render(
+  it("should render ChatGuide when history is empty", () => {
+    const { getAllByTestId } = render(
       <QueryClientProvider client={queryClient}>
-        <ChatDialogue chatItems={[]} />
+        <ChatProviderMock>
+          <ChatDialogueArea />
+        </ChatProviderMock>
       </QueryClientProvider>
     );
 
-    expect(getByTestId("empty-history-message")).toBeDefined();
+    expect(getAllByTestId("chat-guide-page")).toBeDefined();
   });
 });

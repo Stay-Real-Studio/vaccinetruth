@@ -10,20 +10,30 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { Sidebar } from "@/lib/components/Sidebar/Sidebar";
 import { SideBarProvider } from "@/lib/context/SidebarProvider/sidebar-provider";
+import {
+  SupabaseContextMock,
+  SupabaseProviderMock,
+} from "@/lib/context/SupabaseProvider/mocks/SupabaseProviderMock";
 import { useDevice } from "@/lib/hooks/useDevice";
 
 vi.mock("@/lib/hooks/useDevice");
 
+vi.mock("@/lib/context/SupabaseProvider/supabase-provider", () => ({
+  SupabaseContext: SupabaseContextMock,
+}));
+
 const renderSidebar = async () => {
-  await act(() =>
-    render(
-      <SideBarProvider>
-        <Sidebar>
-          <div data-testid="sidebar-test-content">📦</div>
-        </Sidebar>
-      </SideBarProvider>
-    )
-  );
+  await act(() => {
+    return render(
+      <SupabaseProviderMock>
+        <SideBarProvider>
+          <Sidebar>
+            <div data-testid="sidebar-test-content">📦</div>
+          </Sidebar>
+        </SideBarProvider>
+      </SupabaseProviderMock>
+    );
+  });
 };
 
 describe("Sidebar", () => {
