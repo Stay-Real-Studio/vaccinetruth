@@ -1,1 +1,3 @@
-export const schemaTypes = []
+import feedback from './feedback'
+
+export const schemaTypes = [feedback]
