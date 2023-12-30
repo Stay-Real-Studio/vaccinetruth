@@ -14,7 +14,7 @@ export const useSecurity = (): {
   const { session } = useSupabase();
   const path = usePathname();
 
-  const securityPages = ["/login", "/chat", "/share", "/user"];
+  const securityPages = ["/login", "/chat", "/share", "/user", "/feedback"];
   const isRouteAccessible =
     path === "/" ||
     securityPages.some((page: string) => path?.startsWith(page));
