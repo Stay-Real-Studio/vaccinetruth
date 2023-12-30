@@ -9,6 +9,10 @@ export const useFeedback = (): SaveFeedback => {
     content: string | undefined
   ) => {
     await sanityClient.patch("feedback").set({ title, content }).commit();
+    console.log(title, content);
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    // const feedbacks = await sanityClient.fetch('*[_type == "feedback"]');
+    // console.log(feedbacks, "feedbacks");
   };
 
   return {
