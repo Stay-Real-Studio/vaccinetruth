@@ -98,6 +98,10 @@ export const getHelpOptions = (isStudioMember: boolean): HelpOption[] => {
       label: "BrainsManagement",
       needAuth: true,
     },
+    {
+      label: "Feedback",
+      needAuth: false,
+    },
   ];
   if (isStudioMember) {
     return HelpOptions;

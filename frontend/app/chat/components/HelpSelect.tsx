@@ -31,8 +31,10 @@ export const HelpSelect = ({
           setCurrentOption(e);
           if (e === "Disclaimer") {
             handleVisibleDisclaimer();
-          } else {
+          } else if (e === "BrainsManagement") {
             router.push("/brains-management");
+          } else if (e === "Feedback") {
+            router.push("/feedback");
           }
         }}
       >
