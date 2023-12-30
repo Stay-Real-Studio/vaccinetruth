@@ -8,8 +8,14 @@ export const useFeedback = (): SaveFeedback => {
     title: string | undefined,
     content: string | undefined
   ) => {
-    await sanityClient.patch("feedback").set({ title, content }).commit();
-    console.log(title, content);
+    const feedback = {
+      _type: 'feedback',
+      title,
+      content
+    }
+    const result = await sanityClient.create(feedback)
+    // .patch("feedback").set({ title, content }).commit();
+    console.log(result);
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     // const feedbacks = await sanityClient.fetch('*[_type == "feedback"]');
     // console.log(feedbacks, "feedbacks");
