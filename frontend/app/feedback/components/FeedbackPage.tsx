@@ -1,7 +1,12 @@
 /* eslint-disable max-lines */
 "use client";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { FaSpinner } from "react-icons/fa";
+
+import { NotificationsVT } from "@/lib/components/NotificationsVT";
+import Button from "@/lib/components/ui/Button";
 
 import { useFeedback } from "../hooks/useFeedback";
 
@@ -11,10 +16,21 @@ const FeedbackPage = (): JSX.Element => {
   const [title, setTitle] = useState<string | undefined>("");
   const [content, setContent] = useState<string | undefined>("");
 
-  const { handleSave } = useFeedback();
+  const router = useRouter();
+
+  const {
+    handleSave,
+    addFeedbackStatus,
+    visibleNotification,
+    resetStatus,
+    isloading,
+  } = useFeedback();
 
   return (
     <div className="space-y-10 divide-y divide-gray-900/10 p-8 sm:p-16">
+      <Button className="px-4 py-2" onClick={() => router.back()}>
+        {t("back")}
+      </Button>
       <div className="grid grid-cols-1 gap-x-8 gap-y-8 md:grid-cols-3">
         <div className="px-4 sm:px-0">
           <h2 className="text-base font-semibold leading-7 text-gray-900">
@@ -68,7 +84,7 @@ const FeedbackPage = (): JSX.Element => {
               </div>
             </div>
           </div>
-          <div className="flex items-center justify-end gap-x-6 border-t border-gray-900/10 px-4 py-4 sm:px-8">
+          <div className="flex items-center justify-end gap-x-6 border-t border-gray-900/10 px-8 py-4 sm:px-8">
             <button
               onClick={() => {
                 setTitle("");
@@ -78,20 +94,46 @@ const FeedbackPage = (): JSX.Element => {
             >
               {t("feedbackReset")}
             </button>
-            <button
+            {/* <button
               // eslint-disable-next-line @typescript-eslint/no-misused-promises
               onClick={async () => {
-                console.log(title, "title");
-                console.log(content, "content");
                 await handleSave(title, content);
               }}
-              className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="flex gap-1 items-center rounded-md bg-indigo-600 px-6 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               {t("feedbackSave")}
-            </button>
+              {isloading && <FaSpinner className="animate-spin" />}
+            </button> */}
+            <Button
+              // eslint-disable-next-line @typescript-eslint/no-misused-promises
+              onClick={async () => {
+                await handleSave(title, content);
+              }}
+              className="px-4 py-2"
+            >
+              {t("feedbackSave")}
+              {isloading && <FaSpinner className="animate-spin" />}
+            </Button>
           </div>
         </div>
       </div>
+
+      {visibleNotification && (
+        <NotificationsVT
+          type={addFeedbackStatus}
+          info={
+            addFeedbackStatus === "success"
+              ? t("addFeedbackOkInfo")
+              : t("addFeedbackErrorInfo")
+          }
+          subInfo={
+            addFeedbackStatus === "success"
+              ? t("addFeedbackOkSubInfo")
+              : t("addFeedbackErrorSubInfo")
+          }
+          resetStatus={resetStatus}
+        ></NotificationsVT>
+      )}
     </div>
   );
 };

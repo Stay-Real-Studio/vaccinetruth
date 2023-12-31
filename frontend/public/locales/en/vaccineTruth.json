@@ -1,4 +1,9 @@
 {
+  "addFeedbackErrorInfo": "opps, please resubmit later.",
+  "addFeedbackErrorSubInfo": "Please wait patiently, or you can contact the administrator at the bottom of the application homepage",
+  "addFeedbackOkInfo": "success",
+  "addFeedbackOkSubInfo": "Thank you for your feedback, we will continue to improve and wish you a happy life",
+  "back": "back",
   "buildByStayRealStudio": "Built by Stay Real Studio",
   "chatShareCopyURL": "Copy Chat Share URL",
   "chatShareDesc": "select your share platform",

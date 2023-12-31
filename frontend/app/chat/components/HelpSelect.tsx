@@ -27,7 +27,6 @@ export const HelpSelect = ({
       <Listbox
         value={currentOption}
         onChange={(e) => {
-          console.log(e, "e==");
           setCurrentOption(e);
           if (e === "Disclaimer") {
             handleVisibleDisclaimer();

@@ -1,4 +1,9 @@
 {
+  "addFeedbackErrorInfo": "提交出了点问题，请稍后重新提交",
+  "addFeedbackErrorSubInfo": "请耐心等待，或者也可以到应用首页底部联系管理员",
+  "addFeedbackOkInfo": "提交成功",
+  "addFeedbackOkSubInfo": "感谢您的反馈，我们会持续改进，祝您生活愉快",
+  "back": "返回",
   "buildByStayRealStudio": "Stay Real Studio 出品",
   "chatShareCopyURL": "复制聊天分享 URL",
   "chatShareDesc": "选择您的分享平台",
