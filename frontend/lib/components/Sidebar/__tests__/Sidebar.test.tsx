@@ -10,10 +10,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { Sidebar } from "@/lib/components/Sidebar/Sidebar";
 import { SideBarProvider } from "@/lib/context/SidebarProvider/sidebar-provider";
-import {
-  SupabaseContextMock,
-  SupabaseProviderMock,
-} from "@/lib/context/SupabaseProvider/mocks/SupabaseProviderMock";
+import { SupabaseContextMock } from "@/lib/context/SupabaseProvider/mocks/SupabaseProviderMock";
 import { useDevice } from "@/lib/hooks/useDevice";
 
 vi.mock("@/lib/hooks/useDevice");
@@ -22,16 +19,34 @@ vi.mock("@/lib/context/SupabaseProvider/supabase-provider", () => ({
   SupabaseContext: SupabaseContextMock,
 }));
 
+const mockUseSupabase = vi.fn(() => ({
+  session: {
+    user: {},
+  },
+}));
+
+vi.mock("@/lib/context/SupabaseProvider", () => ({
+  useSupabase: () => mockUseSupabase(),
+}));
+vi.mock("react-i18next", () => ({
+  useTranslation: () => {
+    return {
+      t: (str: string) => str,
+      i18n: {
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        changeLanguage: () => new Promise(() => {}),
+      },
+    };
+  },
+}));
 const renderSidebar = async () => {
   await act(() => {
     return render(
-      <SupabaseProviderMock>
-        <SideBarProvider>
-          <Sidebar>
-            <div data-testid="sidebar-test-content">📦</div>
-          </Sidebar>
-        </SideBarProvider>
-      </SupabaseProviderMock>
+      <SideBarProvider>
+        <Sidebar>
+          <div data-testid="sidebar-test-content">📦</div>
+        </Sidebar>
+      </SideBarProvider>
     );
   });
 };
