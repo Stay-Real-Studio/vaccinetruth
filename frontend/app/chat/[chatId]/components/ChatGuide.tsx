@@ -7,7 +7,10 @@ export const ChatGuide = (): JSX.Element => {
   const { t } = useTranslation(["vaccineTruth"]);
 
   return (
-    <div className="flex flex-col justify-center items-center h-full">
+    <div
+      className="flex flex-col justify-center items-center h-full"
+      data-testid="chat-guide-page"
+    >
       <Disclaimer />
       <div className="flex-1 flex flex-col justify-center items-center">
         <Image
