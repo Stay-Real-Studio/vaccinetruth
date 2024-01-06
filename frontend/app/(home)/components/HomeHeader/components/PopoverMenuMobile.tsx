@@ -25,7 +25,7 @@ export const PopoverMenuMobile = ({
           <Popover.Anchor />
           <Popover.Trigger
             title="menu"
-            type="button"
+            // type="button"
             className={cn(
               "bg-[#D9D9D9] bg-opacity-30 rounded-full px-4 py-1",
               color === "white" ? "text-white" : "text-black"
@@ -58,7 +58,7 @@ export const PopoverMenuMobile = ({
               <Popover.Close>
                 <button
                   title="close"
-                  type="button"
+                  // type="button"
                   className="hover:text-primary p-2 dark:text-black"
                 >
                   <LuX size={24} />
@@ -71,7 +71,7 @@ export const PopoverMenuMobile = ({
                   <ThemeSelectVT isChatPage={false} />
                 </li>
                 <li>
-                  <LanguageSelect isSelect={false} />
+                  <LanguageSelect isSelect={true} />
                 </li>
                 {navLinks}
               </ul>
