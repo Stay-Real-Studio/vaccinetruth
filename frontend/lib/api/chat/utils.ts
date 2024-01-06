@@ -200,20 +200,13 @@ export const updateQuestion = (
   return filterExistedQuestions;
 };
 
-export const getHelpOptions = (isStudioMember: boolean): HelpOption[] => {
-  const HelpOptions = [
-    {
-      label: "Disclaimer",
-      needAuth: false,
-    },
-    {
-      label: "BrainsManagement",
-      needAuth: true,
-    },
-  ];
+export const getHelpOptions = (
+  isStudioMember: boolean,
+  options: HelpOption[]
+): HelpOption[] => {
   if (isStudioMember) {
-    return HelpOptions;
+    return options;
   } else {
-    return HelpOptions.filter((item) => !item.needAuth);
+    return options.filter((item) => !item.needAuth);
   }
 };
