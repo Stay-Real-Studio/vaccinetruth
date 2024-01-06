@@ -10,11 +10,13 @@ import { usePromptApi } from "@/lib/api/prompt/usePromptApi";
 import { useToast } from "@/lib/hooks";
 import { Prompt } from "@/lib/types/Prompt";
 import { useEventTracking } from "@/services/analytics/june/useEventTracking";
+import { useSecurity } from "@/services/useSecurity/useSecurity";
 
 import { MinimalBrainForUser } from "../types";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const useBrainProvider = () => {
+  const { isStudioMember } = useSecurity();
   const { publish } = useToast();
   const { track } = useEventTracking();
   const { createBrain, deleteBrain, getBrains, getDefaultBrain } =
@@ -101,15 +103,15 @@ export const useBrainProvider = () => {
     const envDefaultBrainId = process.env.NEXT_PUBLIC_DEFAULT_BRAIN_ID as
       | UUID
       | undefined;
-    const brainId = envDefaultBrainId ?? userDefaultBrain?.id;
-
-    if (brainId !== undefined) {
+    if (!isStudioMember) {
+      const brainId = envDefaultBrainId ?? userDefaultBrain?.id;
       setDefaultBrainId(brainId);
-    }
-    if (currentBrainId === null && brainId !== undefined) {
       setCurrentBrainId(brainId as UUID | null);
+    } else {
+      setDefaultBrainId(userDefaultBrain?.id);
+      setCurrentBrainId(userDefaultBrain?.id as UUID | null);
     }
-  }, [currentBrainId, getDefaultBrain]);
+  }, [getDefaultBrain, isStudioMember]);
 
   const fetchPublicPrompts = useCallback(async () => {
     setPublicPrompts(await getPublicPrompts());
