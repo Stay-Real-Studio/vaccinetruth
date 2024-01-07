@@ -1,29 +1,40 @@
 {
+  "addFeedbackErrorInfo": "ops, por favor reenvie mais tarde.",
+  "addFeedbackErrorSubInfo": "Aguarde pacientemente ou entre em contato com o administrador na parte inferior da página inicial do aplicativo",
+  "addFeedbackOkInfo": "sucesso",
+  "addFeedbackOkSubInfo": "Obrigado pelo seu feedback, continuaremos melhorando e desejamos-lhe uma vida feliz",
+  "chatShareCopyURL": "Copiar URL de compartilhamento de bate-papo",
+  "chatShareDesc": "selecione sua plataforma de compartilhamento",
+  "chatShareTitle": "Configuração de compartilhamento de bate-papo",
+  "chatShareTo": "Compartilhar com",
   "disclaimer": "Isenção de responsabilidade",
   "disclaimerContent": "Compilamos um banco de dados completo com base nas informações verdadeiras sobre vacinas publicadas na Internet, apenas realizamos perguntas e respostas com base no conteúdo mencionado nas informações públicas e não somos legalmente responsáveis ​​​​pelo conteúdo!",
-  "talkToAI": "conversa com Vaccinetruth.ai",
-  "chatShareTitle": "Configuração de compartilhamento de bate-papo",
-  "chatShareDesc": "selecione sua plataforma de compartilhamento",
-  "chatShareCopyURL": "Copiar URL de compartilhamento de bate-papo",
-  "chatShareTo": "Compartilhar com",
+  "emptyChatSubTitle": "Eu sou um bot de bate-papo",
+  "emptyChatTitle": "Vacina Verdade AI ChatBot",
+  "feedbackContent": "conteúdo",
+  "feedbackIntro": "FeedBack",
+  "feedbackPlaceholder": "escreva algo...",
+  "feedbackReset": "redefinir",
+  "feedbackSave": "salvar",
+  "feedbackSubIntro": "Agradecemos suas sugestões sobre o uso de nossos produtos. Seu feedback é a força motriz para a melhoria de nossos produtos.",
+  "feedbackTitle": "título",
   "onboarding": {
-    "title": "Oi 👋🏻 Quer descobrir o Quivr ? 😇",
+    "answer": {
+      "vaccine_antidote": "Yes, please use artemisinin derivatives to detoxify according to the treatment course.",
+      "vaccine_effect": "You can't get vaccinated, the vaccine is poisonous.",
+      "virus_origin": "Wuhan P4 Virus Research Institute."
+    },
     "step_1_1": "1. Arraste e solte o arquivo no chat ou no 📎.",
     "step_1_2": "Não tem um arquivo? Baixe 'Documentação do Quivr'",
     "step_2": "2. Comece a conversar com seu arquivo",
     "step_3": "3. Divirta-se!",
-    "virus_origin": "The origin of the virus?",
-    "vaccine_effect": "Can the vaccine be injected? Are vaccines harmful?",
+    "title": "Oi 👋🏻 Quer descobrir o Quivr ? 😇",
     "vaccine_antidote": "Is there a vaccine detox program?",
-    "answer": {
-      "virus_origin": "Wuhan P4 Virus Research Institute.",
-      "vaccine_effect": "You can't get vaccinated, the vaccine is poisonous.",
-      "vaccine_antidote": "Yes, please use artemisinin derivatives to detoxify according to the treatment course."
-    }
+    "vaccine_effect": "Can the vaccine be injected? Are vaccines harmful?",
+    "virus_origin": "The origin of the virus?"
   },
-  "vaccineTruthAi": "Verdade da Vacina AI",
+  "recommended": "Recomendado",
   "sharedPageTitle": "Bate-papo compartilhado • Vaccine Truth AI",
-  "emptyChatTitle": "Vacina Verdade AI ChatBot",
-  "emptyChatSubTitle": "Eu sou um bot de bate-papo",
-  "recommended": "Recomendado"
+  "talkToAI": "conversa com Vaccinetruth.ai",
+  "vaccineTruthAi": "Verdade da Vacina AI"
 }

@@ -3,6 +3,7 @@ import { createClient } from "@sanity/client";
 
 import { SANITY_DATASET } from "@/lib/api/feedback/config";
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
 export const sanityClient = createClient({
   projectId: process.env.SANITY_PROJECT_ID,
   dataset: SANITY_DATASET,
