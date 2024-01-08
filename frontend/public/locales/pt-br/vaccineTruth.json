@@ -1,29 +1,33 @@
 {
-  "disclaimer": "Isenção de responsabilidade",
-  "disclaimerContent": "Compilamos um banco de dados completo com base nas informações verdadeiras sobre vacinas publicadas na Internet, apenas realizamos perguntas e respostas com base no conteúdo mencionado nas informações públicas e não somos legalmente responsáveis ​​​​pelo conteúdo!",
-  "talkToAI": "conversa com Vaccinetruth.ai",
-  "chatShareTitle": "Configuração de compartilhamento de bate-papo",
-  "chatShareDesc": "selecione sua plataforma de compartilhamento",
+  "buildByStayRealStudio": "Construído por Stay Real Studio",
   "chatShareCopyURL": "Copiar URL de compartilhamento de bate-papo",
-  "chatShareTo": "Compartilhar com",
+  "chatShareDesc": "selecione sua plataforma de compartilhamento",
+  "chatShareTitle": "Configuração de compartilhamento de bate-papo",
+  "chatShareTo": "Compartilhar para",
+  "disclaimer": "Isenção de responsabilidade",
+  "disclaimerContent": "A base de conhecimento atual inclui informações públicas limitadas de nossas fontes mais confiáveis, como <0>Miles Guo</0>, <1>NFSC</1>, médicos em audiência especial sobre lesões causadas pela vacina Covid-19 e fatos e dados referenciados por outras fontes de verdade sobre vacinas. A IA responde perguntas com base em informações/dados dessas fontes. Portanto, não podemos ser responsáveis pelo conteúdo final gerado. Estamos trabalhando na visualização da base de conhecimento, portanto, em breve o conteúdo da base de conhecimento será/poderá ser auditado publicamente.",
+  "emptyChatSubTitle": "não esqueça de compartilhar se gostou da resposta",
+  "emptyChatTitle": "Começar a conversar",
+  "kbVersion": "Base de Conhecimento {{version}}",
+  "newChatButton": "Novo bate-papo",
   "onboarding": {
-    "title": "Oi 👋🏻 Quer descobrir o Quivr ? 😇",
-    "step_1_1": "1. Arraste e solte o arquivo no chat ou no 📎.",
-    "step_1_2": "Não tem um arquivo? Baixe 'Documentação do Quivr'",
-    "step_2": "2. Comece a conversar com seu arquivo",
-    "step_3": "3. Divirta-se!",
-    "virus_origin": "The origin of the virus?",
-    "vaccine_effect": "Can the vaccine be injected? Are vaccines harmful?",
-    "vaccine_antidote": "Is there a vaccine detox program?",
     "answer": {
-      "virus_origin": "Wuhan P4 Virus Research Institute.",
+      "vaccine_antidote": "Yes, please use artemisinin derivatives to detoxify according to the treatment course.",
       "vaccine_effect": "You can't get vaccinated, the vaccine is poisonous.",
-      "vaccine_antidote": "Yes, please use artemisinin derivatives to detoxify according to the treatment course."
-    }
+      "virus_origin": "Wuhan P4 Virus Research Institute."
+    },
+    "step_1_1": "1. Drap and drop file on the chat or in the 📎.",
+    "step_1_2": "Don't have a file ? Download 'Quivr documentation'",
+    "step_2": "2. Start chatting with your file",
+    "step_3": "3. Enjoy !",
+    "title": "Hi 👋🏻 Want to discover Quivr ? 😇",
+    "vaccine_antidote": "What Miles Guo says about Covid-19 virus and vaccine.",
+    "vaccine_effect": "What vaccine injuries were discussed in the US Congress hearing?",
+    "virus_origin": "Where is the origin of the Covid-19 virus?"
   },
+  "recommended": "Recomendado",
+  "sharedPageTitle": "Bate-papo compartilhado • IA da verdade da vacina",
+  "talkToAI": "Fale com vacinatruth.ai",
   "vaccineTruthAi": "Verdade da Vacina AI",
-  "sharedPageTitle": "Bate-papo compartilhado • Vaccine Truth AI",
-  "emptyChatTitle": "Vacina Verdade AI ChatBot",
-  "emptyChatSubTitle": "Eu sou um bot de bate-papo",
-  "recommended": "Recomendado"
+  "youSelf": "Você"
 }
