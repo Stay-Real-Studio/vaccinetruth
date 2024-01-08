@@ -1,15 +1,14 @@
+/* eslint-disable max-lines */
 "use client";
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Listbox, Transition } from "@headlessui/react";
-import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
+import { CheckIcon } from "@heroicons/react/20/solid";
 import { Fragment } from "react";
+import { FiChevronDown } from "react-icons/fi";
 import { IoLanguage } from "react-icons/io5";
 
-import {
-  languages,
-  useLanguageHook,
-} from "@/app/user/components/LanguageSelect/hooks/useLanguageHook";
+import { useLanguageHook } from "@/app/user/components/LanguageSelect/hooks/useLanguageHook";
 import { cn } from "@/lib/utils";
 
 export const LanguageSelect = ({
@@ -23,7 +22,7 @@ export const LanguageSelect = ({
     useLanguageHook();
 
   return (
-    <div className={`${!isSelect ? "mr-2 ml-2" : "py-2 mx-4"}`}>
+    <div className={`${!isSelect ? "mr-2 ml-2" : "py-2"}`}>
       {isSelect && (
         <Listbox
           value={currentLanguage}
@@ -34,18 +33,26 @@ export const LanguageSelect = ({
           {({ open }) => (
             <>
               <div className="relative">
-                <Listbox.Button className="text-xs relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-8 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                  <span className="block truncate">
-                    {Object.keys(allLanguages).length > 0 &&
-                    currentLanguage !== undefined
-                      ? allLanguages[currentLanguage].label
-                      : languages["en"].label}
+                <Listbox.Button className="text-xs flex gap-1 items-center cursor-pointer  py-1.5 pl-3 pr-8 text-left text-gray-900  sm:text-sm sm:leading-6">
+                  <span
+                    className={`${
+                      // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+                      isChatPage
+                        ? "sm:text-black hover:text-primary dark:sm:text-slate-700 dark:hover:text-slate-900"
+                        : "sm:text-white hover:text-slate-200 dark:text-white"
+                    } text-black  text-xs  py-1.5  text-left   sm:text-sm sm:leading-6`}
+                  >
+                    <IoLanguage></IoLanguage>
                   </span>
-                  <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-                    <ChevronUpDownIcon
-                      className="h-5 w-5 text-gray-400"
-                      aria-hidden="true"
-                    />
+                  <span
+                    className={`pointer-events-none  inset-y-0  flex items-center pr-2 ${
+                      // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+                      isChatPage
+                        ? "sm:text-black hover:text-primary dark:sm:text-slate-700 dark:hover:text-slate-900"
+                        : "sm:text-white hover:text-slate-200 dark:text-white"
+                    } text-black  text-xs  py-1.5  text-left   sm:text-sm sm:leading-6`}
+                  >
+                    <FiChevronDown className="h-5 w-5" aria-hidden="true" />
                   </span>
                 </Listbox.Button>
 
