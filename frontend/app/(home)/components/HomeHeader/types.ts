@@ -5,4 +5,5 @@ export type NavbarItem = {
   rightIcon?: React.ReactNode | null;
   newTab?: boolean;
   className?: string;
+  visibleWhenLogout?: boolean;
 };
