@@ -20,11 +20,10 @@ export const useSecurity = (): {
     securityPages.some((page: string) => path?.startsWith(page));
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-    if (session?.user.email) {
+    if (session?.user && session.user.email !== undefined) {
       setIsStudioMember(session.user.email.indexOf("@stayreal.studio") !== -1);
     }
-  }, [session?.user.email]);
+  }, [session?.user]);
 
   return { isStudioMember, isRouteAccessible };
 };

@@ -56,13 +56,12 @@ export const PopoverMenuMobile = ({
                 </div>
               </div>
               <Popover.Close>
-                <button
+                <span
                   title="close"
-                  type="button"
                   className="hover:text-primary p-2 dark:text-black"
                 >
                   <LuX size={24} />
-                </button>
+                </span>
               </Popover.Close>
             </div>
             <nav>
@@ -71,7 +70,7 @@ export const PopoverMenuMobile = ({
                   <ThemeSelectVT isChatPage={false} />
                 </li>
                 <li>
-                  <LanguageSelect isSelect={false} />
+                  <LanguageSelect isSelect={true} />
                 </li>
                 {navLinks}
               </ul>
