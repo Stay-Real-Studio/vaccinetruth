@@ -32,7 +32,7 @@ export const HomeHeader = ({ color = "white" }: HomeNavProps): JSX.Element => {
           )}
         >
           <QuivrLogo size={64} color={color} />
-          <div className="bg-clip-text text-transparent bg-gradient-to-br from-cyan-500 to-white">
+          <div className="bg-clip-text text-transparent bg-gradient-to-br from-white to-white">
             {t("vaccineTruthAi")}
           </div>
         </Link>
