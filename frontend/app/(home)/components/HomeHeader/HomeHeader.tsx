@@ -38,7 +38,7 @@ export const HomeHeader = ({ color = "white" }: HomeNavProps): JSX.Element => {
         </Link>
         <div className="hidden sm:flex sm:items-center">
           <ThemeSelectVT isChatPage={false} />
-          <LanguageSelect isSelect={false} />
+          <LanguageSelect isSelect={true} isChatPage={false} />
           <ul className="flex gap-4 items-center">
             {navLinks("desktop", session !== null)}
           </ul>

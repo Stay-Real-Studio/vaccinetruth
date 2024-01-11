@@ -75,7 +75,7 @@ export const Menu = (): JSX.Element => {
       <Button
         variant="tertiary"
         onClick={() => setIsOpened((prev) => !prev)}
-        className="absolute top-2 left-2 sm:hidden z-50"
+        className="absolute top-1 left-2 sm:hidden z-50"
       >
         <LuPanelLeftOpen className="" size={30} />
       </Button>

@@ -31,6 +31,10 @@ export const HelpSelect = ({
       needAuth: false,
     },
     {
+      label: t("feedbackIntro"),
+      needAuth: false,
+    },
+    {
       label: "BrainsManagement",
       needAuth: true,
     },
@@ -46,7 +50,7 @@ export const HelpSelect = ({
             handleVisibleDisclaimer();
           } else if (e === "BrainsManagement") {
             router.push("/brains-management");
-          } else if (e === "Feedback") {
+          } else if (e === t("feedbackIntro")) {
             router.push("/feedback");
           }
         }}

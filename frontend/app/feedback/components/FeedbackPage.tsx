@@ -30,8 +30,11 @@ const FeedbackPage = (): JSX.Element => {
   return (
     <div className=" ">
       <HomeHeader />
-      <div className="divide-y divide-gray-900/10 px-8 py-24 sm:px-20">
-        <Button className="px-4 py-2 mb-2" onClick={() => router.back()}>
+      <div className="divide-y divide-gray-900/10 px-8 py-28 sm:px-16">
+        <Button
+          className="px-4 py-2 mb-2 bg-black"
+          onClick={() => router.back()}
+        >
           {t("back")}
         </Button>
         <div className="grid grid-cols-1 gap-x-8 gap-y-8 md:grid-cols-3 py-4">
@@ -97,22 +100,13 @@ const FeedbackPage = (): JSX.Element => {
               >
                 {t("feedbackReset")}
               </button>
-              {/* <button
-              // eslint-disable-next-line @typescript-eslint/no-misused-promises
-              onClick={async () => {
-                await handleSave(title, content);
-              }}
-              className="flex gap-1 items-center rounded-md bg-indigo-600 px-6 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >
-              {t("feedbackSave")}
-              {isloading && <FaSpinner className="animate-spin" />}
-            </button> */}
+
               <Button
                 // eslint-disable-next-line @typescript-eslint/no-misused-promises
                 onClick={async () => {
                   await handleSave(title, content);
                 }}
-                className="px-4 py-2"
+                className="px-4 py-2 bg-black"
               >
                 {t("feedbackSave")}
                 {isloading && <FaSpinner className="animate-spin" />}
