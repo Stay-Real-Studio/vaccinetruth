@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 
 import { LanguageSelect } from "@/app/chat/components/LanguageSelect";
 import { QuivrLogo } from "@/lib/assets/QuivrLogo";
-import { ThemeSelectVT } from "@/lib/components/ThemeSelectVT";
+// import { ThemeSelectVT } from "@/lib/components/ThemeSelectVT";
 import { useSupabase } from "@/lib/context/SupabaseProvider";
 import { cn } from "@/lib/utils";
 
@@ -37,7 +37,7 @@ export const HomeHeader = ({ color = "white" }: HomeNavProps): JSX.Element => {
           </div>
         </Link>
         <div className="hidden sm:flex sm:items-center">
-          <ThemeSelectVT isChatPage={false} />
+          {/* <ThemeSelectVT isChatPage={false} /> */}
           <LanguageSelect isSelect={true} isChatPage={false} />
           <ul className="flex gap-4 items-center">
             {navLinks("desktop", session !== null)}

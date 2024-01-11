@@ -1,6 +1,5 @@
 /* eslint-disable max-lines */
 "use client";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FaSpinner } from "react-icons/fa";
@@ -17,8 +16,6 @@ const FeedbackPage = (): JSX.Element => {
   const [title, setTitle] = useState<string | undefined>("");
   const [content, setContent] = useState<string | undefined>("");
 
-  const router = useRouter();
-
   const {
     handleSave,
     addFeedbackStatus,
@@ -31,12 +28,6 @@ const FeedbackPage = (): JSX.Element => {
     <div className=" ">
       <HomeHeader />
       <div className="divide-y divide-gray-900/10 px-8 py-28 sm:px-16">
-        <Button
-          className="px-4 py-2 mb-2 bg-black"
-          onClick={() => router.back()}
-        >
-          {t("back")}
-        </Button>
         <div className="grid grid-cols-1 gap-x-8 gap-y-8 md:grid-cols-3 py-4">
           <div className="px-4 sm:px-0">
             <h2 className="text-base font-semibold leading-7 text-gray-900 dark:text-white">
