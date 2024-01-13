@@ -22,7 +22,7 @@ export const ChatGuide = (): JSX.Element => {
         ></Image>
 
         <div className="font-bold mb-2">{t("emptyChatTitle")}</div>
-        <div className="text-xs text-slate-500">{t("emptyChatSubTitle")}</div>
+        <div className="text-xs text-vt-500">{t("emptyChatSubTitle")}</div>
       </div>
     </div>
   );

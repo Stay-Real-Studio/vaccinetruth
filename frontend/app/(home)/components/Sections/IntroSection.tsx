@@ -18,7 +18,7 @@ export const IntroSection = (): JSX.Element => {
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
         <div className="flex-1 flex flex-col justify-center gap-10 ">
           <div>
-            <h1 className="sm:text-lg  md:text-2xl lg:text-4xl font-bold text-black block max-w-2xl dark:text-white">
+            <h1 className="sm:text-lg  md:text-2xl lg:text-4xl font-bold text-vt-700 block max-w-2xl dark:text-vt-50">
               {t("intro.title", { ns: "home" })}
               {/* <span className="text-cyan-900 ml-4">
                 {t("vaccineTruthAi", { ns: "vaccineTruth" })}
@@ -37,7 +37,7 @@ export const IntroSection = (): JSX.Element => {
                 })
               }
             >
-              <Button className="text-white bg-black rounded-full px-2 py-1 sm:px-4 py-2">
+              <Button className="text-vt-50 bg-vt-700 rounded-full px-2 py-2 sm:px-4 ">
                 {t("talkToAI", { ns: "vaccineTruth" })}
                 <LuChevronRight size={24} />
               </Button>

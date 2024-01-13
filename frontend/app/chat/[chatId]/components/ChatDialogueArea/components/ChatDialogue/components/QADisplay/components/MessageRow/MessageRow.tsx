@@ -63,13 +63,13 @@ export const MessageRow = React.forwardRef(
                     width={100}
                     height={100}
                   ></Image>
-                  <span className="font-medium mr-4 dark:text-white text-black">
+                  <span className="font-medium mr-4 dark:text-vt-50 text-vt-700">
                     {t("vaccineTruthAi")}
                   </span>
                 </div>
               )}
               {/* Left section for the question and prompt */}
-              <div className="flex hidden">
+              <div className="hidden">
                 <QuestionBrain brainName={brainName} />
                 <QuestionPrompt promptName={promptName} />
               </div>
@@ -86,8 +86,8 @@ export const MessageRow = React.forwardRef(
 
             {isUserSpeaker && (
               <div className="flex items-center">
-                <FaCircleUser className="h-6 w-6 rounded-full mr-2 dark:text-white" />
-                <span className="font-medium dark:text-white text-black">
+                <FaCircleUser className="h-6 w-6 rounded-full mr-2 dark:text-vt-50" />
+                <span className="font-medium dark:text-vt-50 text-vt-700">
                   {t("youSelf")}
                 </span>
               </div>

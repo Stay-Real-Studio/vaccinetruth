@@ -26,11 +26,11 @@ export const HomeHeader = ({ color = "white" }: HomeNavProps): JSX.Element => {
           className={cn(
             "text-base lg:text-xl flex gap-2 items-center",
             linkStyle[color],
-            color === "black" ? "hover:text-black" : "hover:text-white"
+            color === "black" ? "hover:text-vt-700" : "hover:text-vt-50"
           )}
         >
           <QuivrLogo size={64} color={color} />
-          <div className="bg-clip-text text-transparent bg-gradient-to-br from-cyan-500 to-white">
+          <div className="bg-clip-text text-transparent bg-gradient-to-br from-vt-50 to-vt-50">
             {t("vaccineTruthAi")}
           </div>
         </Link>

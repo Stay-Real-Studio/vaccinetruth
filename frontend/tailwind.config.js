@@ -28,6 +28,17 @@ module.exports = {
         "msg-purple": "#E0DDFC",
         "onboarding-yellow-bg": "#F6EFDE",
         ivory: "#FCFAF6",
+        "vt-50": "#f8fafc", // slate-50
+        "vt-100": "#f1f5f9", // slate-100
+        "vt-200": "#e2e8f0", // slate-200
+        "vt-300": "#cbd5e1", // slate-300
+        "vt-400": "#94a3b8", // slate-400
+        "vt-500": "#64748b", // slate-500
+        "vt-600": "#475569", // slate-606
+        "vt-700": "#334155", // slate-700
+        "vt-800": "#1e293b", // slate-800
+        "vt-900": "#0f172a", // slate-900
+        "vt-950": "#020617", // slate-950
       },
     },
   },

@@ -16,7 +16,7 @@ const ThemeSelect = (): JSX.Element => {
   return (
     <fieldset name="theme" className="mb-2">
       <label
-        className="block text-slate-700 dark:text-slate-300 mb-2"
+        className="block text-vt-700 dark:text-vt-300 mb-2"
         htmlFor="theme"
       >
         {t("themeSelect")}
@@ -28,7 +28,7 @@ const ThemeSelect = (): JSX.Element => {
         id="theme"
         value={theme}
         onChange={handleChange}
-        className="bg-slate-50 focus:outline-none focus-visible:ring-none border rounded dark:bg-black dark:text-white p-2 w-full md:w-1/2 lg:w-1/3"
+        className="bg-vt-50 focus:outline-none focus-visible:ring-none border rounded dark:bg-vt-700 dark:text-vt-50 p-2 w-full md:w-1/2 lg:w-1/3"
       >
         <option data-testid="theme-dark" value="dark">
           Dark

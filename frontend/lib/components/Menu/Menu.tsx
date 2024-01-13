@@ -57,7 +57,7 @@ export const Menu = (): JSX.Element => {
               <ChatHistory />
             </div>
 
-            <div className="hidden flex flex-1 w-full">
+            <div className="hidden w-full">
               <div className="w-full gap-2 flex flex-col">
                 <DiscussionButton />
                 <ExplorerButton />

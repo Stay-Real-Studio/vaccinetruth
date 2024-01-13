@@ -4,6 +4,7 @@ import { GoPlus } from "react-icons/go";
 
 import { LanguageSelect } from "@/app/chat/components/LanguageSelect";
 import { Logo } from "@/lib/components/Logo/Logo";
+import { ThemeSelectVT } from "@/lib/components/ThemeSelectVT";
 export const MenuHeader = (): JSX.Element => {
   const { t } = useTranslation(["vaccineTruth"]);
 
@@ -12,12 +13,12 @@ export const MenuHeader = (): JSX.Element => {
       <div className="max-w-screen-xl flex justify-between items-center pt-3 pl-3">
         <Logo />
 
-        {/* <ThemeSelectVT isChatPage={true} /> */}
+        <ThemeSelectVT isChatPage={true} />
       </div>
       <LanguageSelect isSelect={true} isChatPage={true} />
       <Link
         href="/chat"
-        className="hover:bg-slate-100 mt-2 border p-2 flex justify-center items-center gap-1 cursor-pointer rounded-lg w-full dark:text-slate-700 dark:hover:text-slate-900"
+        className="hover:bg-vt-100 mt-2 border p-2 flex justify-center items-center gap-1 cursor-pointer rounded-lg w-full dark:text-vt-700 dark:hover:text-vt-900"
       >
         <GoPlus />
         {t("newChatButton")}

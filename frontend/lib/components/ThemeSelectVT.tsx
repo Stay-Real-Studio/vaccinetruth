@@ -28,9 +28,9 @@ export const ThemeSelectVT = ({
           onClick={() => handleToggleTheme()}
           className={`${
             isChatPage
-              ? "sm:text-black dark:sm:text-black dark:text-black hover:text-primary dark:sm:text-slate-700 dark:hover:text-slate-900"
-              : "sm:text-white hover:text-slate-200 dark:text-white dark:sm:text-white sm:px-3"
-          }   text-black cursor-pointer  text-xs  bg-transparent py-1.5  text-left sm:text-sm sm:leading-6`}
+              ? "sm:text-vt-700  dark:text-vt-700 hover:text-vt-900 dark:sm:text-vt-700 dark:hover:text-vt-900"
+              : "sm:text-vt-50 hover:text-vt-200 dark:text-vt-50 dark:sm:text-vt-50 sm:px-3"
+          }   text-vt-700 cursor-pointer  text-xs  bg-transparent py-1.5  text-left sm:text-sm sm:leading-6`}
         >
           {theme === "dark" ? <CiDark /> : <BsSun />}
         </button>
