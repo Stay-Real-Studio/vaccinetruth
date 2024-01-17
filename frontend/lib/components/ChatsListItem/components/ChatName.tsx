@@ -15,7 +15,7 @@ export const ChatName = ({
         onChange={(event) => setName(event.target.value)}
         autoFocus
         value={name}
-        className="text-vt-700 pl-1 py-1"
+        className="text-vt-200 pl-1 py-1 pr-1 bg-transparent"
       />
     );
   }

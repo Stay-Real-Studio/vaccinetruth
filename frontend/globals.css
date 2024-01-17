@@ -23,14 +23,14 @@ a {
   .scrollbar::-webkit-scrollbar-track {
     /* border-radius: 5px; */
     /* background: #fff; */
-    @apply bg-vt-50 dark:bg-vt-100;
+    @apply bg-vt-600 dark:bg-vt-100;
   }
 
   .scrollbar::-webkit-scrollbar-thumb {
     /* background: #000; */
     /* border-radius: 100vh; */
     /* border: 3px solid #fff; */
-    @apply bg-vt-200 dark:bg-vt-600 border border-vt-50 rounded-sm;
+    @apply bg-vt-700 dark:bg-vt-600 border border-vt-50 rounded-sm;
   }
 
   .scrollbar::-webkit-scrollbar-thumb:hover {

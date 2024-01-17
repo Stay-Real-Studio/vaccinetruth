@@ -40,37 +40,34 @@ export const ChatHistory = (): JSX.Element => {
     <div data-testid="chats-list-items" className="flex-1 overflow-hidden ">
       <div
         data-testid="chats-list-items"
-        className="flex-1 overflow-auto sm:overflow-hidden sm:hover:overflow-auto scrollbar h-full "
+        className="flex-1 overflow-auto sm:overflow-hidden sm:hover:overflow-auto scrollbar h-full mx-1 "
       >
         {todayChats.length > 0 && (
-          <div className="bg-vt-100 text-vt-700 rounded-md px-3 py-1 mt-2">
+          <div className="bg-vt-600 text-vt-300 rounded-md pl-3 py-1 mt-2 ">
             Today
           </div>
         )}
         {todayChats.map((chat) => (
           <ChatsListItem key={chat.chat_id} chat={chat} />
         ))}
-
         {yesterdayChats.length > 0 && (
-          <div className="bg-vt-100 text-vt-700 rounded-md px-3 py-1 mt-2">
+          <div className="bg-vt-600 text-vt-300 rounded-md px-3 py-1 mt-2">
             {t("yesterday")}
           </div>
         )}
         {yesterdayChats.map((chat) => (
           <ChatsListItem key={chat.chat_id} chat={chat} />
         ))}
-
         {last7DaysChats.length > 0 && (
-          <div className="bg-vt-100 text-vt-700 rounded-md px-3 py-1 mt-2">
+          <div className="bg-vt-600 text-vt-300 rounded-md px-3 py-1 mt-2">
             {t("last7Days")}
           </div>
         )}
         {last7DaysChats.map((chat) => (
           <ChatsListItem key={chat.chat_id} chat={chat} />
         ))}
-
         {last30DaysChats.length > 0 && (
-          <div className="bg-vt-100 text-vt-700 rounded-md px-3 py-1 mt-2">
+          <div className="bg-vt-600 text-vt-300 rounded-md px-3 py-1 mt-2">
             {t("last30Days")}
           </div>
         )}

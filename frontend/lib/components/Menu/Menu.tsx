@@ -48,7 +48,7 @@ export const Menu = (): JSX.Element => {
         }}
       >
         <AnimatedDiv>
-          <div className="flex flex-col flex-1 p-4 gap-4 h-full">
+          <div className="flex flex-col flex-1 h-full bg-vt-800">
             <MenuHeader />
             <div
               className="flex flex-col flex-1 overflow-hidden"
