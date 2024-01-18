@@ -43,7 +43,7 @@ export const ChatHistory = (): JSX.Element => {
         className="flex-1 overflow-auto sm:overflow-hidden sm:hover:overflow-auto scrollbar h-full mx-1 "
       >
         {todayChats.length > 0 && (
-          <div className="bg-vt-600 text-vt-300 rounded-md pl-3 py-1 mt-2 ">
+          <div className="text-xs text-vt-600 rounded-md pl-3 py-1 mt-2 w-60">
             Today
           </div>
         )}
@@ -51,7 +51,7 @@ export const ChatHistory = (): JSX.Element => {
           <ChatsListItem key={chat.chat_id} chat={chat} />
         ))}
         {yesterdayChats.length > 0 && (
-          <div className="bg-vt-600 text-vt-300 rounded-md px-3 py-1 mt-2">
+          <div className="text-xs text-vt-600 rounded-md px-3 py-1 mt-2 w-60">
             {t("yesterday")}
           </div>
         )}
@@ -59,7 +59,7 @@ export const ChatHistory = (): JSX.Element => {
           <ChatsListItem key={chat.chat_id} chat={chat} />
         ))}
         {last7DaysChats.length > 0 && (
-          <div className="bg-vt-600 text-vt-300 rounded-md px-3 py-1 mt-2">
+          <div className="text-xs text-vt-600 rounded-md px-3 py-1 mt-2 w-60">
             {t("last7Days")}
           </div>
         )}
@@ -67,7 +67,7 @@ export const ChatHistory = (): JSX.Element => {
           <ChatsListItem key={chat.chat_id} chat={chat} />
         ))}
         {last30DaysChats.length > 0 && (
-          <div className="bg-vt-600 text-vt-300 rounded-md px-3 py-1 mt-2">
+          <div className="text-xs text-vt-600 rounded-md px-3 py-1 mt-2 w-60">
             {t("last30Days")}
           </div>
         )}

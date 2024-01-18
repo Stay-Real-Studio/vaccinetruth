@@ -28,7 +28,7 @@ export const ThemeSelectVT = ({
           onClick={() => handleToggleTheme()}
           className={`${
             isChatPage
-              ? "sm:text-vt-700  dark:text-vt-700 hover:text-vt-900 dark:sm:text-vt-700 dark:hover:text-vt-900"
+              ? "sm:text-vt-400   hover:text-vt-50 "
               : "sm:text-vt-50 hover:text-vt-200 dark:text-vt-50 dark:sm:text-vt-50 sm:px-3"
           }   text-vt-700 cursor-pointer  text-xs  bg-transparent py-1.5  text-left sm:text-sm sm:leading-6`}
         >

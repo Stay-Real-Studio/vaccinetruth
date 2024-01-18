@@ -13,7 +13,7 @@ export const MenuHeader = (): JSX.Element => {
     <div className="p-2 relative">
       <Link
         href="/chat"
-        className="hover:bg-vt-700 px-2 py-1 text-vt-50 hover:text-vt-100 flex justify-between items-center  cursor-pointer rounded-lg w-full dark:text-vt-700 dark:hover:text-vt-900"
+        className="hover:bg-vt-700 px-2 py-1 text-vt-400 hover:text-vt-200 flex justify-between items-center  cursor-pointer rounded-lg w-full "
       >
         <span className="flex items-center gap-2">
           <Image
