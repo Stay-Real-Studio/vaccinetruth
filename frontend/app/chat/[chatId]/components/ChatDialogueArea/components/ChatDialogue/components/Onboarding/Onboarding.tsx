@@ -7,6 +7,7 @@ import { useOnboardingTracker } from "@/lib/hooks/useOnboardingTracker";
 import { useStreamText } from "@/lib/hooks/useStreamText";
 
 import { MessageRow } from "../QADisplay";
+// eslint-disable-next-line import/order
 import { stepsContainerStyle } from "./styles";
 
 export const Onboarding = (): JSX.Element => {

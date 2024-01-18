@@ -4,6 +4,7 @@ import { ChatsListItem } from "@/lib/components/ChatsListItem";
 import { useChatsContext } from "@/lib/context/ChatsProvider/hooks/useChatsContext";
 
 import Spinner from "../ui/Spinner";
+// eslint-disable-next-line import/order
 import {
   isToday,
   isWithinLast30Days,
