@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 
 import { useChatContext } from "@/lib/context";
-import { useBrainContext } from "@/lib/context/BrainProvider/hooks/useBrainContext";
 import { useFetch, useToast } from "@/lib/hooks";
 
 import { ChatQuestion } from "../types";
@@ -18,7 +17,6 @@ interface UseChatService {
 
 export const useQuestion = (): UseChatService => {
   const { fetchInstance } = useFetch();
-  const { currentBrain } = useBrainContext();
 
   const { t } = useTranslation(["chat"]);
   const { publish } = useToast();
@@ -61,7 +59,7 @@ export const useQuestion = (): UseChatService => {
 
     try {
       const response = await fetchInstance.post(
-        `/chat/${chatId}/question/stream?brain_id=${currentBrain?.id ?? ""}`,
+        `/chat/${chatId}/question/stream?brain_id=${chatQuestion.brain_id ?? ""}`,
         body,
         headers
       );
