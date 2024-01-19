@@ -1,3 +1,4 @@
+/* trunk-ignore-all(prettier) */
 /* eslint-disable max-lines */
 import { useQueryClient } from "@tanstack/react-query";
 import { AxiosError } from "axios";
@@ -14,6 +15,7 @@ import { useToast } from "@/lib/hooks";
 import { useOnboarding } from "@/lib/hooks/useOnboarding";
 import { useOnboardingTracker } from "@/lib/hooks/useOnboardingTracker";
 import { useEventTracking } from "@/services/analytics/june/useEventTracking";
+import { useSecurity } from "@/services/useSecurity/useSecurity";
 
 // eslint-disable-next-line import/order
 import { ChatQuestion } from "../types";
@@ -24,6 +26,7 @@ import { useQuestion } from "./useQuestion";
 export const useChat = () => {
   const { track } = useEventTracking();
   const queryClient = useQueryClient();
+  const { isStudioMember } = useSecurity();
 
   const params = useParams();
   const [chatId, setChatId] = useState<string | undefined>(
@@ -44,6 +47,7 @@ export const useChat = () => {
   const { addStreamQuestion } = useQuestion();
   const { t } = useTranslation(["chat"]);
 
+  // eslint-disable-next-line complexity
   const addQuestion = async (question: string, callback?: () => void) => {
     if (question.trim() === "") {
       publish({
@@ -84,12 +88,14 @@ export const useChat = () => {
         });
       }
 
+      const brainId = isStudioMember ? currentBrain?.id : process.env.NEXT_PUBLIC_DEFAULT_BRAIN_ID;
+
       const chatQuestion: ChatQuestion = {
         model,
         question,
         temperature: temperature,
         max_tokens: maxTokens,
-        brain_id: currentBrain?.id,
+        brain_id: brainId,
         prompt_id: currentPromptId ?? undefined,
       };
 
