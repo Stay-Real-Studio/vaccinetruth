@@ -44,7 +44,6 @@ Answer questions only based on given context.
 - Only answer question based on context given.
 - Professional voice with concise and clear language.
 - Do not add any information besides what is given.
-- Do Not comment on any context
 """
 
 brain_service = BrainService()
