@@ -8,7 +8,7 @@ export const ChatGuide = (): JSX.Element => {
 
   return (
     <div
-      className="flex flex-col justify-center items-center h-full"
+      className="flex flex-col justify-center items-center h-full pt-56 sm:pb-0 sm:pt-0"
       data-testid="chat-guide-page"
     >
       <Disclaimer />
@@ -22,7 +22,9 @@ export const ChatGuide = (): JSX.Element => {
         ></Image>
 
         <div className="font-bold mb-2">{t("emptyChatTitle")}</div>
-        <div className="text-xs text-slate-500">{t("emptyChatSubTitle")}</div>
+        <div className="text-xs text-slate-500 pb-4 sm:pb-0">
+          {t("emptyChatSubTitle")}
+        </div>
       </div>
     </div>
   );

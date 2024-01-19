@@ -8,7 +8,7 @@ import { ThemeSelectVT } from "@/lib/components/ThemeSelectVT";
 import { cn } from "@/lib/utils";
 
 type PopoverMenuMobileProps = {
-  navLinks: JSX.Element[];
+  navLinks: JSX.Element;
   color?: "white" | "black";
 };
 
