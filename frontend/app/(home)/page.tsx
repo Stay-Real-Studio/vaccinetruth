@@ -2,16 +2,21 @@
 import { useEffect } from "react";
 
 import { useSupabase } from "@/lib/context/SupabaseProvider";
-import { redirectToPreviousPageOrChatPage } from "@/lib/helpers/redirectToPreviousPageOrChatPage";
+// import { redirectToPreviousPageOrChatPage } from "@/lib/helpers/redirectToPreviousPageOrChatPage";
 
-import { FooterSection, HomeHeader, IntroSection } from "./components";
+import {
+  FooterSection,
+  HomeHeader,
+  IntroSection,
+  Timeline,
+} from "./components";
 
 const HomePage = (): JSX.Element => {
   const { session } = useSupabase();
 
   useEffect(() => {
     if (session?.user !== undefined) {
-      redirectToPreviousPageOrChatPage();
+      // redirectToPreviousPageOrChatPage();
     }
   }, [session?.user]);
 
@@ -19,13 +24,15 @@ const HomePage = (): JSX.Element => {
     <>
       <HomeHeader />
       <main
-        className="h-full flex items-center justify-center p-4"
+        className=" flex items-center justify-center p-4"
         data-testid="home-page"
       >
+        <div className="h-[84px]"></div>
         <IntroSection />
       </main>
+      <Timeline />
 
-      <div className="bg-gradient-to-b from-sky-700 to-sky-200 fixed left-0 bottom-0 w-full">
+      <div className="bg-gradient-to-b from-sky-700 to-sky-200   w-full">
         <FooterSection />
       </div>
     </>

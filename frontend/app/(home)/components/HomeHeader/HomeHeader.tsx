@@ -19,7 +19,7 @@ export const HomeHeader = ({ color = "white" }: HomeNavProps): JSX.Element => {
   const { t } = useTranslation(["vaccineTruth"]);
 
   return (
-    <div className="w-full bg-gradient-to-b from-sky-400 to-sky-900 fixed top-0">
+    <div className="w-full bg-gradient-to-b from-sky-400 to-sky-900 fixed top-0 z-50">
       <header className="flex justify-between items-center p-3 sm:p-5 min-w-max md:max-w-6xl mx-auto ">
         <Link
           href="/"
