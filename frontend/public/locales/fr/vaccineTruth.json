@@ -1,4 +1,9 @@
 {
+  "addFeedbackErrorInfo": "opps, veuillez soumettre à nouveau plus tard.",
+  "addFeedbackErrorSubInfo": "Veuillez patienter, ou vous pouvez contacter l'administrateur en bas de la page d'accueil de l'application",
+  "addFeedbackOkInfo": "succès",
+  "addFeedbackOkSubInfo": "Merci pour vos commentaires, nous continuerons à nous améliorer et vous souhaitons une vie heureuse",
+  "back": "retour",
   "buildByStayRealStudio": "Construit par Stay Real Studio",
   "chatShareCopyURL": "Copier l'URL de partage du chat",
   "chatShareDesc": "sélectionnez votre plateforme de partage",
@@ -8,6 +13,13 @@
   "disclaimerContent": "La base de connaissances actuelle comprend des informations publiques limitées provenant de nos sources les plus fiables, telles que <0>Miles Guo</0>, <1>NFSC</1>, les médecins en audience spéciale sur les blessures causées par le vaccin Covid-19, et faits et données référencés par d'autres sources de vérité sur les vaccins. L'IA répond aux questions sur la base des informations/données provenant de ces sources. Nous ne pouvons donc pas être responsables du contenu final généré. Nous travaillons sur la visualisation de la base de connaissances, donc bientôt le contenu de la base de connaissances sera/pourra être audité publiquement.",
   "emptyChatSubTitle": "n'oubliez pas de partager si vous aimez la réponse.",
   "emptyChatTitle": "Commencer à discuter",
+  "feedbackContent": "contenu",
+  "feedbackIntro": "Commentaires",
+  "feedbackPlaceholder": "écrire quelque chose...",
+  "feedbackReset": "réinitialiser",
+  "feedbackSave": "enregistrer",
+  "feedbackSubIntro": "Nous apprécions vos suggestions sur l'utilisation de nos produits. Vos commentaires sont le moteur de l'amélioration de nos produits.",
+  "feedbackTitle": "titre",
   "kbVersion": "Base de connaissances {{version}}",
   "newChatButton": "Nouvelle conversation",
   "onboarding": {

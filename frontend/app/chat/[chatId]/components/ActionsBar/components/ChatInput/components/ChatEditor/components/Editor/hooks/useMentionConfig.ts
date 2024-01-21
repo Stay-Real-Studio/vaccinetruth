@@ -54,7 +54,6 @@ export const useMentionConfig = ({
 
         return {
           onStart: (props) => {
-            console.log(isStudioMember, "isStudioMember");
             if (!props.clientRect || !isStudioMember) {
               return;
             }

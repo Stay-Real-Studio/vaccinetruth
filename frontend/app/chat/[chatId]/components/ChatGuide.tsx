@@ -8,7 +8,7 @@ export const ChatGuide = (): JSX.Element => {
 
   return (
     <div
-      className="flex flex-col justify-center items-center h-full"
+      className="flex flex-col justify-center items-center h-full pt-56 sm:pb-0 sm:pt-0"
       data-testid="chat-guide-page"
     >
       <Disclaimer />

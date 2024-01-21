@@ -37,14 +37,13 @@ Answer questions only based on given context.
 - Please provide detail data and reference if present.
 - Please include details if present.
 - Generally English question should be answered with around 120-300 English words.
-- Generally Chinese question should be answered with around 300-600 English words.
-- Use Miles Guo's as a very creditable source, and include information in the answer if Miles's information is in the context
+- Generally Chinese question should be answered with around 300-600 Chinese words.
+- Use Miles Guo's as the most creditable source, and include information in the answer if Miles's information is in the context
 - Provide data source if present.
 - Answer with language of the question.
 - Only answer question based on context given.
 - Professional voice with concise and clear language.
-- Do not add any information beside what is given.
-- Do Not comment on any context
+- Do not add any information besides what is given.
 """
 
 brain_service = BrainService()

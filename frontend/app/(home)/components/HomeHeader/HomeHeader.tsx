@@ -3,7 +3,8 @@ import { useTranslation } from "react-i18next";
 
 import { LanguageSelect } from "@/app/chat/components/LanguageSelect";
 import { QuivrLogo } from "@/lib/assets/QuivrLogo";
-import { ThemeSelectVT } from "@/lib/components/ThemeSelectVT";
+// import { ThemeSelectVT } from "@/lib/components/ThemeSelectVT";
+import { useSupabase } from "@/lib/context/SupabaseProvider";
 import { cn } from "@/lib/utils";
 
 import { PopoverMenuMobile } from "./components/PopoverMenuMobile";
@@ -17,6 +18,7 @@ type HomeNavProps = {
 export const HomeHeader = ({ color = "white" }: HomeNavProps): JSX.Element => {
   const { navLinks } = useHomeHeader({ color });
   const { t } = useTranslation(["vaccineTruth"]);
+  const { session } = useSupabase();
 
   return (
     <div className="w-full bg-gradient-to-b from-sky-400 to-sky-900 fixed top-0">
@@ -35,12 +37,17 @@ export const HomeHeader = ({ color = "white" }: HomeNavProps): JSX.Element => {
           </div>
         </Link>
         <div className="hidden sm:flex sm:items-center">
-          <ThemeSelectVT isChatPage={false} />
-          <LanguageSelect isSelect={true} />
-          <ul className="flex gap-4 items-center">{navLinks("desktop")}</ul>
+          {/* <ThemeSelectVT isChatPage={false} /> */}
+          <LanguageSelect isSelect={true} isChatPage={false} />
+          <ul className="flex gap-4 items-center">
+            {navLinks("desktop", session !== null)}
+          </ul>
         </div>
         <div className="md:hidden z-10">
-          <PopoverMenuMobile navLinks={navLinks("mobile")} color={color} />
+          <PopoverMenuMobile
+            navLinks={navLinks("mobile", session !== null)}
+            color={color}
+          />
         </div>
       </header>
     </div>

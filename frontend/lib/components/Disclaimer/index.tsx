@@ -91,7 +91,7 @@ export const Disclaimer = (): JSX.Element => {
           </div>
         </div>
         <HelpSelect
-          className="hidden sm:inline-block fixed bottom-8 lg:right-4 md:right-2 sm:right-1 z-50 "
+          className="fixed sm:bottom-8 bottom-16 lg:right-4 md:right-2 sm:right-1 z-50 right-1/2 "
           handleVisibleDisclaimer={handleVisibleDisclaimer}
         />
       </div>
