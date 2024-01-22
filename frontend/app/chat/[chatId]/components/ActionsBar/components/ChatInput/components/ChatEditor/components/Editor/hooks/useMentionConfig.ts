@@ -5,14 +5,11 @@ import { ReactRenderer } from "@tiptap/react";
 import { SuggestionOptions } from "@tiptap/suggestion";
 import { RefAttributes, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import tippy, { Instance } from "tippy.js";
+import { Instance } from "tippy.js";
 
-import { useSecurity } from "@/services/useSecurity/useSecurity";
+import { useBrainContext } from "@/lib/context/BrainProvider/hooks/useBrainContext";
 
-import {
-  MentionList,
-  MentionListRef,
-} from "../components/MentionsList/MentionsList";
+import { MentionListRef } from "../components/MentionsList/MentionsList";
 import { MentionListProps } from "../components/MentionsList/types";
 import { SuggestionData, SuggestionItem } from "../types";
 
@@ -26,11 +23,14 @@ export const useMentionConfig = ({
   char,
   suggestionData,
 }: UseMentionConfigProps) => {
-  const { isStudioMember } = useSecurity();
+  const { allBrains, defaultBrainId } = useBrainContext();
+
   const { t } = useTranslation(["vaccineTruth"]);
 
   const mentionKey = `mention${char}`;
   const items = suggestionData.items;
+
+  const currentBrain = allBrains.find((brain) => brain.id === defaultBrainId);
 
   const suggestionsConfig = useMemo<
     Omit<SuggestionOptions<SuggestionItem>, "editor">
@@ -53,33 +53,34 @@ export const useMentionConfig = ({
         let popup: Instance[] | undefined;
 
         return {
-          onStart: (props) => {
-            if (!props.clientRect || !isStudioMember) {
-              return;
-            }
-            reactRenderer = new ReactRenderer(MentionList, {
-              props: {
-                ...props,
-                suggestionData: {
-                  ...suggestionData,
-                  items: props.items,
-                },
-              },
-              editor: props.editor,
-            });
-            popup = tippy("body", {
-              getReferenceClientRect: () => {
-                const rect = props.clientRect?.();
+          onStart: () => {
+            return;
+            // if (!props.clientRect || !isStudioMember) {
+            //   return;
+            // }
+            // reactRenderer = new ReactRenderer(MentionList, {
+            //   props: {
+            //     ...props,
+            //     suggestionData: {
+            //       ...suggestionData,
+            //       items: props.items,
+            //     },
+            //   },
+            //   editor: props.editor,
+            // });
+            // popup = tippy("body", {
+            //   getReferenceClientRect: () => {
+            //     const rect = props.clientRect?.();
 
-                return rect ? rect : new DOMRect(0, 0, 0, 0);
-              },
-              appendTo: () => document.body,
-              content: reactRenderer.element,
-              showOnCreate: true,
-              interactive: true,
-              trigger: "manual",
-              placement: "top-start",
-            });
+            //     return rect ? rect : new DOMRect(0, 0, 0, 0);
+            //   },
+            //   appendTo: () => document.body,
+            //   content: reactRenderer.element,
+            //   showOnCreate: true,
+            //   interactive: true,
+            //   trigger: "manual",
+            //   placement: "top-start",
+            // });
           },
           onUpdate: (props) => {
             reactRenderer?.updateProps({
@@ -117,7 +118,8 @@ export const useMentionConfig = ({
     },
     suggestion: suggestionsConfig,
     renderLabel: () => {
-      return t("kbVersion", { version: "v0.2" });
+      return currentBrain?.name ?? t("kbVersion", { version: "v0.2" });
+      // return t("kbVersion", { version: "v0.2" });
     },
   });
 

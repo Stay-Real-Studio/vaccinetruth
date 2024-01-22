@@ -112,6 +112,7 @@ export const useBrainProvider = () => {
     setCurrentBrainId,
 
     defaultBrainId,
+    setDefaultBrainId,
     fetchDefaultBrain,
 
     fetchPublicPrompts,
