@@ -28,7 +28,7 @@ export const ChatDialogue = ({
     <div className={chatDialogueContainerClassName} ref={chatListRef}>
       {chatItems.length > 0 && (
         <div>
-          <div className="sm:hidden fixed top-0 left-0 w-full">
+          <div className="sm:hidden fixed top-0 left-0 w-full z-10">
             <div className="bg-vt-50 dark:bg-vt-300 w-full flex justify-end p-2">
               <ShareModal />
             </div>

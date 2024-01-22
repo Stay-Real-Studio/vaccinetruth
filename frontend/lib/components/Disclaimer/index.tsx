@@ -6,11 +6,15 @@ import { Trans, useTranslation } from "react-i18next";
 import { HelpSelect } from "@/app/chat/components/HelpSelect";
 import { useDiclaimer } from "@/lib/hooks/useDiclaimer";
 
-export const Disclaimer = (): JSX.Element => {
+export const Disclaimer = ({
+  defaultVisibleDisclaimer,
+}: {
+  defaultVisibleDisclaimer: boolean;
+}): JSX.Element => {
   const { t } = useTranslation(["vaccineTruth"]);
 
   const { handleCloseDisclaimer, visibleDisclaimer, handleVisibleDisclaimer } =
-    useDiclaimer();
+    useDiclaimer(defaultVisibleDisclaimer);
 
   return (
     <>
@@ -91,7 +95,7 @@ export const Disclaimer = (): JSX.Element => {
           </div>
         </div>
         <HelpSelect
-          className="fixed sm:bottom-8 bottom-16 lg:right-4 md:right-2 sm:right-1 z-50 right-1/2 "
+          className="fixed sm:bottom-8 bottom-16 lg:right-4 md:right-2 sm:right-1 z-50 right-1 "
           handleVisibleDisclaimer={handleVisibleDisclaimer}
         />
       </div>

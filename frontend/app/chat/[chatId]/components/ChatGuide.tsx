@@ -11,7 +11,7 @@ export const ChatGuide = (): JSX.Element => {
       className="flex flex-col justify-center items-center h-full pt-56 sm:pb-0 sm:pt-0"
       data-testid="chat-guide-page"
     >
-      <Disclaimer />
+      <Disclaimer defaultVisibleDisclaimer={true} />
       <div className="flex-1 flex flex-col justify-center items-center">
         <Image
           className="rounded-full w-16 h-16 mb-4"
