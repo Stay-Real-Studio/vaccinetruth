@@ -26,11 +26,7 @@ export const useBrainCreationApi = ({
   const { files, urls } = useKnowledgeToFeedFilesAndUrls();
   const { getValues, reset } = useFormContext<CreateBrainProps>();
   const { setKnowledgeToFeed } = useKnowledgeToFeedContext();
-  const {
-    createBrain: createBrainApi,
-    setCurrentBrainId,
-    setDefaultBrainId,
-  } = useBrainContext();
+  const { createBrain: createBrainApi, setCurrentBrainId } = useBrainContext();
   const { setAsDefaultBrain } = useBrainApi();
   const { crawlWebsiteHandler, uploadFileHandler } = useKnowledgeToFeedInput();
 
@@ -84,7 +80,6 @@ export const useBrainCreationApi = ({
       await setAsDefaultBrain(createdBrainId);
     }
     setCurrentBrainId(createdBrainId);
-    setDefaultBrainId(createdBrainId);
     closeBrainCreationModal();
     reset();
     void queryClient.invalidateQueries({

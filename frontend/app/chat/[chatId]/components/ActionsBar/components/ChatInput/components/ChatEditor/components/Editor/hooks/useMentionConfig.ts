@@ -23,14 +23,14 @@ export const useMentionConfig = ({
   char,
   suggestionData,
 }: UseMentionConfigProps) => {
-  const { allBrains, defaultBrainId } = useBrainContext();
+  const { allBrains, currentBrainId } = useBrainContext();
 
   const { t } = useTranslation(["vaccineTruth"]);
 
   const mentionKey = `mention${char}`;
   const items = suggestionData.items;
 
-  const currentBrain = allBrains.find((brain) => brain.id === defaultBrainId);
+  const currentBrain = allBrains.find((brain) => brain.id === currentBrainId);
 
   const suggestionsConfig = useMemo<
     Omit<SuggestionOptions<SuggestionItem>, "editor">
@@ -55,32 +55,6 @@ export const useMentionConfig = ({
         return {
           onStart: () => {
             return;
-            // if (!props.clientRect || !isStudioMember) {
-            //   return;
-            // }
-            // reactRenderer = new ReactRenderer(MentionList, {
-            //   props: {
-            //     ...props,
-            //     suggestionData: {
-            //       ...suggestionData,
-            //       items: props.items,
-            //     },
-            //   },
-            //   editor: props.editor,
-            // });
-            // popup = tippy("body", {
-            //   getReferenceClientRect: () => {
-            //     const rect = props.clientRect?.();
-
-            //     return rect ? rect : new DOMRect(0, 0, 0, 0);
-            //   },
-            //   appendTo: () => document.body,
-            //   content: reactRenderer.element,
-            //   showOnCreate: true,
-            //   interactive: true,
-            //   trigger: "manual",
-            //   placement: "top-start",
-            // });
           },
           onUpdate: (props) => {
             reactRenderer?.updateProps({
@@ -118,8 +92,11 @@ export const useMentionConfig = ({
     },
     suggestion: suggestionsConfig,
     renderLabel: () => {
-      return currentBrain?.name ?? t("kbVersion", { version: "v0.2" });
-      // return t("kbVersion", { version: "v0.2" });
+      return (
+        (currentBrain?.id === process.env.NEXT_PUBLIC_DEFAULT_BRAIN_ID
+          ? t("kbVersion", { version: "v0.2" })
+          : currentBrain?.name) ?? t("kbVersion", { version: "v0.2" })
+      );
     },
   });
 
