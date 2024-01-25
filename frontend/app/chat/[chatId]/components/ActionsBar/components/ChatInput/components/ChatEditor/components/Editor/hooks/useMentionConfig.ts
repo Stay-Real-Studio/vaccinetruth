@@ -93,7 +93,8 @@ export const useMentionConfig = ({
     suggestion: suggestionsConfig,
     renderLabel: () => {
       return (
-        (currentBrain?.id === process.env.NEXT_PUBLIC_DEFAULT_BRAIN_ID
+        (currentBrain?.id === process.env.NEXT_PUBLIC_DEFAULT_BRAIN_ID ||
+        currentBrain?.name === "Default brain"
           ? t("kbVersion", { version: "v0.2" })
           : currentBrain?.name) ?? t("kbVersion", { version: "v0.2" })
       );
