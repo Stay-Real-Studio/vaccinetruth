@@ -28,8 +28,8 @@ export const ChatDialogue = ({
     <div className={chatDialogueContainerClassName} ref={chatListRef}>
       {chatItems.length > 0 && (
         <div>
-          <div className="sm:hidden fixed top-0 left-0 w-full">
-            <div className="bg-white dark:bg-slate-300 w-full flex justify-end p-2">
+          <div className="sm:hidden fixed top-0 left-0 w-full z-10">
+            <div className="bg-vt-50 dark:bg-vt-300 w-full flex justify-end p-2">
               <ShareModal />
             </div>
           </div>
@@ -47,7 +47,7 @@ export const ChatDialogue = ({
 
       {visibleScrollBottonIcon && (
         <button
-          className=" fixed z-50 right-1/2 sm:right-[200px] bottom-16 border rounded-full p-2 dark:text-white dark:sm:text-black"
+          className=" fixed z-50 right-1/2 sm:right-[200px] bottom-16 border rounded-full p-2 dark:text-vt-50 dark:sm:text-vt-700"
           onClick={() => scrollToBottom()}
         >
           <BsArrowDown />

@@ -3,8 +3,10 @@
 import { useEffect, useState } from "react";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export const useDiclaimer = () => {
-  const [visibleDisclaimer, setVisibleDisclaimer] = useState<boolean>(true);
+export const useDiclaimer = (defaultVisibleDisclaimer: boolean) => {
+  const [visibleDisclaimer, setVisibleDisclaimer] = useState<boolean>(
+    defaultVisibleDisclaimer
+  );
 
   const WEEK_TIME = 7 * 24 * 3600 * 1000;
 

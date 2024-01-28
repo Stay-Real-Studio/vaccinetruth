@@ -15,10 +15,10 @@ export const ChatName = ({
         onChange={(event) => setName(event.target.value)}
         autoFocus
         value={name}
-        className="text-black"
+        className="text-vt-200 px-1 py-1 bg-transparent"
       />
     );
   }
 
-  return <span className="max-w-[150px] truncate">{name}</span>;
+  return <span className="max-w-44 truncate">{name}</span>;
 };

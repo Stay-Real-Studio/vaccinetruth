@@ -12,7 +12,7 @@ section {
 }
 
 a {
-  @apply hover:text-primary dark:hover:text-gray-200 transition-colors;
+  @apply hover:text-primary dark:hover:text-vt-200 transition-colors;
 }
 
 @layer utilities {
@@ -23,18 +23,18 @@ a {
   .scrollbar::-webkit-scrollbar-track {
     /* border-radius: 5px; */
     /* background: #fff; */
-    @apply bg-white dark:bg-black;
+    @apply bg-vt-700 dark:bg-vt-100;
   }
 
   .scrollbar::-webkit-scrollbar-thumb {
     /* background: #000; */
     /* border-radius: 100vh; */
     /* border: 3px solid #fff; */
-    @apply bg-gray-200 dark:bg-gray-600 border border-white rounded-sm;
+    @apply bg-vt-600 dark:bg-vt-600 border border-vt-50 rounded-sm;
   }
 
   .scrollbar::-webkit-scrollbar-thumb:hover {
     /* background: #000; */
-    @apply bg-gray-500;
+    @apply bg-vt-500;
   }
 }

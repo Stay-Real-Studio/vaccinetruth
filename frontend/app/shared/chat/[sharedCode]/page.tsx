@@ -45,7 +45,7 @@ export const generateMetadata = async (
 const SharedChatPage = (): JSX.Element => {
   return (
     <div
-      className={`flex flex-col flex-1 items-center justify-stretch w-full h-fill-available overflow-hidden  dark:bg-black transition-colors ease-out duration-500`}
+      className={`flex flex-col flex-1 items-center justify-stretch w-full h-fill-available overflow-hidden  dark:bg-vt-700 transition-colors ease-out duration-500`}
       data-testid="chat-page"
     >
       <SharedPageTitle />
