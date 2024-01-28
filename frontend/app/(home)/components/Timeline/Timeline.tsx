@@ -9,8 +9,6 @@ import { cn } from "@/lib/utils";
 
 import andrewGreeneImage from "./images/avatars/andrew-greene.jpg";
 import damarisKimuraImage from "./images/avatars/damaris-kimura.jpg";
-import dianneGuilianelliImage from "./images/avatars/dianne-guilianelli.jpg";
-import erhartCockrinImage from "./images/avatars/erhart-cockrin.jpg";
 import heatherTerryImage from "./images/avatars/heather-terry.jpg";
 import ibrahimFraschImage from "./images/avatars/ibrahim-frasch.jpg";
 import jaquelinIschImage from "./images/avatars/jaquelin-isch.jpg";
@@ -38,61 +36,36 @@ const days = [
         role: "中共官方承认新冠病毒人传人",
         image: jaquelinIschImage,
       },
-      {
-        name: "2020年1月23日",
-        role: "武汉封城",
-        image: dianneGuilianelliImage,
-      },
-      {
-        name: "2020年1月25号前后",
-        role: "中共军方陈薇少将接管武汉P4实验室",
-        image: ronniCantadoreImage,
-      },
+
       {
         name: "2020年2月2日",
         role: "郭文贵先生爆料，冠状病毒不是灾难，新冠病毒 是共产党屠杀全世界的生化武器，但推出新冠疫苗才是目的，疫苗才是灾难，新冠疫苗才是真正的杀人工具",
         image: ronniCantadoreImage,
       },
-      {
-        name: "2020年2月26日",
-        role: "在3月3日，网上流传出了新冠重组疫苗的照片，随即官媒辟谣。央视在2020年9月1日播出的“开学第一课“节目中，作为嘉宾的陈薇亲口宣称，2月26日第一批新冠疫苗就下线",
-        image: erhartCockrinImage,
-      },
+
       {
         name: "2020年3月16日",
-        role: "获批启动临床试验，（一期临床这个时候才开始，是什么给了他们勇气在2020年2月底已经开始大规模生产了呢）",
+        role: "中共国内获批启动临床试验，（一期临床这个时候才开始，是什么给了他们勇气在2020年2月底已经开始大规模生产了呢）",
         image: parkerJohnsonImage,
       },
-      {
-        name: "2020年3月底",
-        role: "完成了一期临床试验受试者接种工作",
-        image: parkerJohnsonImage,
-      },
+
       {
         name: "2020年4月12日",
-        role: "启动了二期临床试验。（一期试验结束2周还没到，一期临床的数据还没有呢就开始二期了，这是心大还是压根觉得不需要？）",
+        role: "中共国内启动了二期临床试验。（一期试验结束2周还没到，一期临床的数据还没有呢就开始二期了，这是心大还是压根觉得不需要？）",
         image: parkerJohnsonImage,
       },
-      {
-        name: "2020年5月22日",
-        role: "在柳叶刀公布一期临床数据",
-        image: parkerJohnsonImage,
-      },
+
       {
         name: "2020年7月20日",
-        role: "在柳叶刀公布二期临床数据（临床结果表明接种疫苗组95%产生了抗体，同时72%左右出现发热、疲劳和注射部位疼痛等不良反应，高剂量组9%出现三级不良反应。想象一下大规模接种是多么可怕。）",
+        role: "中共在柳叶刀公布二期临床数据（临床结果表明接种疫苗组95%产生了抗体，同时72%左右出现发热、疲劳和注射部位疼痛等不良反应，高剂量组9%出现三级不良反应。想象一下大规模接种是多么可怕。）",
         image: parkerJohnsonImage,
       },
       {
         name: "2020年8月初 ",
-        role: "国家知识产权管理局对外发布了陈薇团队研发的新冠疫苗专利（三期还没做呢）",
+        role: "中共国家知识产权管理局对外发布了陈薇团队研发的新冠疫苗专利（三期还没做呢）",
         image: parkerJohnsonImage,
       },
-      {
-        name: "2020年9月初 ",
-        role: "陈薇表示目前已经开始三期临床，由于国内疫情控制得好，没有足够的试验对象，所以主要向海外推广",
-        image: parkerJohnsonImage,
-      },
+
       {
         name: "2020年12月 ",
         role: "美国食品药品监督管理局(FDA) 欺诈性地为危险且未经测试的Covid-19“疫苗”颁发“紧急使用授权”(EUA)",
@@ -112,7 +85,7 @@ const days = [
     speakers: [
       {
         name: "2021年8月30日",
-        role: "文贵大直播中爆料：青蒿素是新冠病毒和疫苗的解药。",
+        role: "郭文贵先生在文贵大直播中爆料：青蒿素是新冠病毒和疫苗的解药。",
         image: damarisKimuraImage,
       },
       {
@@ -126,8 +99,13 @@ const days = [
         image: damarisKimuraImage,
       },
       {
-        name: "2022年1月",
-        role: "RmRNA 技术的关键创始人之一罗伯特·马龙(Robert Malone)博士揭露了这种技术对人类健康的可怕影响，并让全世界知道血栓疫苗可以像艾滋病一样削弱人体免疫系统",
+        name: "2022年5月13日",
+        role: "罗伯特·马龙在班农作战室透露，疫苗中整合了具有免疫抑制作用的假尿嘧啶核苷的mRNA可以在体内停留至少60天或更长时间，且较之自然感染，mRNA会使体内产生更多刺突蛋白",
+        image: ibrahimFraschImage,
+      },
+      {
+        name: "2022年10月10日",
+        role: "辉瑞国际发达市场部总裁Janine Small向欧洲议会议员亲口承认该疫苗进入市场前没有进行病毒传播测试",
         image: ibrahimFraschImage,
       },
     ],
@@ -144,7 +122,12 @@ const days = [
       },
       {
         name: "2023年3月8号",
-        role: "被川普总统任命为疾控中心CDC主任Dr. Redfield在国会重申了他2021年的观点：‘大流行是由实验室泄露引起的，这个结论主要是基于病毒本身的生物学特征和病毒在人与人之间传播能力太强了，不可能是直接从动物传播给人的自然结果，而是病毒易感人的功能获得来自于人工基因改造的结果’",
+        role: "前CDC主任Dr. Redfield在国会重申：‘大流行是由实验室泄露引起的，这个结论主要是基于病毒本身的生物学特征和病毒在人与人之间传播能力太强了，不可能是直接从动物传播给人的自然结果，而是病毒易感人的功能获得来自于人工基因改造的结果’",
+        image: andrewGreeneImage,
+      },
+      {
+        name: "2023年9月13日",
+        role: "Peter McCullough博士欧洲议会作证，呼吁彻底停止所有COVID注射-不适合人类使用",
         image: andrewGreeneImage,
       },
       {
