@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 
 import { useSupabase } from "@/lib/context/SupabaseProvider";
-import { redirectToPreviousPageOrChatPage } from "@/lib/helpers/redirectToPreviousPageOrChatPage";
+// import { redirectToPreviousPageOrChatPage } from "@/lib/helpers/redirectToPreviousPageOrChatPage";
 
 import { FooterSection, HomeHeader, IntroSection } from "./components";
 
@@ -11,7 +11,7 @@ const HomePage = (): JSX.Element => {
 
   useEffect(() => {
     if (session?.user !== undefined) {
-      redirectToPreviousPageOrChatPage();
+      // redirectToPreviousPageOrChatPage();
     }
   }, [session?.user]);
 
@@ -25,7 +25,7 @@ const HomePage = (): JSX.Element => {
         <IntroSection />
       </main>
 
-      <div className="bg-gradient-to-b from-sky-700 to-sky-200 fixed left-0 bottom-0 w-full">
+      <div className=" fixed left-0 bottom-0 w-full">
         <FooterSection />
       </div>
     </>

@@ -39,7 +39,7 @@ export const LanguageSelect = ({
                       // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
                       isChatPage
                         ? "sm:text-black hover:text-primary dark:sm:text-slate-700 dark:hover:text-slate-900"
-                        : "sm:text-white hover:text-slate-200 dark:text-white"
+                        : "sm:text-vt-700 hover:text-vt-800 dark:text-white"
                     } text-black  text-xs  py-1.5  text-left   sm:text-sm sm:leading-6`}
                   >
                     <IoLanguage></IoLanguage>

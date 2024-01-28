@@ -70,7 +70,7 @@ export const useHomeHeader = ({ color }: UseHomeHeaderProps) => {
                   rel: "noopener noreferrer",
                 })}
                 className={cn(
-                  "flex justify-between items-center hover:text-primary p-2 gap-1",
+                  "flex justify-between items-center hover:text-vt-800 p-2 gap-1",
                   device === "desktop" ? linkStyle[color] : null,
                   className
                 )}

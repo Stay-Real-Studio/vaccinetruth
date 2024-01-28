@@ -21,18 +21,17 @@ export const HomeHeader = ({ color = "white" }: HomeNavProps): JSX.Element => {
   const { session } = useSupabase();
 
   return (
-    <div className="w-full bg-gradient-to-b from-sky-400 to-sky-900 fixed top-0">
+    <div className="w-full fixed top-0">
       <header className="flex justify-between items-center p-3 sm:p-5 min-w-max md:max-w-6xl mx-auto ">
         <Link
           href="/"
           className={cn(
             "text-base lg:text-xl flex gap-2 items-center",
-            linkStyle[color],
-            color === "black" ? "hover:text-black" : "hover:text-white"
+            linkStyle[color]
           )}
         >
           <QuivrLogo size={64} color={color} />
-          <div className="bg-clip-text text-transparent bg-gradient-to-br from-white to-white">
+          <div className="text-vt-700 hover:text-vt-800">
             {t("vaccineTruthAi")}
           </div>
         </Link>
