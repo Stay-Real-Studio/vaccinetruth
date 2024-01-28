@@ -19,13 +19,13 @@ const HomePage = (): JSX.Element => {
     <>
       <HomeHeader />
       <main
-        className="h-full flex items-center justify-center p-4"
+        className="flex items-center justify-center p-4"
         data-testid="home-page"
       >
         <IntroSection />
       </main>
 
-      <div className=" fixed left-0 bottom-0 w-full">
+      <div className="w-full">
         <FooterSection />
       </div>
     </>

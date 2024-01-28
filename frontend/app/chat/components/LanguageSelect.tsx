@@ -22,7 +22,7 @@ export const LanguageSelect = ({
     useLanguageHook();
 
   return (
-    <div className={`${!isSelect ? "mr-2 ml-2" : ""}`}>
+    <div className={`${!isSelect ? "ml-2" : ""}`}>
       {isSelect && (
         <Listbox
           value={currentLanguage}

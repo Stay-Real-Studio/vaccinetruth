@@ -21,7 +21,7 @@ export const HomeHeader = ({ color = "white" }: HomeNavProps): JSX.Element => {
   const { session } = useSupabase();
 
   return (
-    <div className="w-full fixed top-0">
+    <div className="w-full ">
       <header className="flex justify-between items-center p-3 sm:p-5 min-w-max md:max-w-6xl mx-auto ">
         <Link
           href="/"
