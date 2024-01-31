@@ -4,6 +4,7 @@
 import { Tab } from "@headlessui/react";
 import Image from "next/image";
 import { useEffect, useId, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import { cn } from "@/lib/utils";
 
@@ -16,128 +17,9 @@ import parkerJohnsonImage from "./images/avatars/parker-johnson.jpg";
 import ronniCantadoreImage from "./images/avatars/ronni-cantadore.jpg";
 import stevenMchailImage from "./images/avatars/steven-mchail.jpg";
 // eslint-disable-next-line import/order
-import { Container } from "./Container";
+import { Container } from "../Container";
 // eslint-disable-next-line import/order
 import { DiamondIcon } from "./DiamondIcon";
-
-const days = [
-  {
-    name: "Stage One",
-    date: "2019-2020",
-    dateTime: "2019-2020",
-    speakers: [
-      {
-        name: "2019年12月31日",
-        role: "武汉卫健委报告第一例武汉肺炎病例",
-        image: stevenMchailImage,
-      },
-      {
-        name: "2020年1月20日",
-        role: "中共官方承认新冠病毒人传人",
-        image: jaquelinIschImage,
-      },
-
-      {
-        name: "2020年2月2日",
-        role: "郭文贵先生爆料，冠状病毒不是灾难，新冠病毒 是共产党屠杀全世界的生化武器，但推出新冠疫苗才是目的，疫苗才是灾难，新冠疫苗才是真正的杀人工具",
-        image: ronniCantadoreImage,
-      },
-
-      {
-        name: "2020年3月16日",
-        role: "中共国内获批启动临床试验，（一期临床这个时候才开始，是什么给了他们勇气在2020年2月底已经开始大规模生产了呢）",
-        image: parkerJohnsonImage,
-      },
-
-      {
-        name: "2020年4月12日",
-        role: "中共国内启动了二期临床试验。（一期试验结束2周还没到，一期临床的数据还没有呢就开始二期了，这是心大还是压根觉得不需要？）",
-        image: parkerJohnsonImage,
-      },
-
-      {
-        name: "2020年7月20日",
-        role: "中共在柳叶刀公布二期临床数据（临床结果表明接种疫苗组95%产生了抗体，同时72%左右出现发热、疲劳和注射部位疼痛等不良反应，高剂量组9%出现三级不良反应。想象一下大规模接种是多么可怕。）",
-        image: parkerJohnsonImage,
-      },
-      {
-        name: "2020年8月初 ",
-        role: "中共国家知识产权管理局对外发布了陈薇团队研发的新冠疫苗专利（三期还没做呢）",
-        image: parkerJohnsonImage,
-      },
-
-      {
-        name: "2020年12月 ",
-        role: "美国食品药品监督管理局(FDA) 欺诈性地为危险且未经测试的Covid-19“疫苗”颁发“紧急使用授权”(EUA)",
-        image: parkerJohnsonImage,
-      },
-      {
-        name: "2020年12月17日",
-        role: "法国病毒学家，2008年诺贝尔生理学或医学奖获得者，吕克·蒙塔尼耶接受采访时表示：新冠疫苗病毒改变自然演变规律…序列不仅有艾滋病病毒、还有疟原虫、疟疾",
-        image: parkerJohnsonImage,
-      },
-    ],
-  },
-  {
-    name: "State Two",
-    date: "2021-2022",
-    dateTime: "2021-2022",
-    speakers: [
-      {
-        name: "2021年8月30日",
-        role: "郭文贵先生在文贵大直播中爆料：青蒿素是新冠病毒和疫苗的解药。",
-        image: damarisKimuraImage,
-      },
-      {
-        name: "2021年11月26日",
-        role: "德国爆料者Andreas Novak医生，在发布有关氧化石墨烯和氢氧化石墨烯的最新视频几个小时后突然去世。被谋杀",
-        image: damarisKimuraImage,
-      },
-      {
-        name: "2021年12月",
-        role: "由Larry Pavlevsky博士、Robert Reinders博士、Alvin Moss博士、James Neueschwander博士主持的一场座谈会中讨论的新冠疫苗中关于氢氧化石墨乙烯、用于制造刺突蛋白的信使RNA、脂质纳米颗粒、聚乙二醇、以及关于自然抗体与疫苗抗体政策的突然改变，关于这些内容其实是以上几位医学界专家关于新冠疫苗的最早揭示",
-        image: damarisKimuraImage,
-      },
-      {
-        name: "2022年5月13日",
-        role: "罗伯特·马龙在班农作战室透露，疫苗中整合了具有免疫抑制作用的假尿嘧啶核苷的mRNA可以在体内停留至少60天或更长时间，且较之自然感染，mRNA会使体内产生更多刺突蛋白",
-        image: ibrahimFraschImage,
-      },
-      {
-        name: "2022年10月10日",
-        role: "辉瑞国际发达市场部总裁Janine Small向欧洲议会议员亲口承认该疫苗进入市场前没有进行病毒传播测试",
-        image: ibrahimFraschImage,
-      },
-    ],
-  },
-  {
-    name: "Stage Three",
-    date: "2023-2024",
-    dateTime: "2023-2024",
-    speakers: [
-      {
-        name: "2023年2月",
-        role: "爆料人萨沙·拉蒂波娃(Sasha Latypova)透露了大型制药公司和美国疾控中心(CDC )对真正有效的Covid-19药物的即时审查，包括伊维菌素和羟氯喹的即时审查",
-        image: andrewGreeneImage,
-      },
-      {
-        name: "2023年3月8号",
-        role: "前CDC主任Dr. Redfield在国会重申：‘大流行是由实验室泄露引起的，这个结论主要是基于病毒本身的生物学特征和病毒在人与人之间传播能力太强了，不可能是直接从动物传播给人的自然结果，而是病毒易感人的功能获得来自于人工基因改造的结果’",
-        image: andrewGreeneImage,
-      },
-      {
-        name: "2023年9月13日",
-        role: "Peter McCullough博士欧洲议会作证，呼吁彻底停止所有COVID注射-不适合人类使用",
-        image: andrewGreeneImage,
-      },
-      {
-        name: "2024年1月5日",
-        role: "Bret Weinstein 博士在卡尔森节目中以科学家身份揭露新冠疫苗灾难，并提及中共参与其中。",
-        image: heatherTerryImage,
-      },
-    ],
-  },
-];
 
 const ImageClipPaths = ({
   id,
@@ -163,6 +45,126 @@ const ImageClipPaths = ({
 export const Timeline = (): JSX.Element => {
   const id = useId();
   const [tabOrientation, setTabOrientation] = useState("horizontal");
+  const { t } = useTranslation(["vaccineTruth"]);
+
+  const days = [
+    {
+      name: t("StageOne"),
+      date: "2019-2020",
+      dateTime: "2019-2020",
+      speakers: [
+        {
+          name: t("timelineTime1_1"),
+          role: t("timelineName1_1"),
+          image: stevenMchailImage,
+        },
+        {
+          name: t("timelineTime1_2"),
+          role: t("timelineName1_2"),
+          image: jaquelinIschImage,
+        },
+
+        {
+          name: t("timelineTime1_3"),
+          role: t("timelineName1_3"),
+          image: ronniCantadoreImage,
+        },
+
+        {
+          name: t("timelineTime2_1"),
+          role: t("timelineName2_1"),
+          image: parkerJohnsonImage,
+        },
+
+        {
+          name: t("timelineTime2_2"),
+          role: t("timelineName2_2"),
+          image: parkerJohnsonImage,
+        },
+
+        {
+          name: t("timelineTime2_3"),
+          role: t("timelineName2_3"),
+          image: parkerJohnsonImage,
+        },
+        {
+          name: t("timelineTime3_1"),
+          role: t("timelineName3_1"),
+          image: parkerJohnsonImage,
+        },
+
+        {
+          name: t("timelineTime3_2"),
+          role: t("timelineName3_2"),
+          image: parkerJohnsonImage,
+        },
+        {
+          name: t("timelineTime3_3"),
+          role: t("timelineName3_3"),
+          image: parkerJohnsonImage,
+        },
+      ],
+    },
+    {
+      name: t("StateTwo"),
+      date: "2021-2022",
+      dateTime: "2021-2022",
+      speakers: [
+        {
+          name: t("timelineTime_2_1_1"),
+          role: t("timelineName_2_1_1"),
+          image: damarisKimuraImage,
+        },
+        {
+          name: t("timelineTime_2_1_2"),
+          role: t("timelineName_2_1_2"),
+          image: damarisKimuraImage,
+        },
+        {
+          name: t("timelineTime_2_1_3"),
+          role: t("timelineName_2_1_3"),
+          image: damarisKimuraImage,
+        },
+        {
+          name: t("timelineTime_2_2_1"),
+          role: t("timelineName_2_2_1"),
+          image: ibrahimFraschImage,
+        },
+        {
+          name: t("timelineTime_2_2_2"),
+          role: t("timelineName_2_2_2"),
+          image: ibrahimFraschImage,
+        },
+      ],
+    },
+    {
+      name: t("StageThree"),
+      date: "2023-2024",
+      dateTime: "2023-2024",
+      speakers: [
+        {
+          name: t("timelineTime_3_1_1"),
+          role: t("timelineName_3_1_1"),
+          image: andrewGreeneImage,
+        },
+        {
+          name: t("timelineTime_3_1_2"),
+          role: t("timelineName_3_1_2"),
+          image: andrewGreeneImage,
+        },
+        {
+          name: t("timelineTime_3_1_3"),
+          role: t("timelineName_3_1_3"),
+          image: andrewGreeneImage,
+        },
+        {
+          name: t("timelineTime_3_2_1"),
+          role: t("timelineName_3_2_1"),
+          image: heatherTerryImage,
+        },
+      ],
+    },
+  ];
 
   useEffect(() => {
     const lgMediaQuery = window.matchMedia("(min-width: 1024px)");
@@ -192,11 +194,10 @@ export const Timeline = (): JSX.Element => {
             id="speakers-title"
             className="font-display text-4xl font-medium tracking-tighter text-blue-600 sm:text-5xl"
           >
-            Covid-19 Vaccine Timeline
+            {t("timelineTitle")}
           </h2>
           <p className="mt-4 font-display text-2xl tracking-tight text-blue-900">
-            Is the Covid-19 vaccine safe and effective when it is introduced to
-            the market so quickly? Let us see what happened before and after
+            {t("timelineSubTitle")}
           </p>
         </div>
         <Tab.Group

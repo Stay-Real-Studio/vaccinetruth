@@ -33,6 +33,11 @@ export const useHomeHeader = ({ color }: UseHomeHeaderProps) => {
       rightIcon: null,
     },
     {
+      href: "/feedback",
+      label: t("feedbackIntro", { ns: "vaccineTruth" }),
+      rightIcon: null,
+    },
+    {
       href: "/login",
       label: t("sign_up", { ns: "home" }),
       visibleWhenLogout: true,
@@ -70,7 +75,7 @@ export const useHomeHeader = ({ color }: UseHomeHeaderProps) => {
                   rel: "noopener noreferrer",
                 })}
                 className={cn(
-                  "flex justify-between items-center hover:text-vt-800 p-2 gap-1",
+                  "flex justify-between items-center rounded-lg p-2 gap-1 hover:bg-vt-200",
                   device === "desktop" ? linkStyle[color] : null,
                   className
                 )}
@@ -87,7 +92,7 @@ export const useHomeHeader = ({ color }: UseHomeHeaderProps) => {
           <span
             onClick={() => void handleLogout()}
             className={cn(
-              "flex justify-between items-center hover:text-primary p-2 gap-1 cursor-pointer",
+              "flex justify-between items-center  p-2 gap-1 rounded-lg cursor-pointer hover:bg-vt-200 ",
               device === "desktop" ? linkStyle[color] : null
             )}
           >

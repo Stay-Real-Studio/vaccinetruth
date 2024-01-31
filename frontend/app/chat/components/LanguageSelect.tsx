@@ -38,7 +38,7 @@ export const LanguageSelect = ({
                     className={`${
                       // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
                       isChatPage
-                        ? "sm:text-black hover:text-primary dark:sm:text-slate-700 dark:hover:text-slate-900"
+                        ? "sm:text-vt-200 hover:text-vt-100 dark:sm:text-slate-700 dark:hover:text-slate-900"
                         : "sm:text-vt-700 hover:text-vt-800 dark:text-white"
                     } text-black  text-xs  py-1.5  text-left   sm:text-sm sm:leading-6`}
                   >
@@ -69,10 +69,8 @@ export const LanguageSelect = ({
                         key={lang}
                         className={({ active }) =>
                           cn(
-                            active
-                              ? "bg-indigo-600 text-vt-50"
-                              : "text-gray-900",
-                            "relative cursor-default select-none py-2 pl-3 pr-9 text-xs sm:text-sm"
+                            active ? "bg-vt-300 text-vt-900" : "text-vt-700",
+                            "relative cursor-pointer select-none py-2 pl-3 pr-9 text-xs sm:text-sm hover:bg-vt-200 hover:text-vt-800"
                           )
                         }
                         value={lang}
@@ -91,7 +89,7 @@ export const LanguageSelect = ({
                             {selected ? (
                               <span
                                 className={cn(
-                                  active ? "text-vt-50" : "text-indigo-600",
+                                  active ? "text-vt-800" : "text-vt-600",
                                   "absolute inset-y-0 right-0 flex items-center pr-2"
                                 )}
                               >

@@ -2,34 +2,24 @@
 import { useEffect } from "react";
 
 import { useSupabase } from "@/lib/context/SupabaseProvider";
-// import { redirectToPreviousPageOrChatPage } from "@/lib/helpers/redirectToPreviousPageOrChatPage";
+import { redirectToPreviousPageOrChatPage } from "@/lib/helpers/redirectToPreviousPageOrChatPage";
 
-import {
-  FooterSection,
-  HomeHeader,
-  IntroSection,
-  Timeline,
-} from "./components";
+import { FooterSection, HomeHeader, Timeline, VTIntro } from "./components";
 
 const HomePage = (): JSX.Element => {
   const { session } = useSupabase();
 
   useEffect(() => {
     if (session?.user !== undefined) {
-      // redirectToPreviousPageOrChatPage();
+      redirectToPreviousPageOrChatPage();
     }
   }, [session?.user]);
 
   return (
     <>
       <HomeHeader />
-      <main
-        className="flex items-center justify-center p-4"
-        data-testid="home-page"
-      >
-        <div className="h-[84px]"></div>
-        <IntroSection />
-      </main>
+      <VTIntro />
+
       <Timeline />
 
       <div className="w-full">
