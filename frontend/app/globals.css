@@ -27,14 +27,14 @@ div:focus {
   .scrollbar::-webkit-scrollbar-track {
     /* border-radius: 5px; */
     /* background: #fff; */
-    @apply bg-vt-700 dark:bg-vt-700;
+    @apply bg-highlight dark:bg-vt-700;
   }
 
   .scrollbar::-webkit-scrollbar-thumb {
     /* background: #000; */
     /* border-radius: 100vh; */
     /* border: 3px solid #fff; */
-    @apply bg-vt-600 dark:bg-vt-600 border border-vt-50 rounded-md;
+    @apply bg-vt-300 dark:bg-vt-600 border border-vt-50 rounded-md;
   }
 
   .scrollbar::-webkit-scrollbar-thumb:hover {

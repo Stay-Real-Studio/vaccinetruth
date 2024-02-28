@@ -48,7 +48,7 @@ export const Menu = (): JSX.Element => {
         }}
       >
         <AnimatedDiv>
-          <div className="flex flex-col flex-1 h-full bg-vt-800 pb-2">
+          <div className="flex flex-col flex-1 h-full dark:bg-vt-800 bg-highlight pb-2">
             <MenuHeader />
             <div
               className="flex flex-col flex-1 overflow-hidden"
@@ -75,7 +75,7 @@ export const Menu = (): JSX.Element => {
       <Button
         variant="tertiary"
         onClick={() => setIsOpened((prev) => !prev)}
-        className="absolute top-1 left-2 sm:hidden z-50"
+        className="absolute top-1 left-2 sm:hidden z-50 "
       >
         <LuPanelLeftOpen className="" size={30} />
       </Button>

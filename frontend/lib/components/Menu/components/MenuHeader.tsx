@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { GoPlus } from "react-icons/go";
 
 import { LanguageSelect } from "@/app/chat/components/LanguageSelect";
+
 // import { Logo } from "@/lib/components/Logo/Logo";
 export const MenuHeader = (): JSX.Element => {
   const { t } = useTranslation(["vaccineTruth"]);
@@ -12,7 +13,7 @@ export const MenuHeader = (): JSX.Element => {
     <div className="p-2 relative">
       <Link
         href="/chat"
-        className="hover:bg-vt-700 px-2 py-1 text-vt-400 hover:text-vt-200 flex justify-between items-center  cursor-pointer rounded-lg w-full "
+        className="dark:hover:bg-vt-700 hover:bg-vt-300 px-2 py-1 dark:text-vt-400 text-vt-600 hover:text-vt-700 dark:hover:text-vt-200 flex justify-between items-center  cursor-pointer rounded-lg w-full "
       >
         <span className="flex items-center gap-2">
           <Image

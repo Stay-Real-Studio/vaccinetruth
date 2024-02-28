@@ -14,7 +14,7 @@ export const ProfileButton = (): JSX.Element => {
           </div>
         }
         endIcon={<LuChevronRight size={18} />}
-        className="w-60 py-1 ml-1 hover:bg-vt-700  hover:text-vt-50 text-vt-400  dark:text-vt-400"
+        className="w-60 py-1 ml-1 dark:hover:bg-vt-700 hover:bg-vt-200  dark:hover:text-vt-50 dark:text-vt-400  text-vt-600 hover:text-vt-700"
       />
     </Link>
   );
