@@ -50,7 +50,7 @@ export const ChatDialogue = ({
           className=" fixed z-50 right-1/2 sm:right-[200px] bottom-16 border rounded-full p-2 dark:text-vt-50 dark:sm:text-vt-700"
           onClick={() => scrollToBottom()}
         >
-          <BsArrowDown />
+          <BsArrowDown className="dark:text-vt-50" />
         </button>
       )}
     </div>

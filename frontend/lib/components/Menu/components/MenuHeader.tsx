@@ -5,6 +5,8 @@ import { GoPlus } from "react-icons/go";
 
 import { LanguageSelect } from "@/app/chat/components/LanguageSelect";
 
+import { ThemeSelectVT } from "../../ThemeSelectVT";
+
 // import { Logo } from "@/lib/components/Logo/Logo";
 export const MenuHeader = (): JSX.Element => {
   const { t } = useTranslation(["vaccineTruth"]);
@@ -30,7 +32,7 @@ export const MenuHeader = (): JSX.Element => {
       </Link>
       <div className="max-w-screen-xl flex gap-3 items-center pl-2">
         <LanguageSelect isSelect={true} isChatPage={true} />
-        {/* <ThemeSelectVT isChatPage={true} /> */}
+        <ThemeSelectVT isChatPage={true} />
       </div>
     </div>
   );

@@ -63,14 +63,14 @@ export const LanguageSelect = ({
                   leaveFrom="opacity-100"
                   leaveTo="opacity-0"
                 >
-                  <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-36 overflow-auto rounded-md bg-vt-50 py-1 text-base shadow-lg ring-1 ring-vt-700 ring-opacity-5 focus:outline-none sm:text-sm">
+                  <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-36 overflow-auto rounded-md bg-vt-50 dark:bg-vt-600 py-1 text-base shadow-lg ring-1 ring-vt-700 ring-opacity-5 focus:outline-none sm:text-sm">
                     {Object.keys(allLanguages).map((lang) => (
                       <Listbox.Option
                         key={lang}
                         className={({ active }) =>
                           cn(
                             active ? "bg-vt-300 text-vt-900" : "text-vt-700",
-                            "relative cursor-pointer select-none py-2 pl-3 pr-9 text-xs sm:text-sm hover:bg-vt-200 hover:text-vt-800"
+                            "relative cursor-pointer select-none py-2 pl-3 pr-9 text-xs sm:text-sm popDialogOption"
                           )
                         }
                         value={lang}
@@ -89,7 +89,9 @@ export const LanguageSelect = ({
                             {selected ? (
                               <span
                                 className={cn(
-                                  active ? "text-vt-800" : "text-vt-600",
+                                  active
+                                    ? "text-vt-800 dark:text-vt-200"
+                                    : "text-vt-600 dark:text-vt-200",
                                   "absolute inset-y-0 right-0 flex items-center pr-2"
                                 )}
                               >

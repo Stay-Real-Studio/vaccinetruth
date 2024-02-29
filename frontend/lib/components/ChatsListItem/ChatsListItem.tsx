@@ -59,10 +59,10 @@ export const ChatsListItem = ({
           editingName ? "-top-1" : "-top-1"
         }`}
       >
-        <div className=" opacity-0 group-hover:opacity-100 flex items-center justify-center dark:bg-vt-600 bg-vt-200 z-10 transition-opacity">
+        <div className=" opacity-0 group-hover:opacity-100 flex items-center justify-center dark:bg-vt-700 bg-vt-200 z-10 transition-opacity">
           {editable && (
             <button
-              className="p-0 hover:text-blue-700 text-vt-600"
+              className="p-0 hover:text-blue-700 text-vt-600 dark:text-vt-200 dark:hover:text-blue-700"
               type="button"
               onClick={handleEditNameClick}
             >
@@ -70,7 +70,7 @@ export const ChatsListItem = ({
             </button>
           )}
           <button
-            className="p-2 hover:text-red-700 text-vt-600"
+            className="p-2 hover:text-red-700 text-vt-600 dark:text-vt-200 dark:hover:text-red-700"
             type="button"
             onClick={onDelete ?? (() => void deleteChat())}
             data-testid="delete-chat-button"

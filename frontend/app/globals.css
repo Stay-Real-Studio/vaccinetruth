@@ -69,4 +69,8 @@ div:focus {
     /* like height: -webkit-fill-available; but for any device (android and iphone) */
     @apply h-[100vh] supports-[height:100cqh]:h-[100cqh] supports-[height:100svh]:h-[100svh];
   }
+
+  .popDialogOption {
+    @apply dark:text-vt-200 dark:hover:text-vt-50 text-vt-600 hover:text-vt-700 bg-vt-50 hover:bg-vt-200 dark:bg-vt-600 dark:hover:bg-vt-500;
+  }
 }

@@ -65,17 +65,15 @@ export const HelpSelect = ({
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
               >
-                <Listbox.Options className="absolute bottom-8 right-4 z-10 mt-1 max-h-60 w-36 overflow-auto rounded-md bg-vt-50 py-1 text-base shadow-lg ring-1 ring-vt-700 ring-opacity-5 focus:outline-none sm:text-sm">
+                <Listbox.Options className="absolute bottom-8 right-4 z-10 mt-1 max-h-60 w-36 overflow-auto dark:bg-vt-600 rounded-md bg-vt-50 py-1 text-base shadow-lg ring-1 ring-vt-700 ring-opacity-5 focus:outline-none sm:text-sm">
                   {getHelpOptions(isStudioMember, HelpOptions).map(
                     (option: HelpOption) => (
                       <Listbox.Option
                         key={option.label}
                         className={({ active }) =>
                           cn(
-                            active
-                              ? "bg-indigo-600 text-vt-50"
-                              : "text-gray-900",
-                            "relative cursor-pointer select-none py-2 pl-3 pr-9 text-xs sm:text-sm"
+                            active ? "" : " ",
+                            " relative cursor-pointer select-none py-2 pl-3 pr-9 text-xs sm:text-sm popDialogOption"
                           )
                         }
                         value={option.label}
@@ -93,7 +91,7 @@ export const HelpSelect = ({
 
                             <span
                               className={cn(
-                                active ? "text-vt-50" : "text-indigo-600",
+                                active ? "" : "",
                                 "absolute inset-y-0 right-0 flex items-center pr-2"
                               )}
                             >
@@ -107,7 +105,7 @@ export const HelpSelect = ({
                 </Listbox.Options>
               </Transition>
 
-              <Listbox.Button className="text-base   w-full cursor-pointer rounded-full  text-gray-900 shadow-sm  sm:text-2lg">
+              <Listbox.Button className="text-base   w-full cursor-pointer rounded-full  dark:text-vt-200 text-gray-900 shadow-sm  sm:text-2lg">
                 <IoIosHelpCircleOutline className="h-6 w-6" />
               </Listbox.Button>
             </div>

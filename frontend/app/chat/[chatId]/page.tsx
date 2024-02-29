@@ -44,7 +44,7 @@ const SelectedChatPage = (): JSX.Element => {
       </div>
       {shouldDisplayRightSideBar && (
         <div
-          className="h-full bg-highlight"
+          className="h-full bg-highlight dark:bg-vt-700"
           style={{ width: OPENED_MENU_WIDTH }}
         />
       )}
