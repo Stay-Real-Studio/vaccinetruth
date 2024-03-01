@@ -75,7 +75,7 @@ export const useHomeHeader = ({ color }: UseHomeHeaderProps) => {
                   rel: "noopener noreferrer",
                 })}
                 className={cn(
-                  "flex justify-between items-center rounded-lg p-2 gap-1 hover:bg-vt-200",
+                  "flex justify-between items-center rounded-lg p-2 gap-1 hover:bg-vt-200 dark:hover:bg-vt-500",
                   device === "desktop" ? linkStyle[color] : null,
                   className
                 )}
@@ -92,7 +92,7 @@ export const useHomeHeader = ({ color }: UseHomeHeaderProps) => {
           <span
             onClick={() => void handleLogout()}
             className={cn(
-              "flex justify-between items-center  p-2 gap-1 rounded-lg cursor-pointer hover:bg-vt-200 ",
+              "flex justify-between items-center  p-2 gap-1 rounded-lg cursor-pointer hover:bg-vt-200 dark:hover:bg-vt-500",
               device === "desktop" ? linkStyle[color] : null
             )}
           >

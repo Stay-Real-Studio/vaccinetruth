@@ -40,7 +40,7 @@ export const LanguageSelect = ({
                       isChatPage
                         ? "dark:sm:text-vt-200 dark:hover:text-vt-100 hover:text-vt-700 sm:text-vt-600 "
                         : "sm:text-vt-700 hover:text-vt-800 dark:text-white"
-                    } text-black  text-xs  py-1.5  text-left   sm:text-sm sm:leading-6`}
+                    } text-black  text-xs  py-1.5  text-left   sm:text-sm sm:leading-6 dark:text-vt-200`}
                   >
                     <IoLanguage></IoLanguage>
                   </span>
@@ -50,7 +50,7 @@ export const LanguageSelect = ({
                       isChatPage
                         ? "dark:sm:text-vt-400 dark:hover:text-vt-50 hover:text-vt-700 sm:text-vt-600"
                         : "sm:text-vt-50 hover:text-vt-200 dark:text-vt-50"
-                    } text-vt-700  text-xs  py-1.5  text-left   sm:text-sm sm:leading-6`}
+                    } text-vt-700  text-xs  py-1.5  text-left   sm:text-sm sm:leading-6 dark:text-vt-200`}
                   >
                     <FiChevronDown className="h-5 w-5 " aria-hidden="true" />
                   </span>

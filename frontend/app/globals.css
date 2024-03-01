@@ -73,4 +73,11 @@ div:focus {
   .popDialogOption {
     @apply dark:text-vt-200 dark:hover:text-vt-50 text-vt-600 hover:text-vt-700 bg-vt-50 hover:bg-vt-200 dark:bg-vt-600 dark:hover:bg-vt-500;
   }
+
+  .homePageText {
+    @apply text-vt-700 hover:text-vt-800 dark:text-vt-200 dark:hover:text-vt-50;
+  }
+  .homePageSubText {
+    @apply text-vt-600 hover:text-vt-700 dark:text-vt-300 dark:hover:text-vt-100;
+  }
 }

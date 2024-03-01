@@ -31,9 +31,7 @@ export const HomeHeader = ({ color = "white" }: HomeNavProps): JSX.Element => {
           )}
         >
           <QuivrLogo size={64} color={color} />
-          <div className="text-vt-700 hover:text-vt-800">
-            {t("vaccineTruthAi")}
-          </div>
+          <div className="homePageText">{t("vaccineTruthAi")}</div>
         </Link>
         <div className="hidden sm:flex sm:items-center">
           <ThemeSelectVT isChatPage={false} />

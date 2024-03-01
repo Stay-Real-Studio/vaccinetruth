@@ -80,7 +80,7 @@ export const FooterSection = (): JSX.Element => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Quivr Twitter"
-            className="hover:text-vt-700 w-8 h-8"
+            className="homePageSubText w-8 h-8"
           >
             <RiTwitterXLine size={36} />
           </a>
@@ -91,7 +91,7 @@ export const FooterSection = (): JSX.Element => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Quivr GitHub"
-            className="hover:text-vt-700 w-8 h-8"
+            className="homePageSubText w-8 h-8"
           >
             <FaGithub size={36} />
           </a>

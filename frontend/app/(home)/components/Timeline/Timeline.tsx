@@ -192,11 +192,11 @@ export const Timeline = (): JSX.Element => {
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2
             id="speakers-title"
-            className="font-display text-4xl font-medium tracking-tighter text-blue-600 sm:text-5xl"
+            className="font-display text-4xl font-medium tracking-tighter  sm:text-5xl homePageSubText"
           >
             {t("timelineTitle")}
           </h2>
-          <p className="mt-4 font-display text-2xl tracking-tight text-blue-900">
+          <p className="mt-4 font-display text-2xl tracking-tight homePageSubText">
             {t("timelineSubTitle")}
           </p>
         </div>
@@ -226,7 +226,7 @@ export const Timeline = (): JSX.Element => {
                             "font-mono text-sm",
                             dayIndex === selectedIndex
                               ? "text-blue-600"
-                              : "text-slate-500"
+                              : "homePageSubText"
                           )}
                         >
                           <Tab className="ui-not-focus-visible:outline-none">
@@ -236,7 +236,7 @@ export const Timeline = (): JSX.Element => {
                         </div>
                         <time
                           dateTime={day.dateTime}
-                          className="mt-1.5 block text-2xl font-semibold tracking-tight text-blue-900"
+                          className="mt-1.5 block text-2xl font-semibold tracking-tight homePageText"
                         >
                           {day.date}
                         </time>
@@ -280,10 +280,10 @@ export const Timeline = (): JSX.Element => {
                         />
                       </div>
                     </div>
-                    <h3 className="mt-8 font-display text-xl font-bold tracking-tight text-slate-900">
+                    <h3 className="mt-8 font-display text-xl font-bold tracking-tight homePageText">
                       {speaker.name}
                     </h3>
-                    <p className="mt-1 text-base tracking-tight text-slate-500">
+                    <p className="mt-1 text-base tracking-tight homePageSubText">
                       {speaker.role}
                     </p>
                   </div>
