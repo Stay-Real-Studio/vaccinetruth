@@ -10,7 +10,7 @@ export const CopyButton = ({
   isCopied,
 }: CopyButtonProps): JSX.Element => (
   <button
-    className="text-slate-700 hover:text-slate-900 transition p-1 dark:text-white"
+    className="text-vt-700 hover:text-vt-900 transition p-1 dark:text-vt-50"
     onClick={handleCopy}
     title={isCopied ? "Copied!" : "Copy to clipboard"}
   >

@@ -1,4 +1,4 @@
 export const linkStyle = {
-  white: "text-white hover:text-slate-200",
+  white: "homePageText",
   black: "text-black",
 };

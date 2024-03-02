@@ -17,14 +17,14 @@ export const ChatInput = (): JSX.Element => {
   return (
     <>
       <QuestionList />
-      <div className="flex mt-1 flex-col w-full shadow-md dark:shadow-primary/25 hover:shadow-xl transition-shadow rounded-xl bg-white dark:bg-black border border-black/10 dark:border-white/25 p-2">
+      <div className="flex mt-1 flex-col w-full shadow-md dark:shadow-primary/25 hover:shadow-xl transition-shadow rounded-xl bg-vt-50 dark:bg-vt-700 border border-vt-700/10 dark:border-vt-50/25 p-2">
         <form
           data-testid="chat-input-form"
           onSubmit={(e) => {
             e.preventDefault();
             submitQuestion();
           }}
-          className="sticky bottom-0 bg-white dark:bg-black w-full flex items-center gap-2 z-20 p-2"
+          className="sticky bottom-0 bg-vt-50 dark:bg-vt-700 w-full flex items-center gap-2 z-20 p-2"
         >
           <MenuControlButton />
 
@@ -38,7 +38,7 @@ export const ChatInput = (): JSX.Element => {
 
           <div className="flex flex-row items-center gap-4">
             <Button
-              className="px-3 py-2 sm:px-4 sm:py-2 bg-black border-0"
+              className="px-3 py-2 sm:px-4 sm:py-2 bg-vt-700 border-0"
               type="submit"
               isLoading={generatingAnswer}
               data-testid="submit-button"

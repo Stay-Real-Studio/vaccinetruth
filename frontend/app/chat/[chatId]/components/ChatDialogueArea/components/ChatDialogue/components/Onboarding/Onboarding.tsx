@@ -6,8 +6,9 @@ import Button from "@/lib/components/ui/Button";
 import { useOnboardingTracker } from "@/lib/hooks/useOnboardingTracker";
 import { useStreamText } from "@/lib/hooks/useStreamText";
 
-import { stepsContainerStyle } from "./styles";
 import { MessageRow } from "../QADisplay";
+// eslint-disable-next-line import/order
+import { stepsContainerStyle } from "./styles";
 
 export const Onboarding = (): JSX.Element => {
   const { t } = useTranslation(["chat"]);
@@ -64,7 +65,7 @@ export const Onboarding = (): JSX.Element => {
                     trackOnboardingEvent("QUIVR_DOCUMENTATION_DOWNLOADED");
                   }}
                 >
-                  <Button className="bg-black p-2 ml-2 rounded-full inline-flex">
+                  <Button className="bg-vt-700 p-2 ml-2 rounded-full inline-flex">
                     <RiDownloadLine />
                   </Button>
                 </Link>

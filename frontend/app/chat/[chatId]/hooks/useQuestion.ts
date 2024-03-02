@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 
 import { useChatContext } from "@/lib/context";
 import { useFetch, useToast } from "@/lib/hooks";
+import { useSecurity } from "@/services/useSecurity/useSecurity";
 
 import { ChatQuestion } from "../types";
 import { generatePlaceHolderMessage } from "../utils/generatePlaceHolderMessage";
@@ -22,6 +23,7 @@ export const useQuestion = (): UseChatService => {
   const { publish } = useToast();
   const { handleStream } = useHandleStream();
   const { removeMessage, updateStreamingHistory } = useChatContext();
+  const { isStudioMember } = useSecurity();
 
   const handleFetchError = async (response: Response) => {
     if (response.status === 429) {
@@ -58,8 +60,12 @@ export const useQuestion = (): UseChatService => {
     const body = JSON.stringify(chatQuestion);
 
     try {
+      const brainId = isStudioMember
+        ? chatQuestion.brain_id
+        : process.env.NEXT_PUBLIC_DEFAULT_BRAIN_ID;
+
       const response = await fetchInstance.post(
-        `/chat/${chatId}/question/stream?brain_id=${chatQuestion.brain_id ?? ""}`,
+        `/chat/${chatId}/question/stream?brain_id=${brainId ?? ""}`,
         body,
         headers
       );

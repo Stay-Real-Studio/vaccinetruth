@@ -27,14 +27,14 @@ div:focus {
   .scrollbar::-webkit-scrollbar-track {
     /* border-radius: 5px; */
     /* background: #fff; */
-    @apply bg-white dark:bg-black;
+    @apply bg-highlight dark:bg-vt-700;
   }
 
   .scrollbar::-webkit-scrollbar-thumb {
     /* background: #000; */
     /* border-radius: 100vh; */
     /* border: 3px solid #fff; */
-    @apply bg-gray-200 dark:bg-gray-600 border border-white rounded-sm;
+    @apply bg-vt-300 dark:bg-vt-600 border border-vt-50 rounded-md;
   }
 
   .scrollbar::-webkit-scrollbar-thumb:hover {
@@ -42,9 +42,42 @@ div:focus {
     @apply bg-gray-500;
   }
 
+  .chatScrollbar::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+
+  .chatScrollbar::-webkit-scrollbar-track {
+    /* border-radius: 5px; */
+    /* background: #fff; */
+    @apply bg-vt-100 dark:bg-vt-500;
+  }
+
+  .chatScrollbar::-webkit-scrollbar-thumb {
+    /* background: #000; */
+    /* border-radius: 100vh; */
+    /* border: 3px solid #fff; */
+    @apply bg-vt-200 dark:bg-vt-600 border border-vt-50 rounded-md;
+  }
+
+  .chatScrollbar::-webkit-scrollbar-thumb:hover {
+    /* background: #000; */
+    @apply bg-vt-500;
+  }
+
   .h-fill-available {
     /* fixes the h-[100vh] issue on mobile */
     /* like height: -webkit-fill-available; but for any device (android and iphone) */
     @apply h-[100vh] supports-[height:100cqh]:h-[100cqh] supports-[height:100svh]:h-[100svh];
+  }
+
+  .popDialogOption {
+    @apply dark:text-vt-200 dark:hover:text-vt-50 text-vt-600 hover:text-vt-700 bg-vt-50 hover:bg-vt-200 dark:bg-vt-600 dark:hover:bg-vt-500;
+  }
+
+  .homePageText {
+    @apply text-vt-700 hover:text-vt-800 dark:text-vt-200 dark:hover:text-vt-50;
+  }
+  .homePageSubText {
+    @apply text-vt-600 hover:text-vt-700 dark:text-vt-300 dark:hover:text-vt-100;
   }
 }

@@ -24,7 +24,7 @@ export const ShareModal = (): JSX.Element => {
   return (
     <Modal
       Trigger={
-        <Button className="px-4 py-2 sm:px-4 sm:py-2 bg-black border-0">
+        <Button className="px-4 py-2 sm:px-4 sm:py-2 bg-vt-700 border-0">
           <FiShare />
         </Button>
       }
@@ -60,19 +60,19 @@ export const ShareModal = (): JSX.Element => {
           <div className="flex animate-pulse space-x-4">
             <div className="w-full space-y-6 py-1">
               <div className="grid grid-cols-4 gap-4">
-                <div className="col-span-1 h-2 rounded bg-slate-200"></div>
-                <div className="col-span-2 h-2 rounded bg-slate-200"></div>
-                <div className="col-span-1 h-2 rounded bg-slate-200"></div>
+                <div className="col-span-1 h-2 rounded bg-vt-200"></div>
+                <div className="col-span-2 h-2 rounded bg-vt-200"></div>
+                <div className="col-span-1 h-2 rounded bg-vt-200"></div>
               </div>
               <div className="grid grid-cols-4 gap-4">
-                <div className="col-span-1 h-2 rounded bg-slate-200"></div>
-                <div className="col-span-2 h-2 rounded bg-slate-200"></div>
-                <div className="col-span-1 h-2 rounded bg-slate-200"></div>
+                <div className="col-span-1 h-2 rounded bg-vt-200"></div>
+                <div className="col-span-2 h-2 rounded bg-vt-200"></div>
+                <div className="col-span-1 h-2 rounded bg-vt-200"></div>
               </div>
               <div className="grid grid-cols-4 gap-4">
-                <div className="col-span-1 h-2 rounded bg-slate-200"></div>
-                <div className="col-span-2 h-2 rounded bg-slate-200"></div>
-                <div className="col-span-1 h-2 rounded bg-slate-200"></div>
+                <div className="col-span-1 h-2 rounded bg-vt-200"></div>
+                <div className="col-span-2 h-2 rounded bg-vt-200"></div>
+                <div className="col-span-1 h-2 rounded bg-vt-200"></div>
               </div>
             </div>
           </div>
