@@ -1,8 +1,8 @@
 "use client";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { posthog } from 'posthog-js';
-import { PostHogProvider } from 'posthog-js/react';
+import { posthog } from "posthog-js";
+import { PostHogProvider } from "posthog-js/react";
 import { PropsWithChildren, useEffect } from "react";
 
 import { Menu } from "@/lib/components/Menu/Menu";
@@ -18,16 +18,15 @@ import { usePageTracking } from "@/services/analytics/june/usePageTracking";
 import { useSecurity } from "@/services/useSecurity/useSecurity";
 import "../lib/config/LocaleConfig/i18n";
 
-if (process.env.NEXT_PUBLIC_POSTHOG_KEY != null && process.env.NEXT_PUBLIC_POSTHOG_HOST != null) {
-  posthog.init(
-    process.env.NEXT_PUBLIC_POSTHOG_KEY,
-    {
-      api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
-      opt_in_site_apps: true
-    },
-  );
+if (
+  process.env.NEXT_PUBLIC_POSTHOG_KEY != null &&
+  process.env.NEXT_PUBLIC_POSTHOG_HOST != null
+) {
+  posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
+    api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
+    opt_in_site_apps: true,
+  });
 }
-
 
 // This wrapper is used to make effect calls at a high level in app rendering.
 const App = ({ children }: PropsWithChildren): JSX.Element => {
@@ -55,11 +54,11 @@ const App = ({ children }: PropsWithChildren): JSX.Element => {
   return (
     <PostHogProvider client={posthog}>
       <div className="flex flex-1 flex-col overflow-auto">
-      {/* <NotificationBanner /> */}
-      <div className="relative h-full w-full flex justify-stretch items-stretch overflow-auto">
-        <Menu />
-        <div onClick={onClickOutside} className="flex-1">
-          {children}
+        {/* <NotificationBanner /> */}
+        <div className="relative h-full w-full flex justify-stretch items-stretch overflow-auto">
+          <Menu />
+          <div onClick={onClickOutside} className="flex-1">
+            {children}
           </div>
           <UpdateMetadata />
         </div>

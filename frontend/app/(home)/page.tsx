@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useSupabase } from "@/lib/context/SupabaseProvider";
 import { redirectToPreviousPageOrChatPage } from "@/lib/helpers/redirectToPreviousPageOrChatPage";
 
-import { FooterSection, HomeHeader, IntroSection } from "./components";
+import { FooterSection, HomeHeader, Timeline, VTIntro } from "./components";
 
 const HomePage = (): JSX.Element => {
   const { session } = useSupabase();
@@ -18,14 +18,11 @@ const HomePage = (): JSX.Element => {
   return (
     <>
       <HomeHeader />
-      <main
-        className="h-full flex items-center justify-center p-4"
-        data-testid="home-page"
-      >
-        <IntroSection />
-      </main>
+      <VTIntro />
 
-      <div className="bg-gradient-to-b from-sky-700 to-sky-200 fixed left-0 bottom-0 w-full">
+      <Timeline />
+
+      <div className="w-full">
         <FooterSection />
       </div>
     </>

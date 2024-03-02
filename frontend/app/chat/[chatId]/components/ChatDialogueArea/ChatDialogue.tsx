@@ -1,3 +1,4 @@
+import { Disclaimer } from "@/lib/components/Disclaimer";
 import { useChatContext } from "@/lib/context";
 
 // eslint-disable-next-line import/order
@@ -18,7 +19,8 @@ export const ChatDialogueArea = (): JSX.Element => {
 
   if (!shouldDisplayShortcuts) {
     return (
-      <div className="flex flex-col flex-1 overflow-y-auto mb-2 scrollbar">
+      <div className="flex flex-col flex-1 overflow-y-auto mb-2 chatScrollbar relative">
+        <Disclaimer defaultVisibleDisclaimer={false} />
         <ChatDialogue chatItems={chatItems} />
       </div>
     );

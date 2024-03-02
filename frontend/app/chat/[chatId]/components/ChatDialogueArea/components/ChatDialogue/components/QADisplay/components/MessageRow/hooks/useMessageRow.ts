@@ -29,8 +29,8 @@ export const useMessageRow = ({ speaker, text }: UseMessageRowProps) => {
     "py-3 px-5 w-fit",
     // isUserSpeaker
     //   ? "bg-sky-200 dark:bg-neutral-400"
-    //   : "bg-sky-700 text-white dark:bg-gray-600",
-    "rounded-3xl flex flex-col overflow-hidden scroll-pb-32 text-black dark:bg-gray-600"
+    //   : "bg-sky-700 text-vt-50 dark:bg-vt-600",
+    "rounded-3xl flex flex-col overflow-hidden scroll-pb-32 text-vt-700 dark:bg-vt-600"
   );
 
   const containerWrapperClasses = cn(
@@ -40,8 +40,8 @@ export const useMessageRow = ({ speaker, text }: UseMessageRowProps) => {
 
   const markdownClasses = cn(
     "prose",
-    "dark:prose-invert text-black dark:text-white"
-    // isUserSpeaker ? "text-green-900 dark:text-slate-300" : "text-black"
+    "dark:prose-invert text-vt-700 dark:text-vt-50"
+    // isUserSpeaker ? "text-green-900 dark:text-slate-300" : "text-vt-700"
   );
 
   return {

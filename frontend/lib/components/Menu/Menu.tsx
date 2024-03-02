@@ -42,13 +42,13 @@ export const Menu = (): JSX.Element => {
   return (
     <MotionConfig transition={{ mass: 1, damping: 10, duration: 0.2 }}>
       <div
-        className="flex flex-col fixed sm:sticky top-0 left-0 h-full overflow-visible z-[1000] border-r border-black/10 dark:border-white/25 bg-highlight"
+        className="flex flex-col fixed sm:sticky top-0 left-0 h-full overflow-visible z-[1000]   bg-highlight dark:bg-vt-700"
         style={{
           width: shouldSideBarBeSticky ? OPENED_MENU_WIDTH : 0,
         }}
       >
         <AnimatedDiv>
-          <div className="flex flex-col flex-1 p-4 gap-4 h-full">
+          <div className="flex flex-col flex-1 h-full dark:bg-vt-800 bg-highlight pb-2">
             <MenuHeader />
             <div
               className="flex flex-col flex-1 overflow-hidden"
@@ -57,7 +57,7 @@ export const Menu = (): JSX.Element => {
               <ChatHistory />
             </div>
 
-            <div className="hidden flex flex-1 w-full">
+            <div className="hidden w-full">
               <div className="w-full gap-2 flex flex-col">
                 <DiscussionButton />
                 <ExplorerButton />
@@ -75,7 +75,7 @@ export const Menu = (): JSX.Element => {
       <Button
         variant="tertiary"
         onClick={() => setIsOpened((prev) => !prev)}
-        className="absolute top-1 left-2 sm:hidden z-50"
+        className="absolute top-1 left-2 sm:hidden z-50 "
       >
         <LuPanelLeftOpen className="" size={30} />
       </Button>

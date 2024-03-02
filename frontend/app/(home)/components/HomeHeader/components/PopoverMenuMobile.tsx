@@ -4,7 +4,6 @@ import { LuMenu, LuX } from "react-icons/lu";
 
 import { LanguageSelect } from "@/app/chat/components/LanguageSelect";
 import { QuivrLogo } from "@/lib/assets/QuivrLogo";
-import { ThemeSelectVT } from "@/lib/components/ThemeSelectVT";
 import { cn } from "@/lib/utils";
 
 type PopoverMenuMobileProps = {
@@ -27,8 +26,8 @@ export const PopoverMenuMobile = ({
             title="menu"
             type="button"
             className={cn(
-              "bg-[#D9D9D9] bg-opacity-30 rounded-full px-4 py-1",
-              color === "white" ? "text-white" : "text-black"
+              "bg-[#D9D9D9] bg-opacity-30 rounded-full px-2 py-1",
+              color === "white" ? "text-vt-700" : "text-black"
             )}
           >
             <LuMenu size={32} />
@@ -51,7 +50,7 @@ export const PopoverMenuMobile = ({
             <div className="flex justify-between items-center">
               <div className="flex gap-2 items-center">
                 <QuivrLogo size={64} color="primary" />
-                <div className="text-lg font-medium text-primary cursor-default ">
+                <div className="text-lg font-medium text-vt-700 cursor-default ">
                   {t("vaccineTruthAi")}
                 </div>
               </div>
@@ -66,9 +65,7 @@ export const PopoverMenuMobile = ({
             </div>
             <nav>
               <ul className="flex flex-col bg-[#F5F8FF] rounded-xl p-2 dark:bg-black">
-                <li>
-                  <ThemeSelectVT isChatPage={false} />
-                </li>
+                <li>{/* <ThemeSelectVT isChatPage={false} /> */}</li>
                 <li>
                   <LanguageSelect isSelect={true} />
                 </li>
