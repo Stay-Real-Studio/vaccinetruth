@@ -22,6 +22,7 @@
   "feedbackTitle": "titre",
   "kbVersion": "Base de connaissances {{version}}",
   "newChatButton": "Nouvelle conversation",
+  "noData": "Pas de données",
   "onboarding": {
     "answer": {
       "vaccine_antidote": "Yes, please use artemisinin derivatives to detoxify according to the treatment course.",

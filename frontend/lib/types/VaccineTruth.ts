@@ -30,3 +30,19 @@ export type RespnseFeedback = {
   };
   status: string;
 };
+
+export type UseTimeline = {
+  handleGetTimelineEvent: (
+    lng: string,
+    stage: number
+  ) => Promise<TimelineEvent[]>;
+};
+
+export type TimelineEvent = {
+  datetime: string;
+  content: string;
+};
+export type ResponseTimeline = {
+  data: TimelineEvent[];
+  status: string;
+};
