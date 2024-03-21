@@ -13,11 +13,6 @@ export default {
       },
     },
     {
-      name: 'stage',
-      title: 'Stage',
-      type: 'number',
-    },
-    {
       name: 'content',
       title: 'Content',
       type: 'object',

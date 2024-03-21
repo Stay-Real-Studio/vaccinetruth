@@ -6,7 +6,6 @@ import { useEffect, useId, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FaSpinner } from "react-icons/fa";
 
-import { TimelineEvent } from "@/lib/types/VaccineTruth";
 import { cn } from "@/lib/utils";
 
 // eslint-disable-next-line import/order
@@ -42,11 +41,7 @@ export const Timeline = (): JSX.Element => {
   const [tabOrientation, setTabOrientation] = useState("horizontal");
   const { t } = useTranslation(["vaccineTruth"]);
 
-  const { handleGetTimelineEvent } = useTimeline();
-  const { i18n } = useTranslation();
-  const [stage, setStage] = useState<number>(0);
-  const [eventList, setEventList] = useState<TimelineEvent[]>([]);
-  const [isloading, setIsloading] = useState<boolean>(false);
+  const { isLoading, setCurrentStage, timelineEvents } = useTimeline();
 
   const days = [
     {
@@ -81,19 +76,6 @@ export const Timeline = (): JSX.Element => {
     };
   }, []);
 
-  useEffect(() => {
-    void getTimelineEvent(i18n.language, stage);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [stage, i18n.language]);
-
-  const getTimelineEvent = async (lng: string, stageName: number) => {
-    setIsloading(true);
-    // eslint-disable-next-line @typescript-eslint/await-thenable
-    const res = await handleGetTimelineEvent(lng, stageName);
-    setIsloading(false);
-    setEventList(res);
-  };
-
   return (
     <section
       id="speakers"
@@ -127,7 +109,7 @@ export const Timeline = (): JSX.Element => {
                     <div
                       key={day.dateTime}
                       className="relative lg:pl-8"
-                      onClick={() => setStage(dayIndex)}
+                      onClick={() => setCurrentStage(dayIndex)}
                     >
                       <DiamondIcon
                         className={cn(
@@ -171,9 +153,9 @@ export const Timeline = (): JSX.Element => {
                 className="grid grid-cols-1 gap-x-8 gap-y-10 ui-not-focus-visible:outline-none sm:grid-cols-2 sm:gap-y-16 md:grid-cols-3"
                 unmount={false}
               >
-                {!isloading &&
-                  eventList.length > 0 &&
-                  eventList.map((speaker, speakerIndex) => (
+                {!isLoading &&
+                  timelineEvents.length > 0 &&
+                  timelineEvents.map((speaker, speakerIndex) => (
                     <div key={speakerIndex}>
                       <div className="group relative h-[17.5rem] transform overflow-hidden rounded-4xl hidden">
                         <div
@@ -202,10 +184,10 @@ export const Timeline = (): JSX.Element => {
                     </div>
                   ))}
 
-                {!isloading && eventList.length === 0 && (
+                {!isLoading && timelineEvents.length === 0 && (
                   <div>{t("noData")}</div>
                 )}
-                {isloading && <FaSpinner className="animate-spin" />}
+                {isLoading && <FaSpinner className="animate-spin" />}
               </Tab.Panel>
             ))}
           </Tab.Panels>
