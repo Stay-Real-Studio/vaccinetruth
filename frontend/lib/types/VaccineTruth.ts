@@ -30,3 +30,26 @@ export type RespnseFeedback = {
   };
   status: string;
 };
+
+export type UseTimeline = {
+  isLoading: boolean;
+  handleGetTimelineEvent: (
+    lng: string,
+    stage: number
+  ) => Promise<TimelineEvent[]>;
+  timelineEvents: TimelineEvent[];
+  setCurrentStage: (stage: number) => void;
+};
+
+export type TimelineEvent = {
+  datetime: string;
+  content: string;
+};
+export type GetTimelineEventsResponse = {
+  data: TimelineEvent[];
+  status: string;
+};
+
+export type StageMap = {
+  [key: number]: string[];
+};

@@ -2,22 +2,16 @@
 "use client";
 
 import { Tab } from "@headlessui/react";
-import Image from "next/image";
 import { useEffect, useId, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { FaSpinner } from "react-icons/fa";
 
 import { cn } from "@/lib/utils";
 
-import andrewGreeneImage from "./images/avatars/andrew-greene.jpg";
-import damarisKimuraImage from "./images/avatars/damaris-kimura.jpg";
-import heatherTerryImage from "./images/avatars/heather-terry.jpg";
-import ibrahimFraschImage from "./images/avatars/ibrahim-frasch.jpg";
-import jaquelinIschImage from "./images/avatars/jaquelin-isch.jpg";
-import parkerJohnsonImage from "./images/avatars/parker-johnson.jpg";
-import ronniCantadoreImage from "./images/avatars/ronni-cantadore.jpg";
-import stevenMchailImage from "./images/avatars/steven-mchail.jpg";
 // eslint-disable-next-line import/order
 import { Container } from "../Container";
+// eslint-disable-next-line import/order
+import { useTimeline } from "./useTimeline";
 // eslint-disable-next-line import/order
 import { DiamondIcon } from "./DiamondIcon";
 
@@ -47,122 +41,23 @@ export const Timeline = (): JSX.Element => {
   const [tabOrientation, setTabOrientation] = useState("horizontal");
   const { t } = useTranslation(["vaccineTruth"]);
 
+  const { isLoading, setCurrentStage, timelineEvents } = useTimeline();
+
   const days = [
     {
       name: t("StageOne"),
       date: "2019-2020",
       dateTime: "2019-2020",
-      speakers: [
-        {
-          name: t("timelineTime1_1"),
-          role: t("timelineName1_1"),
-          image: stevenMchailImage,
-        },
-        {
-          name: t("timelineTime1_2"),
-          role: t("timelineName1_2"),
-          image: jaquelinIschImage,
-        },
-
-        {
-          name: t("timelineTime1_3"),
-          role: t("timelineName1_3"),
-          image: ronniCantadoreImage,
-        },
-
-        {
-          name: t("timelineTime2_1"),
-          role: t("timelineName2_1"),
-          image: parkerJohnsonImage,
-        },
-
-        {
-          name: t("timelineTime2_2"),
-          role: t("timelineName2_2"),
-          image: parkerJohnsonImage,
-        },
-
-        {
-          name: t("timelineTime2_3"),
-          role: t("timelineName2_3"),
-          image: parkerJohnsonImage,
-        },
-        {
-          name: t("timelineTime3_1"),
-          role: t("timelineName3_1"),
-          image: parkerJohnsonImage,
-        },
-
-        {
-          name: t("timelineTime3_2"),
-          role: t("timelineName3_2"),
-          image: parkerJohnsonImage,
-        },
-        {
-          name: t("timelineTime3_3"),
-          role: t("timelineName3_3"),
-          image: parkerJohnsonImage,
-        },
-      ],
     },
     {
       name: t("StateTwo"),
       date: "2021-2022",
       dateTime: "2021-2022",
-      speakers: [
-        {
-          name: t("timelineTime_2_1_1"),
-          role: t("timelineName_2_1_1"),
-          image: damarisKimuraImage,
-        },
-        {
-          name: t("timelineTime_2_1_2"),
-          role: t("timelineName_2_1_2"),
-          image: damarisKimuraImage,
-        },
-        {
-          name: t("timelineTime_2_1_3"),
-          role: t("timelineName_2_1_3"),
-          image: damarisKimuraImage,
-        },
-        {
-          name: t("timelineTime_2_2_1"),
-          role: t("timelineName_2_2_1"),
-          image: ibrahimFraschImage,
-        },
-        {
-          name: t("timelineTime_2_2_2"),
-          role: t("timelineName_2_2_2"),
-          image: ibrahimFraschImage,
-        },
-      ],
     },
     {
       name: t("StageThree"),
       date: "2023-2024",
       dateTime: "2023-2024",
-      speakers: [
-        {
-          name: t("timelineTime_3_1_1"),
-          role: t("timelineName_3_1_1"),
-          image: andrewGreeneImage,
-        },
-        {
-          name: t("timelineTime_3_1_2"),
-          role: t("timelineName_3_1_2"),
-          image: andrewGreeneImage,
-        },
-        {
-          name: t("timelineTime_3_1_3"),
-          role: t("timelineName_3_1_3"),
-          image: andrewGreeneImage,
-        },
-        {
-          name: t("timelineTime_3_2_1"),
-          role: t("timelineName_3_2_1"),
-          image: heatherTerryImage,
-        },
-      ],
     },
   ];
 
@@ -211,7 +106,11 @@ export const Timeline = (): JSX.Element => {
               {({ selectedIndex }) => (
                 <>
                   {days.map((day, dayIndex) => (
-                    <div key={day.dateTime} className="relative lg:pl-8">
+                    <div
+                      key={day.dateTime}
+                      className="relative lg:pl-8"
+                      onClick={() => setCurrentStage(dayIndex)}
+                    >
                       <DiamondIcon
                         className={cn(
                           "absolute left-[-0.5px] top-[0.5625rem] hidden h-1.5 w-1.5 overflow-visible lg:block",
@@ -254,40 +153,41 @@ export const Timeline = (): JSX.Element => {
                 className="grid grid-cols-1 gap-x-8 gap-y-10 ui-not-focus-visible:outline-none sm:grid-cols-2 sm:gap-y-16 md:grid-cols-3"
                 unmount={false}
               >
-                {day.speakers.map((speaker, speakerIndex) => (
-                  <div key={speakerIndex}>
-                    <div className="group relative h-[17.5rem] transform overflow-hidden rounded-4xl hidden">
-                      <div
-                        className={cn(
-                          "absolute bottom-6 left-0 right-4 top-0 rounded-4xl border transition duration-300 group-hover:scale-95 xl:right-6",
-                          [
-                            "border-blue-300",
-                            "border-indigo-300",
-                            "border-sky-300",
-                          ][speakerIndex % 3]
-                        )}
-                      />
-                      <div
-                        className="absolute inset-0 bg-indigo-50 "
-                        style={{ clipPath: `url(#${id}-${speakerIndex % 3})` }}
-                      >
-                        <Image
-                          className=" absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-110"
-                          src={speaker.image}
-                          alt=""
-                          priority
-                          sizes="(min-width: 1280px) 17.5rem, (min-width: 1024px) 25vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
+                {!isLoading &&
+                  timelineEvents.length > 0 &&
+                  timelineEvents.map((speaker, speakerIndex) => (
+                    <div key={speakerIndex}>
+                      <div className="group relative h-[17.5rem] transform overflow-hidden rounded-4xl hidden">
+                        <div
+                          className={cn(
+                            "absolute bottom-6 left-0 right-4 top-0 rounded-4xl border transition duration-300 group-hover:scale-95 xl:right-6",
+                            [
+                              "border-blue-300",
+                              "border-indigo-300",
+                              "border-sky-300",
+                            ][speakerIndex % 3]
+                          )}
                         />
+                        <div
+                          className="absolute inset-0 bg-indigo-50 "
+                          style={{
+                            clipPath: `url(#${id}-${speakerIndex % 3})`,
+                          }}
+                        ></div>
                       </div>
+                      <h3 className="mt-8 font-display text-xl font-bold tracking-tight homePageText">
+                        {speaker.datetime}
+                      </h3>
+                      <p className="mt-1 text-base tracking-tight homePageSubText">
+                        {speaker.content}
+                      </p>
                     </div>
-                    <h3 className="mt-8 font-display text-xl font-bold tracking-tight homePageText">
-                      {speaker.name}
-                    </h3>
-                    <p className="mt-1 text-base tracking-tight homePageSubText">
-                      {speaker.role}
-                    </p>
-                  </div>
-                ))}
+                  ))}
+
+                {!isLoading && timelineEvents.length === 0 && (
+                  <div>{t("noData")}</div>
+                )}
+                {isLoading && <FaSpinner className="animate-spin" />}
               </Tab.Panel>
             ))}
           </Tab.Panels>
